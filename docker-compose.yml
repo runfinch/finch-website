@@ -1,0 +1,16 @@
+services:
+  finch-website:
+    image: finch-website:latest
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ${PWD}:/docs
+    working_dir: "/docs"
+    command:
+      - mkdocs
+      - serve
+      - --dev-addr=0.0.0.0:8000
+
+

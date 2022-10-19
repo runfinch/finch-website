@@ -1,0 +1,69 @@
+site_name: 'Finch'
+site_description: 'An Open Source Container Development Tool'
+repo_name: GitHub
+repo_url: https://github.com/runfinch/finch
+edit_uri: ""
+
+nav:
+  - Home:
+      - "index.md"
+      - Architecture: "architecture.md"
+  - Docs:
+      - "docs/index.md"
+      - Getting Started:
+          - Installing Finch: "docs/getting-started/installing.md"
+          - Building Images: "docs/getting-started/building-images.md"
+          - Running Containers: "docs/getting-started/running-containers.md"
+          - Pushing Images: "docs/getting-started/pushing-images.md"
+          - Using Compose: "docs/getting-started/compose.md"
+      - Managing Finch:
+          - Disk Management: "docs/managing-finch/disk-management.md"
+          - Upgrading Finch: "docs/managing-finch/upgrading-finch.md"
+          - Uninstalling Finch: "docs/managing-finch/uninstalling-finch.md"
+      - Container Images:
+          - Image Signing: "docs/container-images/signing-images.md"
+      - Configuration Reference: "docs/configuration-reference.md"
+      - CLI Reference:
+          - ... | flat | docs/cli-reference/*
+      - Troubleshooting:
+          - Getting Support: "docs/troubleshooting/get-support.md"
+      - Release Notes: "docs/changelog.md"
+  - Contributing:
+      - Introduction: "contributing/index.md"
+
+theme:
+  name: 'material'
+  logo: assets/logo.svg
+  icon:
+    repo: fontawesome/brands/github
+  favicon: assets/favicon.ico
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: switch to light mode
+  features:
+    - navigation.indexes
+    - navigation.sections
+    - content.code.copy
+
+copyright: Copyright &copy; Amazon 2023
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+plugins:
+  - search
+  - awesome-pages
