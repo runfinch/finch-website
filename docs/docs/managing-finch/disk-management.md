@@ -77,7 +77,7 @@ By default the disk is mounted into the virtual machine using
 [sshfs](https://github.com/libfuse/sshfs). For users running macOS 13 or later,
 if you switch to Apple's [Virtualization
 Framework](https://developer.apple.com/documentation/virtualization) in the
-[Finch Configuration](docs/configuration-reference/), the disk mounts will
+[Finch Configuration](/docs/configuration-reference/), the disk mounts will
 instead leverage the more performant
 [virtiofs](https://developer.apple.com/documentation/virtualization/shared_directories).
 
