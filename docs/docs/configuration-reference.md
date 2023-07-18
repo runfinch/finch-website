@@ -25,10 +25,14 @@ rosetta: true
 
 ## Parameters:
 
-- `cpus`: The number of logical CPUs to attach to the virtual machine. Default
-  is `2`.
+- `cpus`: The number of logical CPUs to attach to the virtual machine. The default is
+  determined dynamically based on the resources available using `0.25 * total_cpu_cores`,
+  with a minimum value of `2`
 
-- `memory`: The amount of memory to attach to the virtual machine. Default is `3GiB`.
+
+- `memory`: The amount of memory to attach to the virtual machine. The default is
+  determined dynamically based on the resources available using `0.25 * total_memory`,
+  with a minimum value of `2GiB`
 
 - `additional_directories`: By default Finch will mount the users home directory
   into the virtual machine. To mount additional directories from macOS into the
@@ -36,14 +40,15 @@ rosetta: true
   details](/docs/managing-finch/disk-management/). Default is `[]`
 
 - `vmType`: The hypervisor to use for the virtual machine.
-  [QEMU](https://www.qemu.org/) or Apple [Virtualization
-  Framework](https://developer.apple.com/documentation/virtualization). Apple
+  [QEMU](https://www.qemu.org/) (`qemu`) or Apple [Virtualization
+  Framework](https://developer.apple.com/documentation/virtualization) (`vz`). Apple
   Virtualization Framework can only be used on macOS 13 or later. Default is
-  `QEMU`.
+  `qemu`
 
 - `rosetta`: The emulation layer to use when running container images or
   processes on an architecture not native to the machine. If value is set to
   `false`, the emulation is provided by QEMU. If value is set to `true`,
   [Apple's
   Rosetta](https://developer.apple.com/documentation/apple-silicon/about-the-rosetta-translation-environment)
-  framework is used. Rosetta can only be used if `vmType: vz`. Default is `QEMU`.
+  framework is used. Rosetta can only be used if `vmType: vz`. When `vmType: vz` is set,
+  without specifying `rosetta`, `rosetta` will default to `true`. Otherwise, the default is `false`
