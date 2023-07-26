@@ -6,7 +6,7 @@
 ## Prerequisites
 
 To get started with Finch on macOS, the development machine must meet the
-following pre-requisites.
+following prerequisites.
 
 * macOS versions:
     * 13 Ventura
@@ -30,12 +30,10 @@ To install Finch with a package manager you can leverage the
     brew help
     ```
 
-2. Install Finch using the Finch [Brew
-   Cask](https://github.com/Homebrew/homebrew-cask) `brew install --cask finch`.
-   If prompted, enter your macOS password.
+2. Install Finch using the `brew` cli. If prompted, enter your macOS password.
 
     ```bash
-    brew install --cask finch
+    brew install finch
     ```
 
 3. You can now [verify the installation](#verify-the-finch-installation).
@@ -51,7 +49,7 @@ available for each architecture (Apple Silicon and Intel).
 Releases](https://github.com/runfinch/finch/releases) page. Ensuring you have
    selected the appropriate version and architecture.
 
-2. Once the Application Package has been download, in
+2. Once the Application Package has been downloaded, in
    [Finder](https://support.apple.com/en-us/HT201732), you can double click the
    `.pkg` and start the installation. Click continue.
 
@@ -122,8 +120,8 @@ with the following steps.
 
 ## Next Steps
 
-In this short you learned how to install Finch on to your workstation and start
-the virtual machine.
+In this short guide you learned how to install Finch on to your workstation and
+start the virtual machine.
 
 * To learn how to run your first containerized application see [Running
   Containers](../running_containers/).
