@@ -1,7 +1,7 @@
 # Finch Configuration
 
 Finch has a configuration file stored at `~/.finch/finch.yaml`. This
-configuration file extracts away the virtual machine, Lima and Hypervisor
+configuration file abstracts away the virtual machine, Lima and Hypervisor
 configuration.
 
 Each time the `~/.finch/finch.yaml` configuration is updated, the virtual
