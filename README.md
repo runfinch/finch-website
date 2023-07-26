@@ -16,6 +16,29 @@ git clone https://github.com/runfinch/website.git
 finch compose up
 ```
 
+To run the Finch website locally (not within a container) you can also use
+python [virtual
+environments](https://docs.python.org/3/library/venv.html#module-venv) and pip
+to install mkdocs.
+
+```bash
+# Create a python virtual environment
+python3 -m venv .env
+
+# Source the virtual environment
+source .env
+
+# Install mkdocs
+pip install -r requirements
+
+# Run mkdocs
+mkdocs serve
+```
+
+You should now be able to browse to mkdocs on http://localhost:8000. To
+customize the IP address and port, you can pass the flag `--dev-addr` into the
+`mkdocs serve` command.
+
 ## License Summary
 
 Site templates, source code, and stylesheets are made available under the Apache
