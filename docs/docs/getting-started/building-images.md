@@ -112,6 +112,6 @@ then you can use the `--platform` flag with `finch build`.
 In this short section, you learned how to build container images on finch.
 
 * To learn how to run these Container Images navigate to [Running
-  Containers](../running_containers/)
+  Containers](../running-containers/)
 * To learn more about the `finch build` command see the [CLI
   Reference](/cli-reference/finch_build/)
