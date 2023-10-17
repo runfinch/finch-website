@@ -26,10 +26,10 @@ to install mkdocs.
 python3 -m venv .env
 
 # Source the virtual environment
-source .env
+source ./.env/bin/activate
 
 # Install mkdocs
-pip install -r requirements
+pip install -r requirements.txt
 
 # Run mkdocs
 mkdocs serve
