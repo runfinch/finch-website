@@ -11,7 +11,7 @@ nav:
   - Docs:
       - "docs/index.md"
       - Getting Started:
-          - Installing Finch: "docs/getting-started/installing.md"
+          - Installing Finch: "docs/getting-started/installing/installing_macos.md"
           - Building Images: "docs/getting-started/building-images.md"
           - Running Containers: "docs/getting-started/running-containers.md"
           - Pushing Images: "docs/getting-started/pushing-images.md"
@@ -62,6 +62,8 @@ copyright: Copyright &copy; Amazon 2023
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
+  - admonition
+  - pymdownx.details
   - pymdownx.tabbed:
       alternate_style: true
 plugins:
