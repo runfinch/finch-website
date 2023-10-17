@@ -1,12 +1,13 @@
 # Architecture
 
-> This page is specific to Finch running on macOS. At this time macOS is the
-> only supported operating system.
+!!! Note
+    This page is specific to Finch running on macOS. At this time macOS is the
+    only supported operating system.
 
 In this section we will dive into the various open source components that Finch
 distributes and how they piece together to form a local development environment.
 
-## Finch Architecture
+## Finch macOS Architecture
 
    ![Finch Architecture](/assets/finch_architecture.png "Finch Architecture")
 

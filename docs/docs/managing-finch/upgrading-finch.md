@@ -1,7 +1,8 @@
 # Upgrading Finch
 
-> This page is specific to Finch running on macOS. At this time macOS is the
-> only supported operating system.
+!!! Note
+    This page is specific to Finch running on macOS. At this time macOS is the
+    only supported operating system.
 
 Finch releases updates on a regular cadence, to find the latest release and the
 subsequent release notes, see the [Release Notes](../changelog.md).
@@ -89,7 +90,7 @@ Releases](https://github.com/runfinch/finch/releases) page. Ensuring you have
    warning that an existing version of Finch has been found and that it will be
    removed prior to upgrade. Click Ok on the pop up, and continue on the wizard.
 
-    ![Finch Upgrade Wizard](/assets/finch_upgrade_1.png "Finch Upgrade 1")
+    ![Finch Upgrade Wizard](/assets/finch_macos_upgrade_1.png "Finch Upgrade 1")
 
 3. Click through the various pages in the wizard. This
    wizard is the same as wizard previously seen during the
