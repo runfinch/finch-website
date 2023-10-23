@@ -1,9 +1,5 @@
 # Installing Finch on macOS
 
-!!! Note
-    This page is specific to Finch running on macOS. At this time macOS is the
-    only supported operating system.
-
 ## Prerequisites
 
 To get started with Finch on macOS, the development machine must meet the
@@ -70,60 +66,3 @@ Releases](https://github.com/runfinch/finch/releases) page. Ensuring you have
 
     ![Finch Installation Complete](/assets/finch_macos_installation_4.png "Finch Installation 4")
 
-## Verify the Finch Installation
-
-Now that Finch has been successfully installed, you can verify the installation
-with the following steps.
-
-1. Once the installation is complete, running the `finch vm init` command once is required
-   to set up the underlying system and create the virtual machine. This initial setup
-   usually takes about a minute, and may once again require your macOS password.
-
-    ```bash
-    finch vm init
-    ```
-
-2. Verify that the installation and the vm initialization have completed by
-   running the `hello-finch` container image.
-
-    ```bash
-    finch run public.ecr.aws/finch/hello-finch:latest
-    ```
-
-    If it has all ran successfully you should now see the output:
-
-    ```bash
-
-                                @@@@@@@@@@@@@@@@@@@
-                            @@@@@@@@@@@@    @@@@@@@@@@@
-                          @@@@@@@                  @@@@@@@
-                        @@@@@@                        @@@@@@
-                      @@@@@@                            @@@@@
-                     @@@@@                      @@@#     @@@@@@@@@
-                    @@@@@                     @@   @@@       @@@@@@@@@@
-                    @@@@%                     @     @@            @@@@@@@@@@@
-                    @@@@                                               @@@@@@@@
-                    @@@@                                         @@@@@@@@@@@&
-                    @@@@@                                  &@@@@@@@@@@@
-                     @@@@@                               @@@@@@@@
-                      @@@@@                            @@@@@(
-                       @@@@@@                        @@@@@@
-                         @@@@@@@                  @@@@@@@
-                            @@@@@@@@@@@@@@@@@@@@@@@@@@
-                                @@@@@@@@@@@@@@@@@@
-
-
-    Hello from Finch!
-
-    Visit us @ github.com/runfinch
-    ```
-
-## Next Steps
-
-In this short guide you learned how to install Finch on to your macOS workstation and
-start the virtual machine.
-
-* To learn how to run your first containerized application see [Running
-  Containers](../running_containers/).
-* To learn more about the Finch virtual machine see the [Managing the Finch
-  VM](../../managing-finch/managing_vm/) documentation.

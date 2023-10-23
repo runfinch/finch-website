@@ -1,11 +1,7 @@
 # Upgrading Finch
 
-!!! Note
-    This page is specific to Finch running on macOS. At this time macOS is the
-    only supported operating system.
-
 Finch releases updates on a regular cadence, to find the latest release and the
-subsequent release notes, see the [Release Notes](../changelog.md).
+subsequent release notes, see the [Release Notes](../../changelog.md).
 
 Finch packages upgrades of all components of the stack, including the latest
 operating system image. As part of a Finch upgrade, all container data

@@ -1,9 +1,5 @@
 # Uninstalling Finch
 
-!!! Note
-    This page is specific to Finch running on macOS. At this time macOS is the
-    only supported operating system.
-
 Depending on the installation method, the process to uninstall Finch varies. If
 you are leveraging the [homebrew](https://brew.sh/) package manager, you can use
 homebrew's [builtin uninstallation method](#uninstalling-finch-with-homebrew).

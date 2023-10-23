@@ -7,19 +7,22 @@ edit_uri: ""
 nav:
   - Home:
       - "index.md"
-      - Architecture: "architecture.md"
+      - Architecture:
+          - macOS Architecture: "architecture/macos.md"
   - Docs:
       - "docs/index.md"
       - Getting Started:
-          - Installing Finch: "docs/getting-started/installing/installing_macos.md"
+          - Installing Finch: "docs/getting-started/installation.md"
           - Building Images: "docs/getting-started/building-images.md"
           - Running Containers: "docs/getting-started/running-containers.md"
           - Pushing Images: "docs/getting-started/pushing-images.md"
           - Using Compose: "docs/getting-started/compose.md"
       - Managing Finch:
-          - Disk Management: "docs/managing-finch/disk-management.md"
-          - Upgrading Finch: "docs/managing-finch/upgrading-finch.md"
-          - Uninstalling Finch: "docs/managing-finch/uninstalling-finch.md"
+          - macOS:
+             - Installation: "docs/managing-finch/macos/installation.md"
+             - Disk Management: "docs/managing-finch/macos/disk-management.md"
+             - Upgrading Finch: "docs/managing-finch/macos/upgrading-finch.md"
+             - Uninstalling Finch: "docs/managing-finch/macos/uninstalling-finch.md"
       - Container Images:
           - Image Signing: "docs/container-images/signing-images.md"
       - Configuration Reference: "docs/configuration-reference.md"
