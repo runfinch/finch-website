@@ -1,0 +1,37 @@
+name: Sync latest docs from runfinch/finch
+
+on:
+  schedule:
+    # Pull changes every day at 13:00 UTC.
+    # Eventually switch to using a push based flow with
+    # https://github.com/peter-evans/repository-dispatch
+    - cron: '0 13 * * *'
+  # Allow workflow to be triggered manually.
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+  
+      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236
+        with:
+          python-version: '3.x'
+
+      - name: Update docs
+        shell: zsh {0}
+        working-directory: ./scripts
+        run: |
+          git status
+          git clean -f -d
+          python get_upstream_docs.py
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          signoff: true
+          title: 'docs: Sync docs from runfinch/finch'
