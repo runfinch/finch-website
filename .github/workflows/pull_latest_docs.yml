@@ -10,8 +10,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
-    name: Deploy docs
+  sync:
+    name: Sync docs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
@@ -22,7 +22,6 @@ jobs:
           python-version: '3.x'
 
       - name: Update docs
-        shell: zsh {0}
         working-directory: ./scripts
         run: |
           git status
