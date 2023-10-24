@@ -1,0 +1,68 @@
+name: Sync with Upstream Repository
+
+on:
+  # Allow workflow to be triggered manually.
+  workflow_dispatch:
+  schedule:
+    # Pull changes every day at 13:00 UTC.
+    # Eventually switch to using a push based flow with
+    # https://github.com/peter-evans/repository-dispatch
+    - cron: '0 13 * * *'
+
+jobs:
+  check-for-finch-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+
+      - name: Check for new upstream versions
+        id: upstream_sync
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+            current_version=$(cat stable.txt)
+            echo "Current Version of Docs: $current_version"
+
+            latest_version=$(gh release view --repo runfinch/finch --json tagName | jq -r '.tagName')
+            echo "Latest Version of Finch: $latest_version"
+
+            if [ "$latest_version" != "$current_version" ]; then
+              echo "New version available: $latest_version"
+
+              echo "Updating Change Log"
+              curl --silent -o ./docs/docs/changelog.md https://raw.githubusercontent.com/runfinch/finch/main/CHANGELOG.md
+
+              echo "Updating Stable Version File"
+              echo $latest_version > stable.txt
+
+              echo "new_version=1" >> $GITHUB_OUTPUT
+            else
+              echo "No new version available"
+              echo "new_version=0" >> $GITHUB_OUTPUT
+            fi
+
+      - name: Create Pull Request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+            if [[ ${{ steps.upstream_sync.new_version == 1 }} ]]; then
+              echo "Creating a git commit in a new branch"
+              finch_version=$(cat stable.txt)
+              git checkout -b bot_release_${finch_version}
+              git config user.name github-actions
+              git config user.email github-actions@github.com
+              git add .
+              git commit -m "Bump to new Finch release ${finch_version}"
+
+              echo "Push changes to a new remote branch"
+              git push origin bot_release_${finch_version}
+
+              echo "Creating a Pull Request"
+              gh pr create \
+                  --base main \
+                  --title "ci: release_${finch_version}" \
+                  --body "Created by Github action"
+            else
+              echo "No new version available"
+            fi
