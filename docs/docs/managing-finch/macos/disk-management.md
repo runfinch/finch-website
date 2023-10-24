@@ -148,7 +148,7 @@ underlying virtualization configuration and increase the capacity.
     ```bash
     export LIMA_HOME=/Applications/Finch/lima/data
 
-    /Applications/Finch/lima/bin/limactl shell finch sudo bash -c "growpart /dev/vdb1"
+    /Applications/Finch/lima/bin/limactl shell finch sudo bash -c "growpart /dev/vdb 1"
     /Applications/Finch/lima/bin/limactl shell finch sudo bash -c "resize2fs /dev/vdb1"
     ```
 
