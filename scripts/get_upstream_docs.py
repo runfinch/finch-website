@@ -5,14 +5,15 @@ import requests
 
 # Temporarily use main to generate docs, switch to latest release after next release
 api_url = "https://github.com/runfinch/finch/archive/refs/heads/main.zip"
+# Releases require making two requests, whereas the main.zip link is a direct download
 # api_url = "https://api.github.com/repos/runfinch/finch/releases/latest"
+# response = requests.get(api_url)
+# data = response.json()
+# zip_file_url = data['zipball_url']
+# r = requests.get(zip_file_url)
 
-response = requests.get(api_url)
-data = response.json()
+r = requests.get(api_url)
 
-zip_file_url = data['zipball_url']
-
-r = requests.get(zip_file_url)
 z = zipfile.ZipFile(io.BytesIO(r.content))
 namelist = z.namelist()
 
