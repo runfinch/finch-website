@@ -24,6 +24,7 @@ nav:
              - Upgrading Finch: "docs/managing-finch/macos/upgrading-finch.md"
              - Uninstalling Finch: "docs/managing-finch/macos/uninstalling-finch.md"
       - Container Images:
+          - Registry Authentication: "docs/container-images/authentication.md"
           - Image Signing: "docs/container-images/signing-images.md"
       - Configuration Reference: "docs/configuration-reference.md"
       - CLI Reference:
