@@ -1,77 +1,35 @@
 # Pushing Container Images
 
-A container image stored on the local Finch virtual machine can be pushed to a
-container registry using the `finch push` command.
-
-## Authenticating to a Container Registry
-
-Before a container image can be pushed to a container registry, it is common for
-a registry to ask you to authenticate yourself. Depending on the container
-registry you use, after you have logged in, you will be given a give an infinite
-or a time based token. You can push and pull container images from that
-container registry until your token expires.
-
-=== "Amazon ECR"
-    To login to [Amazon Elastic Container
-    Registry](https://aws.amazon.com/ecr/), you first use the AWS CLI to
-    retrieve an ECR Token. You then pass this to token to Finch with the finch
-    login command.
-
-    ```bash
-    export AWS_REGION=eu-west-1
-    export AWS_ACCOUNT_ID=111222333444
-
-    aws ecr get-login-password --region $AWS_REGION | finch login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
-    ```
-
-    If the login has been successful, you should see:
-
-    ```bash
-    Login Succeeded
-    ```
-
-=== "Docker Hub"
-    To login to [Docker Hub](https://hub.docker.com/), or any registry with
-    username and password authentication. You can use the finch login command
-    and enter the username and password when prompted.
-
-    ```bash
-    finch login
-    Enter Username: username
-    Enter Password:
-    ```
-
-    If the login has been successful, you should see:
-
-    ```bash
-    Login Succeeded
-    ```
-
-## Pushing a Container Image to an Image Repository
-
-In [Building Container Images](../building_images/) we built the
+In [Building Container Images](../building-images/) we built the
 [hello-finch](https://github.com/runfinch/finch/tree/main/contrib/hello-finch)
-container image. In this section we will push a single from your local machine
-to a container registry. These commands assume a repository has already been
-created in the container registry.
+container image. In this section we will push the container image from the local
+workstation up to a container repository using the `finch push` command.
 
-1. Ensure the container image exists locally.
+In the section we are pushing the container image to an existing [Amazon
+ECR](https://aws.amazon.com/ecr/) repository, if you are using an alternative
+container registry the authentication method and the container image tag will be
+different.
+
+1. Before pushing a container image, ensure the container image exists in the
+   local image store.
 
     ```bash
-    finch image list
+    $ finch image list
     ```
 
-    Before pushing a container image, ensure the container image exists in the
-    local image store.
+    In the output you should see a list of all of the container images stored in
+    the local container store.
 
     ```
     REPOSITORY     TAG       IMAGE ID        CREATED        PLATFORM       SIZE       BLOB SIZE
     hello-finch    latest    69b2528740fe    2 weeks ago    linux/arm64    1.8 MiB    1008.4 KiB
     ```
 
-2. Re Tag the Container Image using the URI of the repository where you want to
-   push the container image. The following example pushes a container image to
-   an Amazon ECR repository.
+2. Within a container image name, we specify the container image repository
+   where we want that image to be stored. To change the change name of the
+   container image to the include the container image repository we use the
+   `finch tag` command. The following example renames the container image to an
+   Amazon ECR container image repo repository.
 
     ```bash
     export AWS_REGION=eu-west-1
@@ -82,16 +40,31 @@ created in the container registry.
       $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
     ```
 
-3. Push the container image up to the container registry.
+3. The Amazon ECR registry requires an authentication token to push and pull
+   images. Therefore we need to login first with `finch login`. This may be
+   different for your container image registry, see [Registry
+   Authentication](../../container-images/authentication/) for more information.
+
+    ```bash
+    aws ecr get-login-password --region $AWS_REGION | finch login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+    ```
+
+    If the login has been successful you should see:
+
+    ```bash
+    Login Succeeded
+    ```
+
+4. Using the `finch push` command we push the container image from the local
+   machine up to the container image repository.
 
     ```bash
     finch push \
       $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
     ```
 
-4. Using the Console or the CLI of the container registry (in this example
-   Amazon ECR), you can verify that the container image has been successfully
-   pushed.
+4. With the AWS Console or the AWS CLI we can verify that the container image
+   has been successfully pushed.
 
     ```bash
     aws ecr list-images --repository hello-finch
@@ -107,15 +80,16 @@ created in the container registry.
 
 ## Pushing a Multi-Architecture Container Image to a Repository
 
-In [Building Container Images](../building_images/) we built a multi
+In [Building Container Images](../building-images/) we also built a multi
 architecture container image for the
 [hello-finch](https://github.com/runfinch/finch/tree/main/contrib/hello-finch)
 example application. In this section we will show how to push both architectures
 of the container image, and a container image OCI [Image
-Index](https://github.com/opencontainers/image-spec/blob/main/image-index.md), to
-the container registry.
+Index](https://github.com/opencontainers/image-spec/blob/main/image-index.md),
+to the container registry.
 
-1. Ensure both architectures of the container image have been built and exist locally.
+1. Ensure both architectures of the container image have been built and exist
+   locally.
 
     ```bash
     finch image list
@@ -124,9 +98,9 @@ the container registry.
     hello-finch    latest    5874669344b3    3 seconds ago    linux/amd64    0.0 B      1.0 MiB
     ```
 
-2. Re tag the container image using the URI of the repository where you want to
-   push the container image. The following example pushes a container image to
-   an Amazon ECR repository.
+2. Change the name of the container image using `finch tag` so the destination
+   repository is included in the tag. The following example pushes a container
+   image to an Amazon ECR repository.
 
     ```bash
     export AWS_REGION=eu-west-1
@@ -137,13 +111,14 @@ the container registry.
       $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
     ```
 
-    You can verify both images have been re tagged using the `finch image list` command.
+    You can verify both images have been re tagged using the `finch image list`
+    command.
 
     ```bash
     finch image list
     ```
 
-    Now you can see 4 images, 1 for each architecture for each tag.
+    Now you should see four images, one for each architecture for each tag.
 
     ```
     REPOSITORY                                                  TAG       IMAGE ID        CREATED               PLATFORM       SIZE       BLOB SIZE
@@ -153,7 +128,22 @@ the container registry.
     hello-finch                                                 latest    5874669344b3    About a minute ago    linux/amd64    0.0 B      1.0 MiB
     ```
 
-3. Push the container images up to the container registry using the `--platform`
+3. The Amazon ECR registry requires an authentication token to push and pull
+   images. Therefore we need to login first with `finch login`. This may be
+   different for your container image registry, see [Registry
+   Authentication](../../container-images/authentication/) for more information.
+
+    ```bash
+    aws ecr get-login-password --region $AWS_REGION | finch login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+    ```
+
+    If the login has been successful you should see:
+
+    ```bash
+    Login Succeeded
+    ```
+
+4. Push the container images up to the container registry using the `--platform`
    flag to specify the architecture(s) you want to push.
 
     ```bash
@@ -162,10 +152,9 @@ the container registry.
       $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
     ```
 
-4. Using the Console or the CLI of the container registry (in this example
-   Amazon ECR), you can verify that the container image has been successfully
-   pushed. In the output below, you can see there are 3 digests. 1 corresponding
-   to the [OCI Image
+5. With the AWS Console or the AWS CLI we can verify that the container image
+   has been successfully pushed. In the output below, you can see there are 3
+   digests. 1 corresponding to the [OCI Image
    Index](https://github.com/opencontainers/image-spec/blob/main/image-index.md)
    , and an [OCI Image
    Manifest](https://github.com/opencontainers/image-spec/blob/main/manifest.md)
@@ -194,4 +183,4 @@ the container registry.
 In this short section, you learned how to push container images on finch.
 
 * To learn more about the `finch push` command see the [CLI
-  Reference](/cli-reference/finch_push/).
+  Reference](/docs/cli-reference/finch_push/).
