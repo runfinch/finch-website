@@ -72,7 +72,7 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - toc:
-      permalink: "#"
+      permalink: true
 
 plugins:
   - search
