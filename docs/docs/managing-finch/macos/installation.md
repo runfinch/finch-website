@@ -33,7 +33,15 @@ To install Finch with a package manager you can leverage the
     brew install finch
     ```
 
-3. You can now [verify the installation](#verify-the-finch-installation).
+3. You can now verify the installation.
+
+    ```bash
+    # Check the installed Finch version
+    finch --version
+
+    # Check the status of the Finch virtual machine
+    finch vm status
+    ```
 
 ## Installing using the Application Package
 
@@ -61,8 +69,17 @@ Releases](https://github.com/runfinch/finch/releases) page. Ensuring you have
     ![Finch Installation Screen](/assets/finch_macos_installation_3.png "Finch Installation 3")
 
 5. When the Finch installation is complete, you can close the installation
-   prompt. You can now [verify the
-   installation](#verify-the-finch-installation).
+   prompt.
 
     ![Finch Installation Complete](/assets/finch_macos_installation_4.png "Finch Installation 4")
 
+
+6. You can now verify the installation.
+
+    ```bash
+    # Check the installed Finch version
+    finch --version
+
+    # Check the status of the Finch virtual machine
+    finch vm status
+    ```

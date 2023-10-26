@@ -1,11 +1,13 @@
 # Upgrading Finch
 
-Finch releases updates on a regular cadence, to find the latest release and the
-subsequent release notes, see the [Release Notes](../../changelog.md).
+Finch releases updates on a regular cadence. To find the latest release and
+information on what was included see the [release
+notes](../../changelog.md).
 
-Finch packages upgrades of all components of the stack, including the latest
-operating system image. As part of a Finch upgrade, all container data
-(container images and container volumes) are persisted between upgrades.
+A Finch release includes new versions of all components of the stack, including
+the latest operating system patches. As part of a Finch upgrade, all container
+related data (container images and container volumes) are persisted between
+upgrades.
 
 ## Upgrading Finch with [homebrew](https://brew.sh/)
 
@@ -88,9 +90,8 @@ Releases](https://github.com/runfinch/finch/releases) page. Ensuring you have
 
     ![Finch Upgrade Wizard](/assets/finch_macos_upgrade_1.png "Finch Upgrade 1")
 
-3. Click through the various pages in the wizard. This
-   wizard is the same as wizard previously seen during the
-   [Installation](/docs/getting-started/installing/#zys).
+3. Click through the various pages in the wizard. This wizard is the same as the
+   wizard previously seen during the [installation](../installation/).
 
 4. Once the command has finished, you can check the status of the Finch virtual
    machine with `finch version`.

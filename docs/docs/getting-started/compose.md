@@ -121,4 +121,4 @@ be started with the `finch compose up` command.
 In this short section, you learned how to use Compose files with Finch.
 
 * To learn about leveraging Compose files with Finch, see the [Finch
-  Compose](/cli-reference/finch_compose/) reference.
+  Compose](../../cli-reference/finch_compose/) reference.
