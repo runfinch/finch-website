@@ -1,12 +1,12 @@
 # Running Containers
 
+The Finch CLI aims to support the same top level commands used in other
+container runtimes, therefore if you have ever used `docker run` before you will
+quickly become familiar with`finch run`.
+
 Finch leverages [containerd](https://github.com/containerd/containerd) and
 [nerdctl](https://github.com/containerd/nerdctl) to run containers on the
 [lima](https://github.com/lima-vm/lima) virtual machine.
-
-The Finch Cli aims to support the same top level commands used in other
-container runtimes, therefore if you have ever used `docker run` before you will
-quickly become familiar with`finch run`.
 
 ## Running your first container
 
@@ -17,8 +17,8 @@ To start the
 [hello-finch](https://github.com/runfinch/finch/tree/main/contrib/hello-finch),
 sample application that has been built and stored in a remote registry, we can
 use `finch run` following by the container image. If you need to authenticate to
-a container registry see [Pushing
-Images](../pushing_images/#authenticating-to-a-container-registry) documentation
+a container registry see [pushing
+images](../pushing-images/#authenticating-to-a-container-registry) documentation
 for instructions.
 
 ```bash
@@ -114,7 +114,7 @@ Popular `finch run` flags which will help you get started include:
 
 In this section, you learned how to run containers on Finch
 
-* Next you can move on to [Pushing Container Images](../pushing_images/) to
+* Next you can move on to [pushing container images](../pushing-images/) to
   container registries with Finch.
 * To learn more about the `finch run` command see the [CLI
-  Reference](/cli-reference/finch_run/).
+  Reference](../../cli-reference/finch_run/).
