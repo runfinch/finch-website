@@ -71,6 +71,9 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.tabbed:
       alternate_style: true
+  - toc:
+      permalink: "#"
+
 plugins:
   - search
   - awesome-pages
