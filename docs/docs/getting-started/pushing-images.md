@@ -1,6 +1,6 @@
 # Pushing Container Images
 
-In [Building Container Images](../building-images/) we built the
+In [building container images](../building-images/) we built the
 [hello-finch](https://github.com/runfinch/finch/tree/main/contrib/hello-finch)
 container image. In this section we will push the container image from the local
 workstation up to a container repository using the `finch push` command.
@@ -42,8 +42,8 @@ different.
 
 3. The Amazon ECR registry requires an authentication token to push and pull
    images. Therefore we need to login first with `finch login`. This may be
-   different for your container image registry, see [Registry
-   Authentication](../../container-images/authentication/) for more information.
+   different for your container image registry, see [registry
+   authentication](../../container-images/authentication/) for more information.
 
     ```bash
     aws ecr get-login-password --region $AWS_REGION | finch login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
@@ -183,4 +183,4 @@ to the container registry.
 In this short section, you learned how to push container images on finch.
 
 * To learn more about the `finch push` command see the [CLI
-  Reference](/docs/cli-reference/finch_push/).
+  Reference](../../cli-reference/finch_push/).

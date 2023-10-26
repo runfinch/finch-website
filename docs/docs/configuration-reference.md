@@ -53,9 +53,9 @@ rosetta: true
 
 - `additional_directories`: By default Finch will mount the users home directory
   into the virtual machine. To mount additional directories from macOS into the
-  virtual machine, specify them here. See [Disk Management for more
-  details](/docs/managing-finch/disk-management/). By default this field is
-  omitted.
+  virtual machine, specify them here. See [disk
+  management](/docs/managing-finch/macos/disk-management/) for more details.
+  Default is `[]`
 
 - `vmType`: The hypervisor to use for the virtual machine.
   [QEMU](https://www.qemu.org/) (`qemu`) or Apple [Virtualization
