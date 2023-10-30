@@ -2,9 +2,8 @@
 
 This repository is the source to the runfinch project website.
 
-The documentation is written in markdown files, and is hosted by
-[mkdocs](https://www.mkdocs.org/) with the [Material
-theme](https://squidfunk.github.io/mkdocs-material/).
+The documentation is written in markdown files, using [mkdocs](https://www.mkdocs.org/)
+(with the [Material theme](https://squidfunk.github.io/mkdocs-material/)), and is hosted (using GitHub Pages) at https://runfinch.com.
 
 ## Development
 
