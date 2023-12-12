@@ -1,0 +1,3643 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="An Open Source Container Development Tool">
+      
+      
+      
+      
+        <link rel="prev" href="../troubleshooting/get-support/">
+      
+      
+        <link rel="next" href="../../contributing/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Release Notes - Finch</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35e1ed30.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#changelog" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Finch" class="md-header__button md-logo" aria-label="Finch" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Finch
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Release Notes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/runfinch/finch" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Finch" class="md-nav__button md-logo" aria-label="Finch" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    Finch
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/runfinch/finch" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/macos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    macOS Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Docs
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Docs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing Finch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/building-images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building Images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/running-containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/pushing-images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pushing Images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/compose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Managing Finch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Managing Finch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    macOS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            macOS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-finch/macos/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-finch/macos/disk-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Disk Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-finch/macos/upgrading-finch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Upgrading Finch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-finch/macos/uninstalling-finch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uninstalling Finch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Container Images
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Container Images
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container-images/authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registry Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container-images/lazy-loading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lazy Loading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container-images/signing-images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Signing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration-reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CLI Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            CLI Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch build
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_builder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_commit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch commit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_completion_bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch completion bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_completion_fish/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch completion fish
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_completion_powershell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch completion powershell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_completion_zsh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch completion zsh
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_compose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch container
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_cp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch cp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_create/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch create
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch events
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_exec/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch exec
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_help/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch help
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch history
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_image/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch info
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_inspect/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch inspect
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_kill/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch kill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_load/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch load
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch login
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_logout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch logout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_logs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch logs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_pause/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch pause
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_port/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch port
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_ps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch ps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_pull/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch pull
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_push/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch push
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_restart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch restart
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_rm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch rm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_rmi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch rmi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_run/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch run
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_save/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch save
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_stats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch stats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_stop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch stop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_support-bundle_generate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch support-bundle generate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch system
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_tag/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch tag
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_top/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch top
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_unpause/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch unpause
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch update
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_version/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch version
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_vm_init/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch vm init
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_vm_remove/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch vm remove
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_vm_start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch vm start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_vm_status/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch vm status
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_vm_stop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch vm stop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_volume/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch volume
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli-reference/finch_wait/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    finch wait
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Troubleshooting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/get-support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#101-2023-12-11" class="md-nav__link">
+    1.0.1 (2023-12-11)
+  </a>
+  
+    <nav class="md-nav" aria-label="1.0.1 (2023-12-11)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverts" class="md-nav__link">
+    Reverts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100-2023-10-31" class="md-nav__link">
+    1.0.0 (2023-10-31)
+  </a>
+  
+    <nav class="md-nav" aria-label="1.0.0 (2023-10-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chore" class="md-nav__link">
+    chore
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_1" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#090-2023-09-25" class="md-nav__link">
+    0.9.0 (2023-09-25)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.9.0 (2023-09-25)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_2" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_1" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#080-2023-08-16" class="md-nav__link">
+    0.8.0 (2023-08-16)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.8.0 (2023-08-16)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_1" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_3" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_2" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#070-2023-07-18" class="md-nav__link">
+    0.7.0 (2023-07-18)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.7.0 (2023-07-18)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_2" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_4" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_3" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#062-2023-06-02" class="md-nav__link">
+    0.6.2 (2023-06-02)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.6.2 (2023-06-02)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_5" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_4" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#061-2023-05-15" class="md-nav__link">
+    0.6.1 (2023-05-15)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.6.1 (2023-05-15)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_5" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#060-2023-04-20" class="md-nav__link">
+    0.6.0 (2023-04-20)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.6.0 (2023-04-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_3" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_6" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_6" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#050-2023-03-29" class="md-nav__link">
+    0.5.0 (2023-03-29)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.5.0 (2023-03-29)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_4" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_7" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimental" class="md-nav__link">
+    Experimental
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_7" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#041-2023-03-02" class="md-nav__link">
+    0.4.1 (2023-03-02)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.4.1 (2023-03-02)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_8" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_8" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#040-2023-02-13" class="md-nav__link">
+    0.4.0 (2023-02-13)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.4.0 (2023-02-13)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breaking-changes" class="md-nav__link">
+    ⚠ BREAKING CHANGES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_5" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_9" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_9" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#030-2023-01-18" class="md-nav__link">
+    0.3.0 (2023-01-18)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.3.0 (2023-01-18)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breaking-changes_1" class="md-nav__link">
+    ⚠ BREAKING CHANGES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_6" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_10" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_10" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#020-2023-01-11" class="md-nav__link">
+    0.2.0 (2023-01-11)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.2.0 (2023-01-11)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_7" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_11" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_11" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#011-2022-12-06" class="md-nav__link">
+    0.1.1 (2022-12-06)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.1.1 (2022-12-06)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_12" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_12" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../contributing/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Contributing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#101-2023-12-11" class="md-nav__link">
+    1.0.1 (2023-12-11)
+  </a>
+  
+    <nav class="md-nav" aria-label="1.0.1 (2023-12-11)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverts" class="md-nav__link">
+    Reverts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100-2023-10-31" class="md-nav__link">
+    1.0.0 (2023-10-31)
+  </a>
+  
+    <nav class="md-nav" aria-label="1.0.0 (2023-10-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chore" class="md-nav__link">
+    chore
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_1" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#090-2023-09-25" class="md-nav__link">
+    0.9.0 (2023-09-25)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.9.0 (2023-09-25)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_2" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_1" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#080-2023-08-16" class="md-nav__link">
+    0.8.0 (2023-08-16)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.8.0 (2023-08-16)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_1" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_3" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_2" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#070-2023-07-18" class="md-nav__link">
+    0.7.0 (2023-07-18)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.7.0 (2023-07-18)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_2" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_4" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_3" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#062-2023-06-02" class="md-nav__link">
+    0.6.2 (2023-06-02)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.6.2 (2023-06-02)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_5" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_4" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#061-2023-05-15" class="md-nav__link">
+    0.6.1 (2023-05-15)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.6.1 (2023-05-15)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_5" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#060-2023-04-20" class="md-nav__link">
+    0.6.0 (2023-04-20)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.6.0 (2023-04-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_3" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_6" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_6" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#050-2023-03-29" class="md-nav__link">
+    0.5.0 (2023-03-29)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.5.0 (2023-03-29)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_4" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_7" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimental" class="md-nav__link">
+    Experimental
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_7" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#041-2023-03-02" class="md-nav__link">
+    0.4.1 (2023-03-02)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.4.1 (2023-03-02)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_8" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_8" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#040-2023-02-13" class="md-nav__link">
+    0.4.0 (2023-02-13)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.4.0 (2023-02-13)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breaking-changes" class="md-nav__link">
+    ⚠ BREAKING CHANGES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_5" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_9" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_9" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#030-2023-01-18" class="md-nav__link">
+    0.3.0 (2023-01-18)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.3.0 (2023-01-18)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breaking-changes_1" class="md-nav__link">
+    ⚠ BREAKING CHANGES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_6" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_10" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_10" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#020-2023-01-11" class="md-nav__link">
+    0.2.0 (2023-01-11)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.2.0 (2023-01-11)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_7" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_11" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_11" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#011-2022-12-06" class="md-nav__link">
+    0.1.1 (2022-12-06)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.1.1 (2022-12-06)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_12" class="md-nav__link">
+    Bug Fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-system-or-external-dependencies_12" class="md-nav__link">
+    Build System or External Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<h2 id="101-2023-12-11"><a href="https://github.com/runfinch/finch/compare/v1.0.0...v1.0.1">1.0.1</a> (2023-12-11)<a class="headerlink" href="#101-2023-12-11" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes">Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Change the default behavoir for deleting .finch folder to false when uninstall (<a href="https://github.com/runfinch/finch/issues/732">#732</a>) (<a href="https://github.com/runfinch/finch/commit/e8187432a02c59a821a0d3b39c9cbc51f75a60cd">e818743</a>)</li>
+<li>Clean up all previous finch version installation registries in postinstall and uninstall (<a href="https://github.com/runfinch/finch/issues/688">#688</a>) (<a href="https://github.com/runfinch/finch/commit/9afc0b9a5e73a3c261aeac87b977e44129b311bd">9afc0b9</a>)</li>
+<li>Fix to be able to run finch build with --ssh option (<a href="https://github.com/runfinch/finch/issues/696">#696</a>) (<a href="https://github.com/runfinch/finch/commit/4d1e6cf6d8f4b6f2cbdf0229e8dcf4ad0c80d80c">4d1e6cf</a>)</li>
+<li>Fix to delete ~/.finch when uninstalling finch (<a href="https://github.com/runfinch/finch/issues/703">#703</a>) (<a href="https://github.com/runfinch/finch/commit/8d7389f607fc0211ebd6cfafe13197b945d877a3">8d7389f</a>)</li>
+<li>remove virtual machine image when running make clean (<a href="https://github.com/runfinch/finch/commit/98c8ee4f783d01cb1340e77b508d868c3bb4bf04">98c8ee4</a>)</li>
+<li>resolve shellcheck warnings (<a href="https://github.com/runfinch/finch/issues/684">#684</a>) (<a href="https://github.com/runfinch/finch/commit/d9f695a39f17af6ab00722fbf5191b6fa5c9166b">d9f695a</a>)</li>
+<li>Use LimaUser method instead of host user name (<a href="https://github.com/runfinch/finch/issues/712">#712</a>) (<a href="https://github.com/runfinch/finch/commit/7c02e08394f667e1f69cd304ef0258c1f0ff1c0f">7c02e08</a>)</li>
+</ul>
+<h3 id="reverts">Reverts<a class="headerlink" href="#reverts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>"fix: resolve shellcheck warnings" (<a href="https://github.com/runfinch/finch/issues/725">#725</a>) (<a href="https://github.com/runfinch/finch/commit/8ea255abb64c653a8c35e82c9c17aec9904278c5">8ea255a</a>)</li>
+</ul>
+<h2 id="100-2023-10-31"><a href="https://github.com/runfinch/finch/compare/v0.9.0...v1.0.0">1.0.0</a> (2023-10-31)<a class="headerlink" href="#100-2023-10-31" title="Permanent link">&para;</a></h2>
+<h3 id="chore">chore<a class="headerlink" href="#chore" title="Permanent link">&para;</a></h3>
+<ul>
+<li>update Release-As version to 1.0.0 (not-squashed) (<a href="https://github.com/runfinch/finch/commit/2c97323deccfbc860e304b3297c8e51f91b7e2c0">2c97323</a>)</li>
+</ul>
+<h3 id="bug-fixes_1">Bug Fixes<a class="headerlink" href="#bug-fixes_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>ecr credential helper hash check (<a href="https://github.com/runfinch/finch/issues/668">#668</a>) (<a href="https://github.com/runfinch/finch/commit/4b1b0a2fa515bcfaaa6784ffa53a5918245cbd72">4b1b0a2</a>)</li>
+<li>ecr creds helper and credential_process (<a href="https://github.com/runfinch/finch/issues/510">#510</a>) (<a href="https://github.com/runfinch/finch/commit/0525753105403e27e5d1372588c0c87aa6b6cbe6">0525753</a>)</li>
+<li>improve creds helper UX (<a href="https://github.com/runfinch/finch/issues/673">#673</a>) (<a href="https://github.com/runfinch/finch/commit/bc238cf9383d0fbc983a7f76f2cc15821eafd265">bc238cf</a>)</li>
+<li>run SOCI as a systemd service (<a href="https://github.com/runfinch/finch/issues/667">#667</a>) (<a href="https://github.com/runfinch/finch/commit/24fd649152b3ca18a1024d3a2ea40806c0c96cf2">24fd649</a>)</li>
+<li>soci being reset on vm stop/start (<a href="https://github.com/runfinch/finch/issues/672">#672</a>) (<a href="https://github.com/runfinch/finch/commit/9df7d325b25fe98fdb8327bc4603ae4441b6a190">9df7d32</a>)</li>
+</ul>
+<h3 id="build-system-or-external-dependencies">Build System or External Dependencies<a class="headerlink" href="#build-system-or-external-dependencies" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>deps:</strong> Bump github.com/docker/cli from 24.0.6+incompatible to 24.0.7+incompatible (<a href="https://github.com/runfinch/finch/issues/665">#665</a>) (<a href="https://github.com/runfinch/finch/commit/43a57ffc052ba1ffcf0f50cdb08dfdb42abc9723">43a57ff</a>)</li>
+<li><strong>deps:</strong> Bump github.com/docker/docker from 24.0.6+incompatible to 24.0.7+incompatible (<a href="https://github.com/runfinch/finch/issues/666">#666</a>) (<a href="https://github.com/runfinch/finch/commit/4e06d283512ed851279cb4988089f1c610896ba9">4e06d28</a>)</li>
+<li><strong>deps:</strong> Bump github.com/lima-vm/lima from 0.17.2 to 0.18.0 (<a href="https://github.com/runfinch/finch/issues/643">#643</a>) (<a href="https://github.com/runfinch/finch/commit/f181b8970c6d63a25d22be44820d1570c95b6f41">f181b89</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/gomega from 1.27.10 to 1.28.0 (<a href="https://github.com/runfinch/finch/issues/583">#583</a>) (<a href="https://github.com/runfinch/finch/commit/9d1ad5748967b8b978131ddb50071200fcceffde">9d1ad57</a>)</li>
+<li><strong>deps:</strong> Bump github.com/runfinch/common-tests from 0.7.6 to 0.7.7 (<a href="https://github.com/runfinch/finch/issues/609">#609</a>) (<a href="https://github.com/runfinch/finch/commit/e21ae836d4f73ea07852e3cd1fc6cc16d56e4f32">e21ae83</a>)</li>
+<li><strong>deps:</strong> Bump github.com/runfinch/common-tests from 0.7.7 to 0.7.8 (<a href="https://github.com/runfinch/finch/issues/617">#617</a>) (<a href="https://github.com/runfinch/finch/commit/4d942f550c86106a224e97f32f1bf90f1b4d44cb">4d942f5</a>)</li>
+<li><strong>deps:</strong> Bump github.com/shirou/gopsutil/v3 from 3.23.8 to 3.23.9 (<a href="https://github.com/runfinch/finch/issues/588">#588</a>) (<a href="https://github.com/runfinch/finch/commit/20385b7c5c0a45f5495615ebb3ce70220ab15969">20385b7</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/tools from 0.13.0 to 0.14.0 (<a href="https://github.com/runfinch/finch/issues/610">#610</a>) (<a href="https://github.com/runfinch/finch/commit/8938cf394f12b42da976c2963fad82c42a52aa85">8938cf3</a>)</li>
+<li><strong>deps:</strong> Bump google.golang.org/grpc from 1.53.0 to 1.56.3 (<a href="https://github.com/runfinch/finch/issues/658">#658</a>) (<a href="https://github.com/runfinch/finch/commit/321487c9309a73625512255ff86b6ffc6977b86e">321487c</a>)</li>
+<li><strong>deps:</strong> Bump k8s.io/apimachinery from 0.28.2 to 0.28.3 (<a href="https://github.com/runfinch/finch/issues/652">#652</a>) (<a href="https://github.com/runfinch/finch/commit/05f9d53dab468546918a332f0fc18449de774487">05f9d53</a>)</li>
+<li><strong>deps:</strong> Bump submodules and dependencies (<a href="https://github.com/runfinch/finch/issues/637">#637</a>) (<a href="https://github.com/runfinch/finch/commit/b094751d3ba56c7855fc6f3af7b8bef2618a7206">b094751</a>)</li>
+</ul>
+<h2 id="090-2023-09-25"><a href="https://github.com/runfinch/finch/compare/v0.8.0...v0.9.0">0.9.0</a> (2023-09-25)<a class="headerlink" href="#090-2023-09-25" title="Permanent link">&para;</a></h2>
+<h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h3>
+<ul>
+<li>support push with SOCI (<a href="https://github.com/runfinch/finch/issues/578">#578</a>) (<a href="https://github.com/runfinch/finch/commit/69721b76151a4c24d82cdc1c9338bacf72afb15d">69721b7</a>)</li>
+<li>supports adding files inside the VM to support bundles (<a href="https://github.com/runfinch/finch/issues/549">#549</a>) (<a href="https://github.com/runfinch/finch/commit/3b1df4697e7b020d6c7339fb71bacf62ca0b3ee0">3b1df46</a>)</li>
+</ul>
+<h3 id="bug-fixes_2">Bug Fixes<a class="headerlink" href="#bug-fixes_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>enables bridge-nf-call-iptables by default (<a href="https://github.com/runfinch/finch/issues/539">#539</a>) (<a href="https://github.com/runfinch/finch/commit/6ea1499c1320545ba4efe8a7820dcf0998e28782">6ea1499</a>)</li>
+<li><strong>Makefile:</strong> use POSIX tar syntax for stdin (<a href="https://github.com/runfinch/finch/issues/529">#529</a>) (<a href="https://github.com/runfinch/finch/commit/e2221310e1725b3a6072abe12e72f01859ce3320">e222131</a>)</li>
+</ul>
+<h3 id="build-system-or-external-dependencies_1">Build System or External Dependencies<a class="headerlink" href="#build-system-or-external-dependencies_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>deps:</strong> Bump github.com/docker/cli from 24.0.5+incompatible to 24.0.6+incompatible (<a href="https://github.com/runfinch/finch/issues/560">#560</a>) (<a href="https://github.com/runfinch/finch/commit/21bb893105f0a4fc5541e3a8e9f5306edb739154">21bb893</a>)</li>
+<li><strong>deps:</strong> Bump github.com/docker/docker from 24.0.5+incompatible to 24.0.6+incompatible (<a href="https://github.com/runfinch/finch/issues/561">#561</a>) (<a href="https://github.com/runfinch/finch/commit/e0160be4b90b9db0e9e544a8ad9b170c08b38756">e0160be</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/ginkgo/v2 from 2.11.0 to 2.12.0 (<a href="https://github.com/runfinch/finch/issues/542">#542</a>) (<a href="https://github.com/runfinch/finch/commit/85364818e9f5a9ca1993fa7a3fc8ce775e002a42">8536481</a>)</li>
+<li><strong>deps:</strong> Bump github.com/runfinch/common-tests from 0.7.2 to 0.7.3 (<a href="https://github.com/runfinch/finch/issues/548">#548</a>) (<a href="https://github.com/runfinch/finch/commit/a054ef3aa028b2c50fca93631a7b547b9c535f2e">a054ef3</a>)</li>
+<li><strong>deps:</strong> Bump github.com/shirou/gopsutil/v3 from 3.23.7 to 3.23.8 (<a href="https://github.com/runfinch/finch/issues/552">#552</a>) (<a href="https://github.com/runfinch/finch/commit/cf9399a5dd125b875d6212b029ed19530898cdee">cf9399a</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/crypto from 0.12.0 to 0.13.0 (<a href="https://github.com/runfinch/finch/issues/558">#558</a>) (<a href="https://github.com/runfinch/finch/commit/f24264d30805252d91b531c2bca8d9c883b88196">f24264d</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/tools from 0.12.0 to 0.13.0 (<a href="https://github.com/runfinch/finch/issues/559">#559</a>) (<a href="https://github.com/runfinch/finch/commit/0f56d23b4e9210960c02822cd19a8a47326caa0e">0f56d23</a>)</li>
+<li><strong>deps:</strong> Bump k8s.io/apimachinery from 0.28.0 to 0.28.1 (<a href="https://github.com/runfinch/finch/issues/543">#543</a>) (<a href="https://github.com/runfinch/finch/commit/675f76fa6d8874587c09237faeb82d9f96c14adb">675f76f</a>)</li>
+<li><strong>deps:</strong> Bump k8s.io/apimachinery from 0.28.1 to 0.28.2 (<a href="https://github.com/runfinch/finch/issues/568">#568</a>) (<a href="https://github.com/runfinch/finch/commit/915d658fbd6581eec437f2c31121366ff77a5981">915d658</a>)</li>
+<li><strong>deps:</strong> Bump submodules and dependencies (<a href="https://github.com/runfinch/finch/issues/544">#544</a>) (<a href="https://github.com/runfinch/finch/commit/94b74978e135fbf6375fe1a21ce4b64b77db5ee7">94b7497</a>)</li>
+<li><strong>deps:</strong> Bump submodules and dependencies (<a href="https://github.com/runfinch/finch/issues/551">#551</a>) (<a href="https://github.com/runfinch/finch/commit/baf645f250344a42bc4ee3ea53e97b2c82dbb55a">baf645f</a>)</li>
+<li><strong>deps:</strong> Bump submodules and dependencies (<a href="https://github.com/runfinch/finch/issues/565">#565</a>) (<a href="https://github.com/runfinch/finch/commit/c02413f47ade25232830a04548625297267caf9f">c02413f</a>)</li>
+<li><strong>deps:</strong> Bump submodules and dependencies (<a href="https://github.com/runfinch/finch/issues/567">#567</a>) (<a href="https://github.com/runfinch/finch/commit/f70314ef4a517d1fb69dc8444e621262f7e4dcd0">f70314e</a>)</li>
+</ul>
+<h2 id="080-2023-08-16"><a href="https://github.com/runfinch/finch/compare/v0.7.0...v0.8.0">0.8.0</a> (2023-08-16)<a class="headerlink" href="#080-2023-08-16" title="Permanent link">&para;</a></h2>
+<h3 id="features_1">Features<a class="headerlink" href="#features_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>adding config option for SOCI installation on VM (<a href="https://github.com/runfinch/finch/issues/506">#506</a>) (<a href="https://github.com/runfinch/finch/commit/a2e077b8f72dc8d8d833aedce31b3ad3f9f45eb4">a2e077b</a>)</li>
+</ul>
+<h3 id="bug-fixes_3">Bug Fixes<a class="headerlink" href="#bug-fixes_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>configure aws creds in sync submodules/deps action (<a href="https://github.com/runfinch/finch/issues/518">#518</a>) (<a href="https://github.com/runfinch/finch/commit/b67452e012d5d00f2ff66e023b4672f7957fe625">b67452e</a>)</li>
+<li>give pull request write permissions to sync job (<a href="https://github.com/runfinch/finch/issues/520">#520</a>) (<a href="https://github.com/runfinch/finch/commit/55b5235d50feb6557108c00cd8543d21f1fdf315">55b5235</a>)</li>
+<li>give token write perms to sync-submodules (<a href="https://github.com/runfinch/finch/issues/519">#519</a>) (<a href="https://github.com/runfinch/finch/commit/8b639eac14691caa99a6bfddd61be0b811a796d9">8b639ea</a>)</li>
+<li>Mount /var/folders to finch vm (<a href="https://github.com/runfinch/finch/issues/525">#525</a>) (<a href="https://github.com/runfinch/finch/commit/c97d2e93edaf139c3960620ec00454f856a8daee">c97d2e9</a>)</li>
+<li>option to use installed lima for SOCI e2e tests (<a href="https://github.com/runfinch/finch/issues/533">#533</a>) (<a href="https://github.com/runfinch/finch/commit/8b666590631235f6430d652d5c50f0047a120893">8b66659</a>)</li>
+<li>quote recursive calls to make (<a href="https://github.com/runfinch/finch/issues/515">#515</a>) (<a href="https://github.com/runfinch/finch/commit/d6030965414e80e1f3c550e67097ce5f34aeff41">d603096</a>)</li>
+<li>Restart buildkit after containerd when provisioning (<a href="https://github.com/runfinch/finch/issues/461">#461</a>) (<a href="https://github.com/runfinch/finch/commit/fca182877ca616257527f6186dd1e88b2919feeb">fca1828</a>)</li>
+</ul>
+<h3 id="build-system-or-external-dependencies_2">Build System or External Dependencies<a class="headerlink" href="#build-system-or-external-dependencies_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>deps:</strong> Bump github.com/docker/cli from 24.0.4+incompatible to 24.0.5+incompatible (<a href="https://github.com/runfinch/finch/issues/495">#495</a>) (<a href="https://github.com/runfinch/finch/commit/e9e8617b07301848dc1f6c3afa18643d212d024e">e9e8617</a>)</li>
+<li><strong>deps:</strong> Bump github.com/docker/docker from 24.0.4+incompatible to 24.0.5+incompatible (<a href="https://github.com/runfinch/finch/issues/497">#497</a>) (<a href="https://github.com/runfinch/finch/commit/6f1afbb69554148efd8eea938278bcc5104ab050">6f1afbb</a>)</li>
+<li><strong>deps:</strong> Bump github.com/lima-vm/lima from 0.16.0 to 0.17.2 (<a href="https://github.com/runfinch/finch/issues/531">#531</a>) (<a href="https://github.com/runfinch/finch/commit/6e33d159e2f522784860bc60ceea897a98d1fe5f">6e33d15</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/gomega from 1.27.8 to 1.27.10 (<a href="https://github.com/runfinch/finch/issues/496">#496</a>) (<a href="https://github.com/runfinch/finch/commit/d08d102d05a350a8b8e586c42ef83d51495cf4f9">d08d102</a>)</li>
+<li><strong>deps:</strong> Bump github.com/pkg/sftp from 1.13.5 to 1.13.6 (<a href="https://github.com/runfinch/finch/issues/530">#530</a>) (<a href="https://github.com/runfinch/finch/commit/09b38467333e5e59eadb76cd5f4612768cde5289">09b3846</a>)</li>
+<li><strong>deps:</strong> Bump github.com/shirou/gopsutil/v3 from 3.23.6 to 3.23.7 (<a href="https://github.com/runfinch/finch/issues/513">#513</a>) (<a href="https://github.com/runfinch/finch/commit/83bd718be67ddba624e8218034c91bf399e2cccd">83bd718</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/tools from 0.11.0 to 0.11.1 (<a href="https://github.com/runfinch/finch/issues/509">#509</a>) (<a href="https://github.com/runfinch/finch/commit/e826bcff385946bb6629db8935d3aa912befb5bb">e826bcf</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/tools from 0.11.1 to 0.12.0 (<a href="https://github.com/runfinch/finch/issues/523">#523</a>) (<a href="https://github.com/runfinch/finch/commit/09d6514bfba31a898e3b3407964113f21fb6b244">09d6514</a>)</li>
+<li><strong>deps:</strong> Bump k8s.io/apimachinery from 0.27.3 to 0.27.4 (<a href="https://github.com/runfinch/finch/issues/487">#487</a>) (<a href="https://github.com/runfinch/finch/commit/444bbc0779dbe22207fec471389810e398c1cf50">444bbc0</a>)</li>
+<li><strong>deps:</strong> Bump k8s.io/apimachinery from 0.27.4 to 0.28.0 (<a href="https://github.com/runfinch/finch/issues/535">#535</a>) (<a href="https://github.com/runfinch/finch/commit/8df84cf8c54bd772c28a83df918c251a540c881a">8df84cf</a>)</li>
+<li><strong>deps:</strong> Bump submodules and dependencies (<a href="https://github.com/runfinch/finch/issues/521">#521</a>) (<a href="https://github.com/runfinch/finch/commit/1b3ad94f9477eb3f8d33cbea90880f78ca403ff7">1b3ad94</a>)</li>
+</ul>
+<h2 id="070-2023-07-18"><a href="https://github.com/runfinch/finch/compare/v0.6.2...v0.7.0">0.7.0</a> (2023-07-18)<a class="headerlink" href="#070-2023-07-18" title="Permanent link">&para;</a></h2>
+<h3 id="features_2">Features<a class="headerlink" href="#features_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>ECR credential integration into Finch  (<a href="https://github.com/runfinch/finch/issues/462">#462</a>) (<a href="https://github.com/runfinch/finch/commit/d3514b3dbe69e1bed3d40838af01ebec184f7413">d3514b3</a>)</li>
+</ul>
+<h3 id="bug-fixes_4">Bug Fixes<a class="headerlink" href="#bug-fixes_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add cleanup script to Makefile (<a href="https://github.com/runfinch/finch/issues/444">#444</a>) (<a href="https://github.com/runfinch/finch/commit/da91f87369e5fde221b8edbac374954e71dae947">da91f87</a>)</li>
+</ul>
+<h3 id="build-system-or-external-dependencies_3">Build System or External Dependencies<a class="headerlink" href="#build-system-or-external-dependencies_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>deps:</strong> Bump github.com/docker/docker from 24.0.2+incompatible to 24.0.4+incompatible (<a href="https://github.com/runfinch/finch/issues/469">#469</a>) (<a href="https://github.com/runfinch/finch/commit/ad37f4fbce72a6f479620461127e8fe494d47cad">ad37f4f</a>)</li>
+<li><strong>deps:</strong> Bump github.com/docker/docker from 24.0.2+incompatible to 24.0.4+incompatible (<a href="https://github.com/runfinch/finch/issues/481">#481</a>) (<a href="https://github.com/runfinch/finch/commit/15d2a4bf8cfd3956a2f8bb4878bfb86827b4e77d">15d2a4b</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/ginkgo/v2 from 2.10.0 to 2.11.0 (<a href="https://github.com/runfinch/finch/issues/456">#456</a>) (<a href="https://github.com/runfinch/finch/commit/f7e091670fb2ac5377423e72f98aa8be33aa41c8">f7e0916</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/ginkgo/v2 from 2.9.7 to 2.10.0 (<a href="https://github.com/runfinch/finch/issues/449">#449</a>) (<a href="https://github.com/runfinch/finch/commit/a415e3ef7b2741853bf352b915c4100c77600619">a415e3e</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/gomega from 1.27.7 to 1.27.8 (<a href="https://github.com/runfinch/finch/issues/448">#448</a>) (<a href="https://github.com/runfinch/finch/commit/96fc8d09a051b2ead932e6eef064624b1a842b66">96fc8d0</a>)</li>
+<li><strong>deps:</strong> Bump github.com/runfinch/common-tests from 0.7.0 to 0.7.1 (<a href="https://github.com/runfinch/finch/issues/477">#477</a>) (<a href="https://github.com/runfinch/finch/commit/54c03bbfba132d797b0efa1171ce3fdc6eb8af9e">54c03bb</a>)</li>
+<li><strong>deps:</strong> Bump github.com/shirou/gopsutil/v3 from 3.23.5 to 3.23.6 (<a href="https://github.com/runfinch/finch/issues/464">#464</a>) (<a href="https://github.com/runfinch/finch/commit/43a672011fd47830073b8cc7427f82c6f1c3e5bd">43a6720</a>)</li>
+<li><strong>deps:</strong> Bump github.com/sirupsen/logrus from 1.9.2 to 1.9.3 (<a href="https://github.com/runfinch/finch/issues/446">#446</a>) (<a href="https://github.com/runfinch/finch/commit/18236774d971065dec28d1db204e1f697d418a9b">1823677</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/crypto from 0.10.0 to 0.11.0 (<a href="https://github.com/runfinch/finch/issues/465">#465</a>) (<a href="https://github.com/runfinch/finch/commit/dc5a3e7240d4af6b63874e239bc77bed04d2a0a6">dc5a3e7</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/crypto from 0.9.0 to 0.10.0 (<a href="https://github.com/runfinch/finch/issues/451">#451</a>) (<a href="https://github.com/runfinch/finch/commit/fef6e772c28429ef14068702c1dfd8e9fec2dea1">fef6e77</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/tools from 0.10.0 to 0.11.0 (<a href="https://github.com/runfinch/finch/issues/466">#466</a>) (<a href="https://github.com/runfinch/finch/commit/a8b32f9674f93cfe54686a2e29b4cf6ca4534939">a8b32f9</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/tools from 0.9.3 to 0.10.0 (<a href="https://github.com/runfinch/finch/issues/455">#455</a>) (<a href="https://github.com/runfinch/finch/commit/e321f1dc607626a7f65b33e0a0f503d8c856b1f2">e321f1d</a>)</li>
+<li><strong>deps:</strong> Bump k8s.io/apimachinery from 0.27.2 to 0.27.3 (<a href="https://github.com/runfinch/finch/issues/454">#454</a>) (<a href="https://github.com/runfinch/finch/commit/d6746a447e10bed6c13d197c8d693b27e02ac3aa">d6746a4</a>)</li>
+<li><strong>deps:</strong> Bump lima version (<a href="https://github.com/runfinch/finch/issues/476">#476</a>) (<a href="https://github.com/runfinch/finch/commit/7b330d3e2bd4cc623f46762c8e3b120ddc18f3b0">7b330d3</a>)</li>
+<li><strong>deps:</strong> Bump submodules (<a href="https://github.com/runfinch/finch/issues/482">#482</a>) (<a href="https://github.com/runfinch/finch/commit/92f2494f17bde67b785ccf444ac6525b7a856a6c">92f2494</a>)</li>
+</ul>
+<h2 id="062-2023-06-02"><a href="https://github.com/runfinch/finch/compare/v0.6.1...v0.6.2">0.6.2</a> (2023-06-02)<a class="headerlink" href="#062-2023-06-02" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_5">Bug Fixes<a class="headerlink" href="#bug-fixes_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>sort volume args in DOCKER_COMPAT mode (<a href="https://github.com/runfinch/finch/issues/417">#417</a>) (<a href="https://github.com/runfinch/finch/commit/6a8ca1a559dada6ed320c9454fbc3229446a0a40">6a8ca1a</a>)</li>
+<li>Stop lima process in postinstall and uninstall (<a href="https://github.com/runfinch/finch/issues/438">#438</a>) (<a href="https://github.com/runfinch/finch/commit/975c4ee42c1529673a51382c62c4096dc663f80a">975c4ee</a>)</li>
+</ul>
+<h3 id="build-system-or-external-dependencies_4">Build System or External Dependencies<a class="headerlink" href="#build-system-or-external-dependencies_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>deps:</strong> Bump github.com/docker/docker from 23.0.6+incompatible to 24.0.0+incompatible (<a href="https://github.com/runfinch/finch/issues/406">#406</a>) (<a href="https://github.com/runfinch/finch/commit/25aa324ca324248cf2093af23f205af1b5ae276f">25aa324</a>)</li>
+<li><strong>deps:</strong> Bump github.com/docker/docker from 24.0.0+incompatible to 24.0.1+incompatible (<a href="https://github.com/runfinch/finch/issues/413">#413</a>) (<a href="https://github.com/runfinch/finch/commit/bb1cab229c787752615eb00e74f240c4a4e0e23d">bb1cab2</a>)</li>
+<li><strong>deps:</strong> Bump github.com/docker/docker from 24.0.1+incompatible to 24.0.2+incompatible (<a href="https://github.com/runfinch/finch/issues/419">#419</a>) (<a href="https://github.com/runfinch/finch/commit/f6f8aeb40fa0b2cfaa807c98eb3576ca262d75aa">f6f8aeb</a>)</li>
+<li><strong>deps:</strong> Bump github.com/lima-vm/lima from 0.15.1 to 0.16.0 (<a href="https://github.com/runfinch/finch/issues/428">#428</a>) (<a href="https://github.com/runfinch/finch/commit/6a67f0cfb0a3a1da438779f4faa04048f25d7dde">6a67f0c</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/ginkgo/v2 from 2.9.5 to 2.9.7 (<a href="https://github.com/runfinch/finch/issues/432">#432</a>) (<a href="https://github.com/runfinch/finch/commit/0a381f17ea2602bc3b19f9b2101da9e3a589f6d3">0a381f1</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/gomega from 1.27.6 to 1.27.7 (<a href="https://github.com/runfinch/finch/issues/409">#409</a>) (<a href="https://github.com/runfinch/finch/commit/80513c7785a6da4ae09d9c871acaf180f5d68f2c">80513c7</a>)</li>
+<li><strong>deps:</strong> Bump github.com/runfinch/common-tests from 0.6.5 to 0.7.0 (<a href="https://github.com/runfinch/finch/issues/420">#420</a>) (<a href="https://github.com/runfinch/finch/commit/ac18046e70efc0e1e9fe11a30457f6f945df2a23">ac18046</a>)</li>
+<li><strong>deps:</strong> Bump github.com/shirou/gopsutil/v3 from 3.23.4 to 3.23.5 (<a href="https://github.com/runfinch/finch/issues/437">#437</a>) (<a href="https://github.com/runfinch/finch/commit/8635294bcb22207bfdaa3f96756f93ba580ff6e2">8635294</a>)</li>
+<li><strong>deps:</strong> Bump github.com/sirupsen/logrus from 1.9.0 to 1.9.1 (<a href="https://github.com/runfinch/finch/issues/405">#405</a>) (<a href="https://github.com/runfinch/finch/commit/05b6b2e7364036a3d30b67ad409f55526cc59ffe">05b6b2e</a>)</li>
+<li><strong>deps:</strong> Bump github.com/sirupsen/logrus from 1.9.1 to 1.9.2 (<a href="https://github.com/runfinch/finch/issues/408">#408</a>) (<a href="https://github.com/runfinch/finch/commit/0ff477ab32e2c427bbc800b6ae65efc72b5ed1eb">0ff477a</a>)</li>
+<li><strong>deps:</strong> Bump github.com/stretchr/testify from 1.8.2 to 1.8.4 (<a href="https://github.com/runfinch/finch/issues/429">#429</a>) (<a href="https://github.com/runfinch/finch/commit/0f7750ebeee01108a9f6a6fcfe0c7f5f044bc336">0f7750e</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/tools from 0.9.1 to 0.9.3 (<a href="https://github.com/runfinch/finch/issues/443">#443</a>) (<a href="https://github.com/runfinch/finch/commit/b192874e2b1c5de1c2148813760cbe65e15d7553">b192874</a>)</li>
+<li><strong>deps:</strong> Bump k8s.io/apimachinery from 0.27.1 to 0.27.2 (<a href="https://github.com/runfinch/finch/issues/407">#407</a>) (<a href="https://github.com/runfinch/finch/commit/e6cbd2c5dba8af5cab9ea8a37a33c580ee4edef9">e6cbd2c</a>)</li>
+<li><strong>deps:</strong> Bump submodules (<a href="https://github.com/runfinch/finch/issues/402">#402</a>) (<a href="https://github.com/runfinch/finch/commit/06d86b2bc348db9f0d8d02678faee556719b883d">06d86b2</a>)</li>
+<li><strong>deps:</strong> Bump submodules (<a href="https://github.com/runfinch/finch/issues/439">#439</a>) (<a href="https://github.com/runfinch/finch/commit/e9551b50010deb43ad26dcd3671ec2f246e84ed6">e9551b5</a>)</li>
+</ul>
+<h2 id="061-2023-05-15"><a href="https://github.com/runfinch/finch/compare/v0.6.0...v0.6.1">0.6.1</a> (2023-05-15)<a class="headerlink" href="#061-2023-05-15" title="Permanent link">&para;</a></h2>
+<h3 id="build-system-or-external-dependencies_5">Build System or External Dependencies<a class="headerlink" href="#build-system-or-external-dependencies_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>deps:</strong> Bump github.com/docker/docker from 23.0.3+incompatible to 23.0.5+incompatible (<a href="https://github.com/runfinch/finch/issues/382">#382</a>) (<a href="https://github.com/runfinch/finch/commit/3e0581cc0f86efcd9ce7b7dc8c9384fb1e6af785">3e0581c</a>)</li>
+<li><strong>deps:</strong> Bump github.com/docker/docker from 23.0.5+incompatible to 23.0.6+incompatible (<a href="https://github.com/runfinch/finch/issues/394">#394</a>) (<a href="https://github.com/runfinch/finch/commit/f44bc2eb14011640f7a25218bbc18a82d533e76a">f44bc2e</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/ginkgo/v2 from 2.9.2 to 2.9.3 (<a href="https://github.com/runfinch/finch/issues/390">#390</a>) (<a href="https://github.com/runfinch/finch/commit/710299445ed287c67114b277be7bd2a29715956b">7102994</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/ginkgo/v2 from 2.9.3 to 2.9.5 (<a href="https://github.com/runfinch/finch/issues/400">#400</a>) (<a href="https://github.com/runfinch/finch/commit/65458f1b0c20705e724ac07356d87dd47ae2000c">65458f1</a>)</li>
+<li><strong>deps:</strong> Bump github.com/shirou/gopsutil/v3 from 3.23.3 to 3.23.4 (<a href="https://github.com/runfinch/finch/issues/389">#389</a>) (<a href="https://github.com/runfinch/finch/commit/76b31c0c453935f22588523f65888e103581cd89">76b31c0</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/crypto from 0.8.0 to 0.9.0 (<a href="https://github.com/runfinch/finch/issues/397">#397</a>) (<a href="https://github.com/runfinch/finch/commit/f15c2ee576416c0cb25de45438bd894ca6b1fdcb">f15c2ee</a>)</li>
+<li><strong>deps:</strong> Bump submodules (<a href="https://github.com/runfinch/finch/issues/375">#375</a>) (<a href="https://github.com/runfinch/finch/commit/70fe4c3e0320f237d2e4501fbe2bc4d3320ef3e9">70fe4c3</a>)</li>
+</ul>
+<h2 id="060-2023-04-20"><a href="https://github.com/runfinch/finch/compare/v0.5.0...v0.6.0">0.6.0</a> (2023-04-20)<a class="headerlink" href="#060-2023-04-20" title="Permanent link">&para;</a></h2>
+<h3 id="features_3">Features<a class="headerlink" href="#features_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>add experimental support for Cosign signing and verification (<a href="https://github.com/runfinch/finch/issues/296">#296</a>) (<a href="https://github.com/runfinch/finch/commit/84c2634b7c1226ba9746d0cda4d22ec571454160">84c2634</a>)</li>
+</ul>
+<h3 id="bug-fixes_6">Bug Fixes<a class="headerlink" href="#bug-fixes_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>always force stop when using Virtualization.framework (<a href="https://github.com/runfinch/finch/issues/350">#350</a>) (<a href="https://github.com/runfinch/finch/commit/c521f1f65d406094c653b7a78d0009285b9fc627">c521f1f</a>)</li>
+<li>explicitly set permissions for socket_vmnet dependencies (<a href="https://github.com/runfinch/finch/issues/363">#363</a>) (<a href="https://github.com/runfinch/finch/commit/0801b8841776e7a08d2a0826bbca535310b02f37">0801b88</a>)</li>
+</ul>
+<h3 id="build-system-or-external-dependencies_6">Build System or External Dependencies<a class="headerlink" href="#build-system-or-external-dependencies_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>add local-core Makefile target (<a href="https://github.com/runfinch/finch/issues/351">#351</a>) (<a href="https://github.com/runfinch/finch/commit/f86c56f68273cc4d8c9584477793fc7efa148e76">f86c56f</a>)</li>
+<li><strong>deps:</strong> Bump github.com/docker/docker from 23.0.1+incompatible to 23.0.2+incompatible (<a href="https://github.com/runfinch/finch/issues/320">#320</a>) (<a href="https://github.com/runfinch/finch/commit/ee3df9a31e4ebab872001ba7756a81a49aaa9ad5">ee3df9a</a>)</li>
+<li><strong>deps:</strong> Bump github.com/docker/docker from 23.0.2+incompatible to 23.0.3+incompatible (<a href="https://github.com/runfinch/finch/issues/343">#343</a>) (<a href="https://github.com/runfinch/finch/commit/6cfbb9ffa3a9bc3b3c06235dffbc6c7625d5aede">6cfbb9f</a>)</li>
+<li><strong>deps:</strong> Bump github.com/lima-vm/lima from 0.15.0 to 0.15.1 (<a href="https://github.com/runfinch/finch/issues/365">#365</a>) (<a href="https://github.com/runfinch/finch/commit/1d3ee985427e601bf3f5659c3bba13467ec01ce0">1d3ee98</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/gomega from 1.27.5 to 1.27.6 (<a href="https://github.com/runfinch/finch/issues/331">#331</a>) (<a href="https://github.com/runfinch/finch/commit/fe388a31f830f854abacb06729ddf710040e9e62">fe388a3</a>)</li>
+<li><strong>deps:</strong> Bump github.com/runfinch/common-tests from 0.6.4 to 0.6.5 (<a href="https://github.com/runfinch/finch/issues/357">#357</a>) (<a href="https://github.com/runfinch/finch/commit/dc848640b719c623dbf606439e6e3e1d9dcd02d6">dc84864</a>)</li>
+<li><strong>deps:</strong> Bump github.com/runfinch/common-tests version from v0.6.2 to v0.6.3 (<a href="https://github.com/runfinch/finch/issues/328">#328</a>) (<a href="https://github.com/runfinch/finch/commit/1c44b3e270aa2e2ebb237e86f17f3a9519ec124b">1c44b3e</a>)</li>
+<li><strong>deps:</strong> Bump github.com/spf13/cobra from 1.6.1 to 1.7.0 (<a href="https://github.com/runfinch/finch/issues/341">#341</a>) (<a href="https://github.com/runfinch/finch/commit/6a77f721f35779bd112d5e1206bf034940a43a23">6a77f72</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/crypto from 0.7.0 to 0.8.0 (<a href="https://github.com/runfinch/finch/issues/349">#349</a>) (<a href="https://github.com/runfinch/finch/commit/82b27c9bb1424ef47fe05cf805aebc337af3bc5e">82b27c9</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/tools from 0.7.0 to 0.8.0 (<a href="https://github.com/runfinch/finch/issues/348">#348</a>) (<a href="https://github.com/runfinch/finch/commit/aaca2c994a2c146e751c43fbb4fabb78041da98d">aaca2c9</a>)</li>
+<li><strong>deps:</strong> Bump k8s.io/apimachinery from 0.26.3 to 0.27.1 (<a href="https://github.com/runfinch/finch/issues/366">#366</a>) (<a href="https://github.com/runfinch/finch/commit/b93d3a8ed8eef42321200ac1386b61765e0b8348">b93d3a8</a>)</li>
+<li><strong>deps:</strong> Bump lima version (<a href="https://github.com/runfinch/finch/issues/354">#354</a>) (<a href="https://github.com/runfinch/finch/commit/c721ee69f470eaf81b24fc043f088713fce88ad6">c721ee6</a>)</li>
+<li><strong>deps:</strong> Bump lima version (<a href="https://github.com/runfinch/finch/issues/362">#362</a>) (<a href="https://github.com/runfinch/finch/commit/5e03a4d40c63a8fcc5a79bdda2ebfec6f993db3c">5e03a4d</a>)</li>
+<li><strong>deps:</strong> Bump lima version (<a href="https://github.com/runfinch/finch/issues/368">#368</a>) (<a href="https://github.com/runfinch/finch/commit/8e4dfe4092a959d853549ed980e1c36a9e630be8">8e4dfe4</a>)</li>
+<li><strong>deps:</strong> Bump submodules (<a href="https://github.com/runfinch/finch/issues/340">#340</a>) (<a href="https://github.com/runfinch/finch/commit/daed9e24228b82b6d45c2eb43e86101b2a4420c9">daed9e2</a>)</li>
+<li><strong>deps:</strong> Bump submodules (<a href="https://github.com/runfinch/finch/issues/371">#371</a>) (<a href="https://github.com/runfinch/finch/commit/19fc0c5d16a6d2fb876b05575420a8080c8a3562">19fc0c5</a>)</li>
+</ul>
+<h2 id="050-2023-03-29"><a href="https://github.com/runfinch/finch/compare/v0.4.1...v0.5.0">0.5.0</a> (2023-03-29)<a class="headerlink" href="#050-2023-03-29" title="Permanent link">&para;</a></h2>
+<h3 id="features_4">Features<a class="headerlink" href="#features_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>adds support bundles (<a href="https://github.com/runfinch/finch/issues/210">#210</a>) (<a href="https://github.com/runfinch/finch/commit/cc6be6577c97697e99112a7b693eff2664b747ef">cc6be65</a>)</li>
+</ul>
+<h3 id="bug-fixes_7">Bug Fixes<a class="headerlink" href="#bug-fixes_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Correctly set and pick up environment variables (<a href="https://github.com/runfinch/finch/issues/315">#315</a>) (<a href="https://github.com/runfinch/finch/commit/05227ce03055223bc7ffd10c634cc75a9632634e">05227ce</a>)</li>
+<li>print debug logs after newline (<a href="https://github.com/runfinch/finch/issues/273">#273</a>) (<a href="https://github.com/runfinch/finch/commit/8faa7de81bbb5eb222c5abb4b1239ef8b27e15cb">8faa7de</a>)</li>
+<li>print debug logs when lima disk command fails (<a href="https://github.com/runfinch/finch/issues/270">#270</a>) (<a href="https://github.com/runfinch/finch/commit/78a3f5002e10442bf818015de55b940cd4bcf19d">78a3f50</a>)</li>
+</ul>
+<h3 id="experimental">Experimental<a class="headerlink" href="#experimental" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>feat:</strong> enable Virtualization.framework and Rosetta (<a href="https://github.com/runfinch/finch/issues/282">#282</a>) (<a href="https://github.com/runfinch/finch/commit/fd3bf19ae454b493fd7f9b1b85a5522881020af1">fd3bf19</a>)</li>
+</ul>
+<h3 id="build-system-or-external-dependencies_7">Build System or External Dependencies<a class="headerlink" href="#build-system-or-external-dependencies_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>clean up finch-core _output directory in clean target (<a href="https://github.com/runfinch/finch/issues/290">#290</a>) (<a href="https://github.com/runfinch/finch/commit/4684a959205a1f701ede8b59e7822354cb7d0d70">4684a95</a>)</li>
+<li><strong>deps:</strong> bump github.com/onsi/ginkgo/v2 from 2.8.4 to 2.9.0 (<a href="https://github.com/runfinch/finch/issues/265">#265</a>) (<a href="https://github.com/runfinch/finch/commit/7e2d49e8b09c4167a6e3ad5df4a6f6d9ab9ca728">7e2d49e</a>)</li>
+<li><strong>deps:</strong> bump github.com/onsi/ginkgo/v2 from 2.9.0 to 2.9.1 (<a href="https://github.com/runfinch/finch/issues/285">#285</a>) (<a href="https://github.com/runfinch/finch/commit/d741a03ac368673432a29f45f5fdaa6f6580fbc9">d741a03</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/gomega from 1.27.3 to 1.27.5 (<a href="https://github.com/runfinch/finch/issues/312">#312</a>) (<a href="https://github.com/runfinch/finch/commit/e07823454ba86701ff7316e8c44e78d1c5ceb454">e078234</a>)</li>
+<li><strong>deps:</strong> bump github.com/runfinch/common-tests from 0.6.1 to 0.6.2 (<a href="https://github.com/runfinch/finch/issues/300">#300</a>) (<a href="https://github.com/runfinch/finch/commit/dd626a024203ec28bba46bf1e1c65b1b6644334d">dd626a0</a>)</li>
+<li><strong>deps:</strong> bump github.com/spf13/afero from 1.9.4 to 1.9.5 (<a href="https://github.com/runfinch/finch/issues/263">#263</a>) (<a href="https://github.com/runfinch/finch/commit/a0e277f8cba008e2422d11fac26f33640a2ab160">a0e277f</a>)</li>
+<li><strong>deps:</strong> bump golang.org/x/crypto from 0.6.0 to 0.7.0 (<a href="https://github.com/runfinch/finch/issues/264">#264</a>) (<a href="https://github.com/runfinch/finch/commit/ec1c07ff3567396fb0f5a461ece2b048133cce68">ec1c07f</a>)</li>
+<li><strong>deps:</strong> bump golang.org/x/tools from 0.6.0 to 0.7.0 (<a href="https://github.com/runfinch/finch/issues/268">#268</a>) (<a href="https://github.com/runfinch/finch/commit/8072e39172831c8f3c18b8d17b186ec4a421d830">8072e39</a>)</li>
+<li><strong>deps:</strong> bump k8s.io/apimachinery from 0.26.2 to 0.26.3 (<a href="https://github.com/runfinch/finch/issues/306">#306</a>) (<a href="https://github.com/runfinch/finch/commit/fe392cb07cb4ca50b064bbb6f6667b7942047ffb">fe392cb</a>)</li>
+<li><strong>deps:</strong> Bump lima version (<a href="https://github.com/runfinch/finch/issues/302">#302</a>) (<a href="https://github.com/runfinch/finch/commit/026974314254df1e4047ea5130ba50464608bb1d">0269743</a>)</li>
+<li><strong>deps:</strong> Bump submodules (<a href="https://github.com/runfinch/finch/issues/281">#281</a>) (<a href="https://github.com/runfinch/finch/commit/d4fd1f6902d51985c829808c65738e38f7e2cdd1">d4fd1f6</a>)</li>
+<li><strong>deps:</strong> Bump submodules (<a href="https://github.com/runfinch/finch/issues/304">#304</a>) (<a href="https://github.com/runfinch/finch/commit/b38af9fe0e5c4ffb3eb94641d70dd16e3fe7c833">b38af9f</a>)</li>
+<li><strong>deps:</strong> Bump submodules (<a href="https://github.com/runfinch/finch/issues/307">#307</a>) (<a href="https://github.com/runfinch/finch/commit/1a914ec11c9fcbbb56982c3361a3716ab7a946b2">1a914ec</a>)</li>
+<li><strong>deps:</strong> Bump submodules (<a href="https://github.com/runfinch/finch/issues/319">#319</a>) (<a href="https://github.com/runfinch/finch/commit/e671224bdb87983bce0db6e797ccfe71fb5dfc63">e671224</a>)</li>
+<li><strong>deps:</strong> Bump submodules (<a href="https://github.com/runfinch/finch/issues/332">#332</a>) (<a href="https://github.com/runfinch/finch/commit/5923ae2933e6cb2e9bf9e74db4584679af56c471">5923ae2</a>)</li>
+</ul>
+<h2 id="041-2023-03-02"><a href="https://github.com/runfinch/finch/compare/v0.4.0...v0.4.1">0.4.1</a> (2023-03-02)<a class="headerlink" href="#041-2023-03-02" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_8">Bug Fixes<a class="headerlink" href="#bug-fixes_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>parse --add-host special ip with equal sign (<a href="https://github.com/runfinch/finch/issues/229">#229</a>) (<a href="https://github.com/runfinch/finch/commit/fb4b62bc6987ed786da8f1a351ea8200206be941">fb4b62b</a>)</li>
+<li>switch from rootless containers to rootful containers (<a href="https://github.com/runfinch/finch/issues/232">#232</a>) (<a href="https://github.com/runfinch/finch/commit/ae43a0779c778cc3656724f84b5cdfd8ab087798">ae43a07</a>)</li>
+</ul>
+<h3 id="build-system-or-external-dependencies_8">Build System or External Dependencies<a class="headerlink" href="#build-system-or-external-dependencies_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>deps:</strong> Bump github.com/containerd/containerd from 1.6.14 to 1.6.18 (<a href="https://github.com/runfinch/finch/issues/223">#223</a>) (<a href="https://github.com/runfinch/finch/commit/748022258bcdb9f25b41d64cdffdee250c9e6274">7480222</a>)</li>
+<li><strong>deps:</strong> bump github.com/lima-vm/lima from 0.14.2 to 0.15.0 (<a href="https://github.com/runfinch/finch/issues/247">#247</a>) (<a href="https://github.com/runfinch/finch/commit/007081e6f1d07071b3e0535a87009f985702b2ee">007081e</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/ginkgo/v2 from 2.8.0 to 2.8.3 (<a href="https://github.com/runfinch/finch/issues/233">#233</a>) (<a href="https://github.com/runfinch/finch/commit/1185372b672e76373e4b7e798de9725bf6ecba50">1185372</a>)</li>
+<li><strong>deps:</strong> bump github.com/onsi/ginkgo/v2 from 2.8.3 to 2.8.4 (<a href="https://github.com/runfinch/finch/issues/245">#245</a>) (<a href="https://github.com/runfinch/finch/commit/5e647165f7dfccd185d2c0fa94c565309a5a54b0">5e64716</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/gomega from 1.26.0 to 1.27.1 (<a href="https://github.com/runfinch/finch/issues/234">#234</a>) (<a href="https://github.com/runfinch/finch/commit/cd43781b37750579905fc4e32d63f17ad1ec678f">cd43781</a>)</li>
+<li><strong>deps:</strong> bump github.com/onsi/gomega from 1.27.1 to 1.27.2 (<a href="https://github.com/runfinch/finch/issues/246">#246</a>) (<a href="https://github.com/runfinch/finch/commit/863c51e7262e720a93cfea90cf01b0477fd1a2d2">863c51e</a>)</li>
+<li><strong>deps:</strong> Bump github.com/runfinch/common-tests from 0.5.0 to 0.6.0 (<a href="https://github.com/runfinch/finch/issues/235">#235</a>) (<a href="https://github.com/runfinch/finch/commit/4a33a2e63c72e687030c70b13dcc5c5748606b86">4a33a2e</a>)</li>
+<li><strong>deps:</strong> Bump github.com/spf13/afero from 1.9.3 to 1.9.4 (<a href="https://github.com/runfinch/finch/issues/241">#241</a>) (<a href="https://github.com/runfinch/finch/commit/58f26e66be84cc6e566960fd81276fff5ee124c0">58f26e6</a>)</li>
+<li><strong>deps:</strong> bump github.com/stretchr/testify from 1.8.1 to 1.8.2 (<a href="https://github.com/runfinch/finch/issues/244">#244</a>) (<a href="https://github.com/runfinch/finch/commit/984af7008db46eb9e4eecac3050d05f6f76ebcca">984af70</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/crypto from 0.5.0 to 0.6.0 (<a href="https://github.com/runfinch/finch/issues/212">#212</a>) (<a href="https://github.com/runfinch/finch/commit/e1a36cf9ff39c1273761ca810e357e6200f31de8">e1a36cf</a>)</li>
+<li><strong>deps:</strong> bump k8s.io/apimachinery from 0.26.1 to 0.26.2 (<a href="https://github.com/runfinch/finch/issues/251">#251</a>) (<a href="https://github.com/runfinch/finch/commit/4a7268ede5d6f9d2fc3e30f167d2a4ebc91bb5f2">4a7268e</a>)</li>
+<li>update os image versions (<a href="https://github.com/runfinch/finch/issues/255">#255</a>) (<a href="https://github.com/runfinch/finch/commit/576765b2913b714d274bc1ab8b418f9ce9421b9d">576765b</a>)</li>
+</ul>
+<h2 id="040-2023-02-13"><a href="https://github.com/runfinch/finch/compare/v0.3.0...v0.4.0">0.4.0</a> (2023-02-13)<a class="headerlink" href="#040-2023-02-13" title="Permanent link">&para;</a></h2>
+<h3 id="breaking-changes">⚠ BREAKING CHANGES<a class="headerlink" href="#breaking-changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>persists nerdctl user data (<a href="https://github.com/runfinch/finch/issues/182">#182</a>)</li>
+</ul>
+<h3 id="features_5">Features<a class="headerlink" href="#features_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>adds a --force flag to vm stop and remove (<a href="https://github.com/runfinch/finch/issues/178">#178</a>) (<a href="https://github.com/runfinch/finch/commit/d499a7d712bcc726f331ff07f0e0855ddc9046fa">d499a7d</a>)</li>
+<li>Support special IP host-gateway in --add-host flag (<a href="https://github.com/runfinch/finch/issues/216">#216</a>) (<a href="https://github.com/runfinch/finch/commit/9a38c8e6bc8aa155cda0cdc5b4d80bb12bac8eb8">9a38c8e</a>)</li>
+</ul>
+<h3 id="bug-fixes_9">Bug Fixes<a class="headerlink" href="#bug-fixes_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>correctly handle local environment value pass-through (<a href="https://github.com/runfinch/finch/issues/158">#158</a>) (<a href="https://github.com/runfinch/finch/commit/e138f1053fe9219ae6584e49d38c43f306b75e6b">e138f10</a>)</li>
+<li>persists nerdctl user data (<a href="https://github.com/runfinch/finch/issues/182">#182</a>) (<a href="https://github.com/runfinch/finch/commit/59f372cb0875f800015abe989d4eba6b8df92e42">59f372c</a>)</li>
+<li>persists network user data (<a href="https://github.com/runfinch/finch/issues/211">#211</a>) (<a href="https://github.com/runfinch/finch/commit/f6baf82171d6c487efb21bc0eb45d772124e04b2">f6baf82</a>)</li>
+</ul>
+<h3 id="build-system-or-external-dependencies_9">Build System or External Dependencies<a class="headerlink" href="#build-system-or-external-dependencies_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>deps:</strong> Bump github.com/google/go-licenses from 1.5.0 to 1.6.0 (<a href="https://github.com/runfinch/finch/issues/168">#168</a>) (<a href="https://github.com/runfinch/finch/commit/bb5674c846a094d06203449c83a90bd4eaf71a53">bb5674c</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/ginkgo/v2 from 2.7.0 to 2.7.1 (<a href="https://github.com/runfinch/finch/issues/193">#193</a>) (<a href="https://github.com/runfinch/finch/commit/7aaa381cebc0e5306fc78f0de576f4065eb89cd8">7aaa381</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/ginkgo/v2 from 2.7.1 to 2.8.0 (<a href="https://github.com/runfinch/finch/issues/200">#200</a>) (<a href="https://github.com/runfinch/finch/commit/596ed337f03a4a1f861aceaa6844b1acc55355aa">596ed33</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/gomega from 1.25.0 to 1.26.0 (<a href="https://github.com/runfinch/finch/issues/183">#183</a>) (<a href="https://github.com/runfinch/finch/commit/12661b789f6b9162392d698f07a69e34ae391ab8">12661b7</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/tools from 0.5.0 to 0.6.0 (<a href="https://github.com/runfinch/finch/issues/215">#215</a>) (<a href="https://github.com/runfinch/finch/commit/decf250bae9e1cce8c0cb78daee62e7160fc0027">decf250</a>)</li>
+<li><strong>deps:</strong> Bump k8s.io/apimachinery from 0.26.0 to 0.26.1 (<a href="https://github.com/runfinch/finch/issues/174">#174</a>) (<a href="https://github.com/runfinch/finch/commit/829b0bc05824203e60609264c18d075c1eea845b">829b0bc</a>)</li>
+<li>make finch-core a submodule instead of downloading archives (<a href="https://github.com/runfinch/finch/issues/188">#188</a>) (<a href="https://github.com/runfinch/finch/commit/b08f588cd13b7a1a7c457f279b74489e9df09fb5">b08f588</a>)</li>
+</ul>
+<h2 id="030-2023-01-18"><a href="https://github.com/runfinch/finch/compare/v0.2.0...v0.3.0">0.3.0</a> (2023-01-18)<a class="headerlink" href="#030-2023-01-18" title="Permanent link">&para;</a></h2>
+<h3 id="breaking-changes_1">⚠ BREAKING CHANGES<a class="headerlink" href="#breaking-changes_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>changes persistent disk path to prevent collisions</li>
+</ul>
+<h3 id="features_6">Features<a class="headerlink" href="#features_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>add <code>finch vm status</code> command (<a href="https://github.com/runfinch/finch/issues/83">#83</a>) (<a href="https://github.com/runfinch/finch/commit/37d74d0b82c41f439715d0a07e723fd5e5a9a617">37d74d0</a>)</li>
+</ul>
+<h3 id="bug-fixes_10">Bug Fixes<a class="headerlink" href="#bug-fixes_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>changes persistent disk path to prevent collisions (<a href="https://github.com/runfinch/finch/commit/3eb66a21bcbf56dd8e4465bfc3ed840903b069d9">3eb66a2</a>)</li>
+</ul>
+<h3 id="build-system-or-external-dependencies_10">Build System or External Dependencies<a class="headerlink" href="#build-system-or-external-dependencies_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>deps:</strong> Bump github.com/onsi/gomega from 1.24.2 to 1.25.0 (<a href="https://github.com/runfinch/finch/issues/165">#165</a>) (<a href="https://github.com/runfinch/finch/commit/e4b9e96713feac19bc73dfc2dd788a80c28a064f">e4b9e96</a>)</li>
+<li><strong>deps:</strong> Bump github.com/runfinch/common-tests from 0.2.0 to 0.3.0 (<a href="https://github.com/runfinch/finch/issues/151">#151</a>) (<a href="https://github.com/runfinch/finch/commit/79df04ef62df615c19070e607a060769ab09e7a0">79df04e</a>)</li>
+<li><strong>deps:</strong> Bump github.com/runfinch/common-tests version from v0.3.0 to v0.3.1 (<a href="https://github.com/runfinch/finch/issues/169">#169</a>) (<a href="https://github.com/runfinch/finch/commit/16157fe3adfc8be19899700ae3f1cd5c1a848304">16157fe</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/crypto from 0.4.0 to 0.5.0 (<a href="https://github.com/runfinch/finch/issues/144">#144</a>) (<a href="https://github.com/runfinch/finch/commit/603419a703154e8a8eac404da2b9aeb76c5b3333">603419a</a>)</li>
+</ul>
+<h2 id="020-2023-01-11"><a href="https://github.com/runfinch/finch/compare/v0.1.1...v0.2.0">0.2.0</a> (2023-01-11)<a class="headerlink" href="#020-2023-01-11" title="Permanent link">&para;</a></h2>
+<h3 id="features_7">Features<a class="headerlink" href="#features_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>add <code>finch cp</code> command (<a href="https://github.com/runfinch/finch/issues/135">#135</a>) (<a href="https://github.com/runfinch/finch/commit/598936166c6fd4a6999e4d3e8d074447e122aea7">5989361</a>)</li>
+<li>add config to support additional directories (<a href="https://github.com/runfinch/finch/issues/128">#128</a>) (<a href="https://github.com/runfinch/finch/commit/0ceb0602c6e1b90b25fa9de19303ea6ccdece6d7">0ceb060</a>)</li>
+<li>Print version with Client and Server (<a href="https://github.com/runfinch/finch/issues/108">#108</a>) (<a href="https://github.com/runfinch/finch/commit/7f7cdda1d21e430c259eb24a82c6b5784606cbac">7f7cdda</a>)</li>
+<li>saves containerd user data to a persistent disk (<a href="https://github.com/runfinch/finch/issues/133">#133</a>) (<a href="https://github.com/runfinch/finch/commit/fccb4f3530b5abc7943db921c25c4f01ea76d725">fccb4f3</a>)</li>
+</ul>
+<h3 id="bug-fixes_11">Bug Fixes<a class="headerlink" href="#bug-fixes_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Configure Buildkit Namespace as Env Variable (<a href="https://github.com/runfinch/finch/issues/129">#129</a>) (<a href="https://github.com/runfinch/finch/commit/ffb90beeeeef7cb8db5706f9198e06d6e111f53f">ffb90be</a>)</li>
+<li>fix the misleading log when applying invalid config (<a href="https://github.com/runfinch/finch/issues/119">#119</a>) (<a href="https://github.com/runfinch/finch/commit/b4f74c5a61f78034cc761ea3977b17e36a624692">b4f74c5</a>)</li>
+<li>ignore .ssh pub keys (<a href="https://github.com/runfinch/finch/issues/109">#109</a>) (<a href="https://github.com/runfinch/finch/commit/0b745979ae142c73e3ef5be8d6fd31f142a5d6cd">0b74597</a>)</li>
+</ul>
+<h3 id="build-system-or-external-dependencies_11">Build System or External Dependencies<a class="headerlink" href="#build-system-or-external-dependencies_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>deps:</strong> Bump github.com/lima-vm/lima from 0.13.0 to 0.14.0 (<a href="https://github.com/runfinch/finch/issues/113">#113</a>) (<a href="https://github.com/runfinch/finch/commit/9b275bc807ef6498c8bf38f49e8347b6e0f0b99b">9b275bc</a>)</li>
+<li><strong>deps:</strong> Bump github.com/lima-vm/lima from 0.14.0 to 0.14.1 (<a href="https://github.com/runfinch/finch/issues/120">#120</a>) (<a href="https://github.com/runfinch/finch/commit/9dea79434e800cf72fa511195011f8fa04fc87d6">9dea794</a>)</li>
+<li><strong>deps:</strong> Bump github.com/lima-vm/lima from 0.14.1 to 0.14.2 (<a href="https://github.com/runfinch/finch/issues/130">#130</a>) (<a href="https://github.com/runfinch/finch/commit/26b7b094814db88d500621b581ba8d6f676a21bc">26b7b09</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/ginkgo/v2 from 2.5.1 to 2.6.0 (<a href="https://github.com/runfinch/finch/issues/114">#114</a>) (<a href="https://github.com/runfinch/finch/commit/934521c9bf763c0c4106394b40b158c89390b022">934521c</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/ginkgo/v2 from 2.6.0 to 2.6.1 (<a href="https://github.com/runfinch/finch/issues/121">#121</a>) (<a href="https://github.com/runfinch/finch/commit/becbc443a5084ad15e916b41f8aa0f28791b4973">becbc44</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/gomega from 1.24.1 to 1.24.2 (<a href="https://github.com/runfinch/finch/issues/122">#122</a>) (<a href="https://github.com/runfinch/finch/commit/d8174ff773f0f92ec94d6d97c753a872a98f74a0">d8174ff</a>)</li>
+<li><strong>deps:</strong> Bump github.com/runfinch/common-tests from 0.1.1 to 0.2.0 (<a href="https://github.com/runfinch/finch/issues/125">#125</a>) (<a href="https://github.com/runfinch/finch/commit/1bac92a99f2e031792018dedfb6425488af51f1e">1bac92a</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/crypto from 0.3.0 to 0.4.0 (<a href="https://github.com/runfinch/finch/issues/102">#102</a>) (<a href="https://github.com/runfinch/finch/commit/d2778e3b2b123f1e7882920f16c4d91f9f96304e">d2778e3</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/crypto from 0.4.0 to 0.5.0 (<a href="https://github.com/runfinch/finch/issues/138">#138</a>) (<a href="https://github.com/runfinch/finch/commit/8d06eecdc94fb284da6f6587ba031a898d30ba5f">8d06eec</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/tools from 0.3.0 to 0.4.0 (<a href="https://github.com/runfinch/finch/issues/101">#101</a>) (<a href="https://github.com/runfinch/finch/commit/b3c4df1e65bfc95b120b243c2c10463436994d06">b3c4df1</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/tools from 0.4.0 to 0.5.0 (<a href="https://github.com/runfinch/finch/issues/139">#139</a>) (<a href="https://github.com/runfinch/finch/commit/89194dc52757d8f30a8fe8621115e184299bf3e7">89194dc</a>)</li>
+<li><strong>deps:</strong> Bump k8s.io/apimachinery from 0.25.4 to 0.26.0 (<a href="https://github.com/runfinch/finch/issues/115">#115</a>) (<a href="https://github.com/runfinch/finch/commit/e9084a413330799ed01da94f826518f30f33a83b">e9084a4</a>)</li>
+<li><strong>deps:</strong> Bump lima version (<a href="https://github.com/runfinch/finch/issues/141">#141</a>) (<a href="https://github.com/runfinch/finch/commit/35da07d7cc65fe5749a7eb665413824cf3115a08">35da07d</a>)</li>
+</ul>
+<h2 id="011-2022-12-06"><a href="https://github.com/runfinch/finch/compare/v0.1.0...v0.1.1">0.1.1</a> (2022-12-06)<a class="headerlink" href="#011-2022-12-06" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_12">Bug Fixes<a class="headerlink" href="#bug-fixes_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>added the contrib folder to be ignored by CI (<a href="https://github.com/runfinch/finch/issues/92">#92</a>) (<a href="https://github.com/runfinch/finch/commit/3415f2a6683b0218816e189c7ed47100a031d45c">3415f2a</a>)</li>
+<li>error readable by using the right placeholder (<a href="https://github.com/runfinch/finch/issues/39">#39</a>) (<a href="https://github.com/runfinch/finch/commit/8e5f38d2b994dadf53f57430eaa0a59b8cafd2f8">8e5f38d</a>)</li>
+<li>Change amd64 runner to 10.15 OS version for amd64 build (<a href="https://github.com/runfinch/finch/issues/72">#72</a>) (<a href="https://github.com/runfinch/finch/commit/78a646e67402a14c57c2acc2704cf3e060b5c29f">78a646e</a>)</li>
+</ul>
+<h3 id="build-system-or-external-dependencies_12">Build System or External Dependencies<a class="headerlink" href="#build-system-or-external-dependencies_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>deps:</strong> bump finch-core to 0.1.1 (<a href="https://github.com/runfinch/finch/issues/93">#93</a>) (<a href="https://github.com/runfinch/finch/commit/3f3bce568ede67c8c54dd92212ec5882443c966f">3f3bce5</a>)</li>
+<li><strong>deps:</strong> Bump github.com/lima-vm/lima from 0.12.0 to 0.13.0 (<a href="https://github.com/runfinch/finch/issues/40">#40</a>) (<a href="https://github.com/runfinch/finch/commit/520cc7f06f9a98652fb077822f1a752da26f7bb9">520cc7f</a>)</li>
+<li><strong>deps:</strong> Bump github.com/onsi/ginkgo/v2 from 2.5.0 to 2.5.1 (<a href="https://github.com/runfinch/finch/issues/50">#50</a>) (<a href="https://github.com/runfinch/finch/commit/fa108fd958649578d08b20725ead6ce7a5a190db">fa108fd</a>)</li>
+<li><strong>deps:</strong> Bump github.com/runfinch/common-tests version from v0.1.0 to v0.1.1 (<a href="https://github.com/runfinch/finch/issues/76">#76</a>) (<a href="https://github.com/runfinch/finch/commit/fd22d4afafd387eda404a7286952f85c80fa5418">fd22d4a</a>)</li>
+<li><strong>deps:</strong> Bump github.com/spf13/afero from 1.9.2 to 1.9.3 (<a href="https://github.com/runfinch/finch/issues/43">#43</a>) (<a href="https://github.com/runfinch/finch/commit/bf0ad849a90ded53b66b01031e1960bd7803b224">bf0ad84</a>)</li>
+<li><strong>deps:</strong> Bump github.com/stretchr/testify from 1.8.0 to 1.8.1 (<a href="https://github.com/runfinch/finch/issues/44">#44</a>) (<a href="https://github.com/runfinch/finch/commit/31c6d70748b9346c9468e3f2882f7e6b8b27bd6b">31c6d70</a>)</li>
+<li><strong>deps:</strong> Bump github.com/xorcare/pointer from 1.2.1 to 1.2.2 (<a href="https://github.com/runfinch/finch/issues/42">#42</a>) (<a href="https://github.com/runfinch/finch/commit/8e83137a1cd12fe1d47187bb96e362ec8d34ca4b">8e83137</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/crypto from 0.1.0 to 0.3.0 (<a href="https://github.com/runfinch/finch/issues/49">#49</a>) (<a href="https://github.com/runfinch/finch/commit/89826cf141253746395259438788bb6150410727">89826cf</a>)</li>
+<li><strong>deps:</strong> Bump golang.org/x/tools from 0.2.0 to 0.3.0 (<a href="https://github.com/runfinch/finch/issues/52">#52</a>) (<a href="https://github.com/runfinch/finch/commit/27c8f24aa1219d397e67f264a45cdcd96e5a23a5">27c8f24</a>)</li>
+<li><strong>deps:</strong> Bump k8s.io/apimachinery from 0.25.2 to 0.25.4 (<a href="https://github.com/runfinch/finch/issues/51">#51</a>) (<a href="https://github.com/runfinch/finch/commit/8f157797cdfedda17cca36fe0a5458a582e7b4a2">8f15779</a>)</li>
+<li><strong>deps:</strong> Bump lima version (<a href="https://github.com/runfinch/finch/issues/75">#75</a>) (<a href="https://github.com/runfinch/finch/commit/cfaa4f6b79af2eba3cfceff0b0e65f44329d1e78">cfaa4f6</a>)</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Amazon 2023
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
