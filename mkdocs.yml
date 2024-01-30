@@ -8,7 +8,7 @@ nav:
   - Home:
       - "index.md"
       - Architecture:
-          - macOS Architecture: "architecture/macos.md"
+          - "architecture/index.md"
   - Docs:
       - "docs/index.md"
       - Getting Started:
@@ -23,6 +23,11 @@ nav:
              - Disk Management: "docs/managing-finch/macos/disk-management.md"
              - Upgrading Finch: "docs/managing-finch/macos/upgrading-finch.md"
              - Uninstalling Finch: "docs/managing-finch/macos/uninstalling-finch.md"
+          - Windows:
+             - Installation: "docs/managing-finch/windows/installation.md"
+             - WSL Configuration: "docs/managing-finch/windows/wsl-configuration.md"
+             - Upgrading Finch: "docs/managing-finch/windows/upgrading-finch.md"
+             - Uninstalling Finch: "docs/managing-finch/windows/uninstalling-finch.md"
       - Container Images:
           - Registry Authentication: "docs/container-images/authentication.md"
           - Lazy Loading: "docs/container-images/lazy-loading.md"
@@ -61,6 +66,7 @@ theme:
     - navigation.indexes
     - navigation.sections
     - content.code.copy
+    - content.tabs.link
 
 copyright: Copyright &copy; Amazon 2023
 
@@ -70,6 +76,9 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.tabbed:
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
       alternate_style: true
   - toc:
       permalink: true
@@ -77,3 +86,6 @@ markdown_extensions:
 plugins:
   - search
   - awesome-pages
+  - redirects:
+      redirect_maps:
+        'architecture/macos.md': 'architecture/index.md#macos'

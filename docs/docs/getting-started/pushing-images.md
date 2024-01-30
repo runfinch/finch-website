@@ -31,14 +31,24 @@ different.
    `finch tag` command. The following example renames the container image to an
    Amazon ECR container image repo repository.
 
-    ```bash
-    export AWS_REGION=eu-west-1
-    export AWS_ACCOUNT_ID=111222333444
+    === "macOS / bash"
+        ```bash
+        export AWS_ACCOUNT_ID=111222333444
+        export AWS_REGION=eu-west-1
 
-    finch tag \
-      hello-finch:latest \
-      $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
-    ```
+        finch tag \
+        hello-finch:latest \
+        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        $AWS_ACCOUNT_ID="111222333444"
+        $AWS_REGION="eu-west-1"
+
+        finch tag `
+        hello-finch:latest `
+        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
+        ```
 
 3. The Amazon ECR registry requires an authentication token to push and pull
    images. Therefore we need to login first with `finch login`. This may be
@@ -59,8 +69,7 @@ different.
    machine up to the container image repository.
 
     ```bash
-    finch push \
-      $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
+    finch push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
     ```
 
 4. With the AWS Console or the AWS CLI we can verify that the container image
@@ -102,14 +111,24 @@ to the container registry.
    repository is included in the tag. The following example pushes a container
    image to an Amazon ECR repository.
 
-    ```bash
-    export AWS_REGION=eu-west-1
-    export AWS_ACCOUNT_ID=111222333444
+    === "macOS / bash"
+        ```bash
+        export AWS_ACCOUNT_ID=111222333444
+        export AWS_REGION=eu-west-1
 
-    finch tag \
-      hello-finch:latest \
-      $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
-    ```
+        finch tag \
+            hello-finch:latest \
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        $AWS_ACCOUNT_ID="111222333444"
+        $AWS_REGION="eu-west-1"
+
+        finch tag `
+            hello-finch:latest `
+            "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest"
+        ```
 
     You can verify both images have been re tagged using the `finch image list`
     command.
@@ -146,11 +165,18 @@ to the container registry.
 4. Push the container images up to the container registry using the `--platform`
    flag to specify the architecture(s) you want to push.
 
-    ```bash
-    finch push \
-      --platform linux/arm64,linux/amd64 \
-      $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
-    ```
+    === "macOS / bash"
+        ```bash
+        finch push \
+            --platform linux/arm64,linux/amd64 \
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch push `
+            --platform linux/arm64,linux/amd64 `
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
+        ```
 
 5. With the AWS Console or the AWS CLI we can verify that the container image
    has been successfully pushed. In the output below, you can see there are 3

@@ -47,13 +47,22 @@ the container image with `finch tag`, adding the destination repository to the
 container image name. To generate the SOCI index and to push the container image
 use the `finch push --snapshotter soci` command.
 
-```bash
-AWS_ACCOUNT_ID=111222333444
-AWS_REGION=eu-west-1
+=== "macOS / bash"
+    ```bash
+    AWS_ACCOUNT_ID=111222333444
+    AWS_REGION=eu-west-1
 
-$ finch push --snapshotter soci \
-    $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/myimage:latest
-```
+    finch push --snapshotter soci \
+        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/myimage:latest
+    ```
+=== "Windows / PowerShell"
+    ```powershell
+    $AWS_ACCOUNT_ID="111222333444"
+    $AWS_REGION="eu-west-1"
+
+    finch push --snapshotter soci `
+        "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/myimage:latest"
+    ```
 
 In the output, you will see that Finch first pushes the container image up to the
 container registry.
@@ -93,13 +102,22 @@ image.
 
 To run the container, you need to pass `--snapshotter soci` into the `finch run` command.
 
-```bash
-AWS_ACCOUNT_ID=111222333444
-AWS_REGION=eu-west-1
+=== "macOS / bash"
+    ```bash
+    AWS_ACCOUNT_ID=111222333444
+    AWS_REGION=eu-west-1
 
-$ finch run --snapshotter soci \
-    $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/myimage:latest
-```
+    finch run --snapshotter soci \
+        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/myimage:latest
+    ```
+=== "Windows / PowerShell"
+    ```powershell
+    $AWS_ACCOUNT_ID="111222333444"
+    $AWS_REGION="eu-west-1"
+
+    finch run --snapshotter soci `
+        "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/myimage:latest"
+    ```
 
 **Successful Lazy Loading**
 

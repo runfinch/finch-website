@@ -21,18 +21,32 @@ set as local context to use.
    define the `hello-finch` service and provide a context for the container
    image build.
 
-    ```bash
-    git clone https://github.com/runfinch/finch.git
-    cd finch/contrib/hello-finch
+    === "macOS / bash"
+        ```bash
+        git clone https://github.com/runfinch/finch.git
+        cd finch/contrib/hello-finch
 
-    # Add a Docker Compose File to the Directory
-    cat <<EOF > docker-compose.yml
-    services:
-      hello-finch:
-        image: hello-finch
-        build: .
-    EOF
-    ```
+        # Add a Docker Compose File to the Directory
+        cat <<EOF > docker-compose.yml
+        services:
+          hello-finch:
+            image: hello-finch
+            build: .
+        EOF
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        git clone https://github.com/runfinch/finch.git
+        cd finch/contrib/hello-finch
+
+        # Add a Docker Compose File to the Directory
+        @"
+        services:
+          hello-finch:
+            image: hello-finch
+            build: .
+        "@ > docker-compose.yml
+        ```
 
 2. Build the container images using `finch compose build`.
 
@@ -65,18 +79,32 @@ be started with the `finch compose up` command.
    define the `hello-finch` service and provide a context for the container
    image build.
 
-    ```bash
-    git clone https://github.com/runfinch/finch.git
-    cd finch/contrib/hello-finch
+    === "macOS / bash"
+        ```bash
+        git clone https://github.com/runfinch/finch.git
+        cd finch/contrib/hello-finch
 
-    # Add a Docker Compose File to the Directory
-    cat <<EOF > docker-compose.yml
-    services:
-      hello-finch:
-        image: hello-finch
-        build: .
-    EOF
-    ```
+        # Add a Docker Compose File to the Directory
+        cat <<EOF > docker-compose.yml
+        services:
+          hello-finch:
+            image: hello-finch
+            build: .
+        EOF
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        git clone https://github.com/runfinch/finch.git
+        cd finch/contrib/hello-finch
+
+        # Add a Docker Compose File to the Directory
+        @"
+        services:
+          hello-finch:
+            image: hello-finch
+            build: .
+        "@ > docker-compose.yml
+        ```
 
 2. Next we will run the service with `finch compose up`, if the container image
    does not exist locally, finch will build the container image before starting

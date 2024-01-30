@@ -61,12 +61,20 @@ to manage authentication tokens on your behalf.
     into Finch with the `finch login` command. By default this token expires after
     12 hours.
 
-    ```bash
-    export AWS_REGION=eu-west-1
-    export AWS_ACCOUNT_ID=111222333444
+    === "macOS / bash"
+        ```bash
+        export AWS_ACCOUNT_ID=111222333444
+        export AWS_REGION=eu-west-1
 
-    aws ecr get-login-password --region $AWS_REGION | finch login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
-    ```
+        aws ecr get-login-password --region $AWS_REGION | finch login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        $AWS_ACCOUNT_ID="111222333444"
+        $AWS_REGION="eu-west-1"
+
+        aws ecr get-login-password --region $AWS_REGION | finch login --username AWS --password-stdin "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com"
+        ```
 
     If the login has been successful, you should see:
 
