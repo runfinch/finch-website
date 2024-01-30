@@ -4,6 +4,7 @@ To install Finch, please see the dedicated section for each operating system
 family:
 
 - [macos](../managing-finch/macos/installation.md)
+- [Windows](../managing-finch/windows/installation.md)
 
 ## Verify the Finch Installation
 
@@ -55,7 +56,7 @@ with the following steps.
 
 ## Next Steps
 
-In this short guide you learned how to install Finch on to your macOS workstation and
+In this short guide you learned how to install Finch on to your workstation and
 start the virtual machine.
 
 * To learn how to run your first containerized application see [Running

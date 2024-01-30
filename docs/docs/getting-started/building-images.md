@@ -34,9 +34,7 @@ this guide we will clone this Finch repository, and build
    the image, as well as where the build context can be found.
 
     ```bash
-    finch build \
-      --tag hello-finch \
-      .
+    finch build --tag hello-finch .
     ```
 
 4. You can see the newly build container image in the image store using the
@@ -85,12 +83,20 @@ then you can use the `--platform` flag with `finch build`.
    `--platform` flag. Here you could specify a single architecture `--platform
    linux/amd64` or multiple architectures `--platform linux/arm64,linux/amd64`.
 
-    ```bash
-    finch build \
-      --platform linux/arm64,linux/amd64 \
-      --tag hello-finch \
-      .
-    ```
+    === "macOS / bash"
+        ```bash
+        finch build \
+          --platform linux/arm64,linux/amd64 \
+          --tag hello-finch \
+          .
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch build `
+          --platform linux/arm64,linux/amd64 `
+          --tag hello-finch `
+          .
+        ```
 
 4. You can see both container images in the local image store, with the `finch
    image list` command.

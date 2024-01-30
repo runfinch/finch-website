@@ -21,10 +21,17 @@ a container registry see [pushing
 images](../pushing-images/#authenticating-to-a-container-registry) documentation
 for instructions.
 
-```bash
-finch run \
-    public.ecr.aws/finch/hello-finch:latest
-```
+=== "macOS / bash"
+    ```bash
+    finch run \
+        public.ecr.aws/finch/hello-finch:latest
+    ```
+=== "Windows / PowerShell"
+    ```powershell
+    finch run `
+        public.ecr.aws/finch/hello-finch:latest
+    ```
+
 
 You should now see the ASCII art in your terminal.
 
@@ -62,11 +69,18 @@ running on, and the desired external port to the `--publish` flag for `finch
 run`. Note the external port has to be unique, multiple containers can not be
 exposed on to the same port.
 
-```bash
-finch run \
-    --publish 80:80 \
-    public.ecr.aws/nginx/nginx
-```
+=== "macOS / bash"
+    ```bash
+    finch run \
+        --publish 80:80 \
+        public.ecr.aws/nginx/nginx
+    ```
+=== "Windows / PowerShell"
+    ```powershell
+    finch run `
+        --publish 80:80 `
+        public.ecr.aws/nginx/nginx
+    ```
 
 Now in a web browser, you should be able to
 navigate to `localhost` and access the running web server container.
@@ -79,36 +93,61 @@ Popular `finch run` flags which will help you get started include:
 
 * Automatically clean up a container after it has exited with `--rm`.
 
-  ```bash
-  finch run \
-      --rm \
-      public.ecr.aws/finch/hello-finch:latest
+    === "macOS / bash"
+        ```bash
+        finch run \
+            --rm \
+            public.ecr.aws/finch/hello-finch:latest
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch run `
+            --rm `
+            public.ecr.aws/finch/hello-finch:latest
+        ```
 
-  # Verify that no existed container exists
-  $ finch ps \
-      --all
-  ```
+      * Verify that no existed container exists
+      ```bash
+        $ finch ps --all
+      ```
 
 * Start an interactive session into a container with the tty `--tty` and the
   interactive `--interactive` flags. Assuming your container image has a shell
   prompt, you will then be placed into the container where you can run commands.
 
-  ```bash
-  finch run \
-      --interactive \
-      --tty \
-      public.ecr.aws/docker/library/amazonlinux:latest \
-      /bin/bash
-  ```
+    === "macOS / bash"
+        ```bash
+        finch run \
+            --interactive \
+            --tty \
+            public.ecr.aws/docker/library/amazonlinux:latest \
+            /bin/bash
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch run `
+            --interactive `
+            --tty `
+            public.ecr.aws/docker/library/amazonlinux:latest `
+            /bin/bash
+        ```
 
 * Start a container as a background process with the `--detach` flag.
 
-  ```bash
-  finch run \
-      --detach \
-      --publish 80:80 \
-      public.ecr.aws/nginx/nginx
-  ```
+    === "macOS / bash"
+        ```bash
+        finch run \
+            --detach \
+            --publish 80:80 \
+            public.ecr.aws/nginx/nginx
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch run `
+            --detach `
+            --publish 80:80 `
+            public.ecr.aws/nginx/nginx
+        ```
 
 ## Next Steps
 

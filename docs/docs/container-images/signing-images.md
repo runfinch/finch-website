@@ -24,13 +24,7 @@ cosign](https://docs.sigstore.dev/cosign/signing_with_self-managed_keys/) or an
 [imported](https://docs.sigstore.dev/cosign/import-keypair/) existing key. To
 generate a new key:
 
-1. Export a cosign password that will be used to secure the private key.
-
-    ```bash
-    export COSIGN_PASSWORD=<mypassword>
-    ```
-
-2. Generate a cosign private and public key.
+1. Generate a cosign private and public key.
 
     ```bash
     cosign generate-key-pair
@@ -58,32 +52,57 @@ generate a new key:
    command is tagging the container image to an Amazon ECR repository URI, but
    this could be any OCI container registry.
 
-     ```bash
-     export AWS_ACCOUNT=111111111
-     export AWS_REGION=eu-west-1
+    === "macOS / bash"
+        ```bash
+        AWS_ACCOUNT_ID=111222333444
+        AWS_REGION=eu-west-1
 
-     finch tag \
-         public.ecr.aws/finch/hello-finch:latest \
-         $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
-     ```
+        finch tag \
+            public.ecr.aws/finch/hello-finch:latest \
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        $AWS_ACCOUNT_ID="111222333444"
+        $AWS_REGION="eu-west-1"
+
+        finch tag `
+            public.ecr.aws/finch/hello-finch:latest `
+            "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch"
+        ```
 
 3. Push and sign the container image with the `finch push --sign cosign`
    command.
 
-     ```bash
-     finch push \
-         --sign=cosign  \
-         --cosign-key cosign.key \
-         $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
-     ```
+    === "macOS / bash"
+        ```bash
+        finch push \
+            --sign=cosign  \
+            --cosign-key cosign.key \
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch push `
+            --sign=cosign  `
+            --cosign-key cosign.key `
+            "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch"
+        ```
 
 4. Verify the Container Image and the Signature with the `cosign verify` command.
 
-    ```bash
-    cosign verify \
-        --key cosign.pub \
-        $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
-    ```
+    === "macOS / bash"
+        ```bash
+        cosign verify \
+            --key cosign.pub \
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        cosign verify `
+            --key cosign.pub `
+            "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch"
+        ```
 
 ## Verify a Container Image Signature with cosign
 
@@ -97,15 +116,26 @@ To verify the image signature when pulling a container image, you can pass the
 public key that signed the container image and that it is stored in the local
 directory.
 
-```bash
-export AWS_ACCOUNT=111111111
-export AWS_REGION=eu-west-1
+=== "macOS / bash"
+    ```bash
+    AWS_ACCOUNT_ID=111222333444
+    AWS_REGION=eu-west-1
 
-finch pull \
-    --verify=cosign  \
-    --cosign-key cosign.pub \
-    $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
-```
+    finch pull \
+        --verify=cosign  \
+        --cosign-key cosign.pub \
+        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
+    ```
+=== "Windows / PowerShell"
+    ```powershell
+    $AWS_ACCOUNT_ID="111222333444"
+    $AWS_REGION="eu-west-1"
+
+    finch pull `
+        --verify=cosign  `
+        --cosign-key cosign.pub `
+        "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch"
+    ```
 
 ### Running a Container Image
 
@@ -114,15 +144,26 @@ To verify the image signature when running a container, you can pass the
 public key that signed the container image and that it is stored in the local
 directory.
 
-```bash
-export AWS_ACCOUNT=111111111
-export AWS_REGION=eu-west-1
+=== "macOS / bash"
+    ```bash
+    AWS_ACCOUNT_ID=111222333444
+    AWS_REGION=eu-west-1
 
-finch run --rm \
-    --verify=cosign  \
-    --cosign-key cosign.pub \
-    $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
-```
+    finch run --rm \
+        --verify=cosign  \
+        --cosign-key cosign.pub \
+        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
+    ```
+=== "Windows / PowerShell"
+    ```powershell
+    $AWS_ACCOUNT_ID="111222333444"
+    $AWS_REGION="eu-west-1"
+
+    finch run --rm `
+        --verify=cosign  `
+        --cosign-key cosign.pub `
+        "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch"
+    ```
 
 ## Container Image Signing with Compose and cosign
 
@@ -145,16 +186,28 @@ cd finch/contrib/hello-finch
    key to provide the build context, as well as a `x-nerdctl-sign` and
    `x-nerdctl-cosign-private-key` keys.
 
-    ```bash
-    cat <<EOF > docker-compose.yml
-    services:
-      hello-finch:
-        image: $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
-        build: .
-        x-nerdctl-sign: cosign
-        x-nerdctl-cosign-private-key: cosign.key
-    EOF
-    ```
+    === "macOS / bash"
+        ```bash
+        cat <<EOF > docker-compose.yml
+        services:
+          hello-finch:
+            image: $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
+            build: .
+            x-nerdctl-sign: cosign
+            x-nerdctl-cosign-private-key: cosign.key
+        EOF
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        @"
+        services:
+          hello-finch:
+            image: $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
+            build: .
+            x-nerdctl-sign: cosign
+            x-nerdctl-cosign-private-key: cosign.key
+        "@ > docker-compose.yml
+        ```
 
 2. Build the container image `finch compose build`
 
@@ -172,29 +225,51 @@ cd finch/contrib/hello-finch
 4. To verify the container image and the signature have been pushed correctly,
    you can use the `cosign verify` command.
 
-    ```bash
-    cosign verify \
-        --key cosign.pub \
-        $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
-    ```
+    
+    === "macOS / bash"
+        ```bash
+        cosign verify \
+            --key cosign.pub \
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        cosign verify `
+            --key cosign.pub `
+            "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch"
+        ```
 
 ### Verify a container image with compose
 
 1. To verify a container image signature, update the existing compose file with
    the `x-nerdctl-verify` and `x-nerdctl-cosign-public-key` keys.
 
-    ```bash
-    cat <<EOF > docker-compose.yml
-    services:
-      hello-finch:
-        image: $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
-        build: .
-        x-nerdctl-sign: cosign
-        x-nerdctl-cosign-private-key: cosign.key
-        x-nerdctl-verify: cosign
-        x-nerdctl-cosign-public-key: cosign.pub
-    EOF
-    ```
+    === "macOS / bash"
+        ```bash
+        cat <<EOF > docker-compose.yml
+        services:
+          hello-finch:
+            image: $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
+            build: .
+            x-nerdctl-sign: cosign
+            x-nerdctl-cosign-private-key: cosign.key
+            x-nerdctl-verify: cosign
+            x-nerdctl-cosign-public-key: cosign.pub
+        EOF
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        @"
+        services:
+          hello-finch:
+            image: $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
+            build: .
+            x-nerdctl-sign: cosign
+            x-nerdctl-cosign-private-key: cosign.key
+            x-nerdctl-verify: cosign
+            x-nerdctl-cosign-public-key: cosign.pub
+        "@ > docker-compose.yml
+        ```
 
 2. The image signatures can be verified when pulling the container images.
 

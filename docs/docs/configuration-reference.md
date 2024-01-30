@@ -1,10 +1,10 @@
 # Finch Configuration
 
-Finch has a configuration file stored at `~/.finch/finch.yaml`. This
+Finch has a configuration file stored at `~/.finch/finch.yaml` on macOS or `%LocalAppData%\.finch\finch.yaml` on Widnows. This
 configuration file abstracts away the virtual machine, Lima and Hypervisor
 configuration.
 
-Each time the `~/.finch/finch.yaml` configuration is updated, the virtual
+Each time the `finch.yaml` configuration is updated, the virtual
 machine will need to be restarted for the change to take effect.
 
 ```
@@ -27,13 +27,15 @@ vmType: vz
 rosetta: true
 ```
 
-## Parameters:
+## Parameters
 
-- `cpus`: The number of logical CPUs to attach to the virtual machine. The
+Many of Finch's configuration options are currently macOS only, and this will be indicated below. On Windows, there are [more advanced configuration options available here](./managing-finch/windows/advanced-configuration.md).
+
+- `cpus` **(macOS only)**: The number of logical CPUs to attach to the virtual machine. The
   default is determined dynamically based on the resources available using
   `0.25 * total_cpu_cores`, with a minimum value of `2`.
 
-- `memory`: The amount of memory to attach to the virtual machine. The default
+- `memory` **(macOS only)**: The amount of memory to attach to the virtual machine. The default
   is determined dynamically based on the resources available using
    `0.25 * total_memory`, with a minimum value of `2GiB`.
 
@@ -51,19 +53,22 @@ rosetta: true
   Authentication](/docs/container-images/authentication/). Supported values:
   `ecr-login`. By default this field is omitted.
 
-- `additional_directories`: By default Finch will mount the users home directory
+- `additional_directories` **(macOS only)**: By default Finch will mount the users home directory
   into the virtual machine. To mount additional directories from macOS into the
   virtual machine, specify them here. See [disk
   management](/docs/managing-finch/macos/disk-management/) for more details.
   Default is `[]`
 
 - `vmType`: The hypervisor to use for the virtual machine.
-  [QEMU](https://www.qemu.org/) (`qemu`) or Apple [Virtualization
-  Framework](https://developer.apple.com/documentation/virtualization) (`vz`).
-  Apple Virtualization Framework can only be used on macOS 13 or later. Default
-  is `qemu`
+    - macOS
+        - [QEMU](https://www.qemu.org/) (`qemu`) or Apple [Virtualization
+          Framework](https://developer.apple.com/documentation/virtualization) (`vz`).
+          Apple Virtualization Framework can only be used on macOS 13 or later. Default
+          is `qemu`
+    - Windows
+        - The only supported vmType for Windows is `wsl2`
 
-- `rosetta`: The emulation layer to use when running container images or
+- `rosetta` **(macOS only)**: The emulation layer to use when running container images or
   processes on an architecture not native to the machine. If value is set to
   `false`, the emulation is provided by QEMU. If value is set to `true`,
   [Apple's
