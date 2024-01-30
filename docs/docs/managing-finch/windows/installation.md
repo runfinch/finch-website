@@ -32,19 +32,30 @@ There are two different methods of installing WSL 2 depending on which version o
 
 ## Verifying WSL 2 install
 
+After you're done installing WSL 2, or if you've already had it installed and you've run `wsl --update`, you can verify your installation.
+
 To verify your WSL 2 installation, run the `wsl.exe -l -v` command. The output should look similar to this:
 
-```bash
+```text
 wsl.exe -l -v
   NAME          STATE           VERSION
 * Ubuntu        Stopped         2
 ```
 
-If your output is different, please refer back to the Microsoft guides for troubleshooting steps.
+The `wsl.exe --status` command should also have output similar to this:
+```text
+wsl --status
+Default Distribution: Ubuntu
+Default Version: 2
+```
+
+If the default version is not `2`, run `wsl --set-default-version 2`.
+
+If your any other output is different or these commands do not work, please refer back to the Microsoft guides for troubleshooting steps.
 
 ## Installing Finch
 
-After installing WSL 2, or updating WSL 2 using (`wsl --update`), Finch can be installed like so:
+After verifying your WSL 2 installation, Finch can be installed like so:
 
 1. Download the latest Finch Windows installer (`Finch.msi`) from [Finch's GitHub repository](https://github.com/runfinch/finch/releases/latest)
 1. Run `Finch.msi`
