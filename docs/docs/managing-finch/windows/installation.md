@@ -59,4 +59,23 @@ After verifying your WSL 2 installation, Finch can be installed like so:
 
 1. Download the latest Finch Windows installer (`Finch.msi`) from [Finch's GitHub repository](https://github.com/runfinch/finch/releases/latest)
 1. Run `Finch.msi`
-1. Finch is now installed! Navigate to [Verifying Finch install](../../../getting-started/installation/#verify-the-finch-installation) to proceed
+
+    ![Finch Installation Wizard](/assets/finch_windows_installation_1.png "Finch Installation 1")
+
+1. Read and accept the Finch license and click Next.
+
+    ![Finch Installation License](/assets/finch_windows_installation_2.png "Finch Installation 2")
+
+1. Select your install location if different from the default location, and click Next.
+
+    ![Finch Installation Location](/assets/finch_windows_installation_3.png "Finch Installation 3")
+
+1. Click Install.
+
+    ![Finch Installation Install](/assets/finch_windows_installation_4.png "Finch Installation 4")
+
+1. When the Finch installation is complete, you can close the installation window by pressing Finish.
+
+    ![Finch Installation Complete](/assets/finch_windows_installation_5.png "Finch Installation 5")
+
+1. Finch is now installed! Relaunch any terminal windows in order for the `finch` command to be available in your PATH. Navigate to [Verifying Finch install](../../../getting-started/installation/#verify-the-finch-installation) to proceed.
