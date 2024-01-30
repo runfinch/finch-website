@@ -1,6 +1,6 @@
 # Finch Configuration
 
-Finch has a configuration file stored at `~/.finch/finch.yaml` on macOS or `%LocalAppData%\.finch\finch.yaml` on Widnows. This
+Finch has a configuration file stored at `~/.finch/finch.yaml` on macOS or `%LocalAppData%\.finch\finch.yaml` on Windows. This
 configuration file abstracts away the virtual machine, Lima and Hypervisor
 configuration.
 
@@ -29,7 +29,7 @@ rosetta: true
 
 ## Parameters
 
-Many of Finch's configuration options are currently macOS only, and this will be indicated below. On Windows, there are [more advanced configuration options available here](./managing-finch/windows/advanced-configuration.md).
+Many of Finch's configuration options are currently macOS only, and this will be indicated below. On Windows, WSL has [its own set of configuration options options available here](./managing-finch/windows/wsl-configuration.md).
 
 - `cpus` **(macOS only)**: The number of logical CPUs to attach to the virtual machine. The
   default is determined dynamically based on the resources available using

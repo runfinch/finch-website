@@ -106,7 +106,7 @@ Popular `finch run` flags which will help you get started include:
             public.ecr.aws/finch/hello-finch:latest
         ```
 
-      * Verify that no existed container exists
+      * Verify that all containers have been removed
       ```bash
         $ finch ps --all
       ```

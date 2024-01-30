@@ -9,9 +9,9 @@ the latest operating system patches. As part of a Finch upgrade, all container
 related data (container images and container volumes) are persisted between
 upgrades.
 
-On Windows, currently the best way to upgrade is to download and run the latest Finch.msi release from [Finch's GitHub repository](https://github.com/runfinch/finch/releases/latest). For detailed instructions, follow the steps on [the Windows installation page](./installation.md#installing-finch).
+On Windows, currently the best way to upgrade is to download and run the latest Finch.msi release from [Finch's GitHub repository](https://github.com/runfinch/finch/releases/latest). For detailed instructions on running the .msi, see [the Windows installation page](./installation.md#installing-finch).
 
-After installing the latest version, make sure that the new version is running by:
+After completing the installation, you can verify that the new version has been installed by running:
 
 1. Run `finch vm init`
 

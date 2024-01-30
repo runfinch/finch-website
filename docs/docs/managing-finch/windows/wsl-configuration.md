@@ -1,19 +1,13 @@
-# Windows Advanced Configuration
+# WSL Configuration
 
-## Intro
-
-After looking at the [Configuration Reference page](../../configuration-reference.md), you may notice that Finch on Windows lacks many of the settings that are availalbe on other versions (like, memory and cpu limits).
-
-However, this isn't the full picture. Many of the same functionalities are instead controlled by WSL's own configuration options.
-
-More information on all of these settings can be found [here](https://learn.microsoft.com/en-us/windows/wsl/wsl-config).
+Windows Subsystem for Linux can be optimized and tuned using a configuration file located at C:\Users\<username>\.wslconfig. In the sections below we discuss some configuration that can be tuned to optimize Finch. For a full list of .wslconfig configuration options see the [Microsoft documentation here](https://learn.microsoft.com/en-us/windows/wsl/wsl-config).
 
 !!! warning
     The configuration changes which modify your `.wslconfig` file will apply to **ALL** WSL 2 distributions.
 
 ### Limiting CPU and memory usage
 
-Users which want to replicate Finch's `finch.yaml` `memory` and `cpu` can instead use similar options in their `.wslconfig` file, like so:
+For users who want to replicate Finch's `finch.yaml` `memory` and `cpu` can instead use similar options in their `.wslconfig` file, like so:
 
 ```
 [wsl2]

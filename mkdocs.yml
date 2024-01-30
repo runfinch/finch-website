@@ -25,7 +25,7 @@ nav:
              - Uninstalling Finch: "docs/managing-finch/macos/uninstalling-finch.md"
           - Windows:
              - Installation: "docs/managing-finch/windows/installation.md"
-             - Advanced Configuration: "docs/managing-finch/windows/advanced-configuration.md"
+             - WSL Configuration: "docs/managing-finch/windows/wsl-configuration.md"
              - Upgrading Finch: "docs/managing-finch/windows/upgrading-finch.md"
              - Uninstalling Finch: "docs/managing-finch/windows/uninstalling-finch.md"
       - Container Images:

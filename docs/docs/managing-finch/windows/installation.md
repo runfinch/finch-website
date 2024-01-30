@@ -11,10 +11,11 @@ following prerequisites.
 * Recommended minimum hardware requirements is at least 2 vCPU and 4 GB memory.
 * Administrative privileges are required to install Finch on to the machine.
 * WSL 2 already installed
+* **(Optional)** For the best experience running terminal commands on Windows, it's recommended to install [Microsoft's Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/)
 
-To determine the build version of your Windows 10 installation, you can either run the following comamnd:
+To determine the build version of your Windows 10 installation, you can either run the following command:
 ```powershell
-> [System.Environment]::OSVersion.Version
+[System.Environment]::OSVersion.Version
 
 Major  Minor  Build  Revision
 -----  -----  -----  --------
@@ -27,23 +28,19 @@ So long as the "Build" number is greater than 18362, WSL 2 and Finch are support
 
 ## Installing WSL 2
 
-=== "Windows 11 (and 10, 2004 and higher)"
+There are two different methods of installing WSL 2 depending on which version of Windows you have installed. For newer versions (Windows 11 and Windows 10 with build greater than 19041), follow [this guide from Microsoft](https://learn.microsoft.com/en-us/windows/wsl/install). For Windows 10 builds greater than 18362.1049, [follow this guide](https://learn.microsoft.com/en-us/windows/wsl/install-manual) (make sure to follow the WSL 2 steps as well).
 
-    1. Run `wsl --install` and follow prompts to set your Linux user name. That's it!
-    1. WSL 2 is now installed! See the "Installing Finch" section to get Finch up and running
+## Verifying WSL 2 install
 
-    For more information and troubleshooting steps [see Microsoft's documentation here](https://learn.microsoft.com/en-us/windows/wsl/install)
+To verify your WSL 2 installation, run the `wsl.exe -l -v` command. The output should look similar to this:
 
-=== "Windows 10 (old)"
+```bash
+wsl.exe -l -v
+  NAME          STATE           VERSION
+* Ubuntu        Stopped         2
+```
 
-    1. Run `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart` to install the Windows Subsystem for Linux
-    1. Run `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart` and then **Restart** your machine
-    1. After restarting, download the [latest version of the WSL 2 kernel from Microsoft](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi) and run the installer
-    1. Make sure WSL 2 is set as your default version by running `wsl --set-default-version 2`
-    1. Install a "default" distribution of WSL 2 by running `wsl --install -d Ubuntu`
-    1. WSL 2 is now installed! See the "Installing Finch" section to get Finch up and running
-    
-    For more information and troubleshooting steps [see Microsoft's documentation here](https://learn.microsoft.com/en-us/windows/wsl/install-manual)
+If your output is different, please refer back to the Microsoft guides for troubleshooting steps.
 
 ## Installing Finch
 
