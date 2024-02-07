@@ -4,8 +4,8 @@ Containerized applications composed of multiple services are often defined in
 [Docker Compose
 files](https://compose-spec.io/). Finch
 offers a CLI that is compatible to the
-[docker-compose](https://github.com/docker/compose) cli, therefore commands that
-you have used previously like `docker-compose up` could be translated to `finch
+[docker compose](https://github.com/docker/compose) cli, therefore commands that
+you have used previously like `docker compose up` could be translated to `finch
 compose up`.
 
 ## Building Containers Images with a Compose File
@@ -26,8 +26,8 @@ set as local context to use.
         git clone https://github.com/runfinch/finch.git
         cd finch/contrib/hello-finch
 
-        # Add a Docker Compose File to the Directory
-        cat <<EOF > docker-compose.yml
+        # Add a Compose File to the Directory
+        cat <<EOF > compose.yaml
         services:
           hello-finch:
             image: hello-finch
@@ -39,13 +39,13 @@ set as local context to use.
         git clone https://github.com/runfinch/finch.git
         cd finch/contrib/hello-finch
 
-        # Add a Docker Compose File to the Directory
+        # Add a Compose File to the Directory
         @"
         services:
           hello-finch:
             image: hello-finch
             build: .
-        "@ > docker-compose.yml
+        "@ > compose.yaml
         ```
 
 2. Build the container images using `finch compose build`.
@@ -75,7 +75,7 @@ be started with the `finch compose up` command.
 
 1. Leveraging the
    [hello-finch](https://github.com/runfinch/finch/tree/main/contrib/hello-finch)
-   sample application, we can create a Docker Compose file. In the file we
+   sample application, we can create a Compose file. In the file we
    define the `hello-finch` service and provide a context for the container
    image build.
 
@@ -84,8 +84,8 @@ be started with the `finch compose up` command.
         git clone https://github.com/runfinch/finch.git
         cd finch/contrib/hello-finch
 
-        # Add a Docker Compose File to the Directory
-        cat <<EOF > docker-compose.yml
+        # Add a Compose File to the Directory
+        cat <<EOF > compose.yaml
         services:
           hello-finch:
             image: hello-finch
@@ -97,13 +97,13 @@ be started with the `finch compose up` command.
         git clone https://github.com/runfinch/finch.git
         cd finch/contrib/hello-finch
 
-        # Add a Docker Compose File to the Directory
+        # Add a Compose File to the Directory
         @"
         services:
           hello-finch:
             image: hello-finch
             build: .
-        "@ > docker-compose.yml
+        "@ > compose.yaml
         ```
 
 2. Next we will run the service with `finch compose up`, if the container image

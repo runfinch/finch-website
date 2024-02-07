@@ -188,7 +188,7 @@ cd finch/contrib/hello-finch
 
     === "macOS / bash"
         ```bash
-        cat <<EOF > docker-compose.yml
+        cat <<EOF > compose.yaml
         services:
           hello-finch:
             image: $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
@@ -206,7 +206,7 @@ cd finch/contrib/hello-finch
             build: .
             x-nerdctl-sign: cosign
             x-nerdctl-cosign-private-key: cosign.key
-        "@ > docker-compose.yml
+        "@ > compose.yaml
         ```
 
 2. Build the container image `finch compose build`
@@ -246,7 +246,7 @@ cd finch/contrib/hello-finch
 
     === "macOS / bash"
         ```bash
-        cat <<EOF > docker-compose.yml
+        cat <<EOF > compose.yaml
         services:
           hello-finch:
             image: $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
@@ -268,7 +268,7 @@ cd finch/contrib/hello-finch
             x-nerdctl-cosign-private-key: cosign.key
             x-nerdctl-verify: cosign
             x-nerdctl-cosign-public-key: cosign.pub
-        "@ > docker-compose.yml
+        "@ > compose.yaml
         ```
 
 2. The image signatures can be verified when pulling the container images.
