@@ -6,9 +6,9 @@ To get started with Finch on macOS, the development machine must meet the
 following prerequisites.
 
 * macOS versions:
+    * 14 Sonoma
     * 13 Ventura
     * 12 Monterey
-    * 11 Big Sur (known to work, but not tested)
 * Both Intel and Apple Silicon based systems running the last 2 major versions of macOS are supported.
 * Recommended minimum hardware requirements is at least 2 vCPU and 4 GB memory.
 * Administrative privileges are required to install Finch on to the machine.
