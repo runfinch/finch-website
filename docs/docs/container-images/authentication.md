@@ -39,7 +39,7 @@ to manage authentication tokens on your behalf.
         ```
 
     3. If it does not already exist, add `ecr-login` to the registry credentials
-       file located at `~/.finch/config.yaml`
+       file located at `~/.finch/config.json`
 
         ```bash
         {
@@ -50,8 +50,8 @@ to manage authentication tokens on your behalf.
     4. Stop and start the Finch virtual machine to pick up the new configuration.
 
         ```
-        finch stop
-        finch start
+        finch vm stop
+        finch vm start
         ```
 
     #### Using the AWS CLI to login to Amazon ECR
@@ -112,7 +112,7 @@ to manage authentication tokens on your behalf.
         ```
 
     3. If it does not already exist, add `ecr-login` to the registry credentials
-       file located at `~/.finch/config.yaml`
+       file located at `~/.finch/config.json`
 
         ```bash
         {
@@ -123,8 +123,8 @@ to manage authentication tokens on your behalf.
     4. Stop and start the Finch virtual machine to pick up the new configuration.
 
         ```
-        finch stop
-        finch start
+        finch vm stop
+        finch vm start
         ```
 
     #### Using the AWS CLI to login to Amazon ECR Public
