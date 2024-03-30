@@ -1,5 +1,8 @@
 # Finch Website
 
+[![Sync latest docs from runfinch/finch](https://github.com/runfinch/finch-website/actions/workflows/pull_latest_docs.yml/badge.svg)](https://github.com/runfinch/finch-website/actions/workflows/pull_latest_docs.yml)
+[![pages-build-deployment](https://github.com/runfinch/finch-website/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/runfinch/finch-website/actions/workflows/pages/pages-build-deployment)
+
 This repository is the source to the runfinch project website.
 
 The documentation is written in markdown files, using [mkdocs](https://www.mkdocs.org/)
