@@ -8,8 +8,8 @@ promote innovative upstream container projects (including
 [BuildKit](https://github.com/moby/buildkit)) by making it easy to install and
 use them. Finch provides a simple native client to tie it all together.
 
-Today, Finch is available for developers using macOS on Intel and Apple
-Silicon, and we plan to make it available to Windows and Linux developers soon!
+Today, Finch is available for developers on macOS (Intel and Apple Silicon)
+and Windows. We plan to make it available to Linux developers soon!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/S7JwFFZ-7_Q?start=1525" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
