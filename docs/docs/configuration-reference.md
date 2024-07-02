@@ -64,7 +64,7 @@ Many of Finch's configuration options are currently macOS only, and this will be
         - [QEMU](https://www.qemu.org/) (`qemu`) or Apple [Virtualization
           Framework](https://developer.apple.com/documentation/virtualization) (`vz`).
           Apple Virtualization Framework can only be used on macOS 13 or later. Default
-          is `qemu`
+          is `vz`
     - Windows
         - The only supported vmType for Windows is `wsl2`
 
