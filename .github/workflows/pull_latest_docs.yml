@@ -34,7 +34,7 @@ jobs:
           python get_upstream_docs.py
 
       - name: Create PR
-        uses: peter-evans/create-pull-request@6cd32fd93684475c31847837f87bb135d40a2b79
+        uses: peter-evans/create-pull-request@5e914681df9dc83aa4e4905692ca88beb2f9e91f
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           signoff: true
