@@ -4,7 +4,7 @@ The best way to uninstall Finch on Linux depends on your system.
 
 ## Uninstalling Finch on Amazon Linux
 
-Amazon Linux pacakges can be uninstalled via using the system package manager (either `yum` on AL2/AL2023 or `dnf` on AL2023):
+Amazon Linux packages can be uninstalled via using the system package manager (either `yum` on AL2/AL2023 or `dnf` on AL2023):
 
 ```
 $ yum uninstall runfinch-finch

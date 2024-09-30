@@ -1,4 +1,4 @@
-# Installing Finch on Windows
+# Installing Finch on Linux
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ So long as the first number is greater than 4, Finch is supported. The next sect
 
 ## Amazon Linux
 
-Finch is packaged in the standard Amazon Linux repostiroies. That means, installing Finch is as easy as installing any other Amazon Linux package:
+Finch is packaged in the standard Amazon Linux repositories. That means, installing Finch is as easy as installing any other Amazon Linux package:
 
 ```
 $ sudo yum install runfinch-finch
@@ -29,7 +29,7 @@ After running this command, you will have a `finch` program in your PATH, and yo
 
 For distributions which do not have packages built for them, installing Finch requires downloading and installing dependencies, as well as creating filesystem paths needed by Finch.
 
-Some distributions will distribute some of these packages themselves (for example, Fedora has a `containerd` pacakge), but this guide assumes that none of Finch's dependencies are available via package managers. If the dependencies are available and installed via package managers, some of these steps may be skipped.
+Some distributions will distribute some of these packages themselves (for example, Fedora has a `containerd` package), but this guide assumes that none of Finch's dependencies are available via package managers. If the dependencies are available and installed via package managers, some of these steps may be skipped.
 
 The goal of these steps is to setup your system to mimic the configuration found in the [finch.spec file](https://github.com/runfinch/finch/blob/main/contrib/packaging/rpm/finch.spec) in the runfinch/finch repository.
 

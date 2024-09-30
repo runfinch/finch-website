@@ -12,7 +12,7 @@ family:
 Once Finch has been successfully installed, you can verify the installation
 with the following steps.
 
-1. On macOS and Windows (skip on Linux), ensure the Finch virtual machine is initialization and running with the
+1. On macOS and Windows (skip on Linux), ensure the Finch virtual machine is initialized and running with the
    `finch vm init`. This initial setup usually takes about a minute, and may
    once again require the users password.
 
