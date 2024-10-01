@@ -8,12 +8,19 @@ On Linux, the way you upgrade depends on your distribution.
 
 ## Amazon Linux
 
-Amazon Linux pacakges can be upgraded via using the system package manager (either `yum` on AL2/AL2023 or `dnf` on AL2023):
+Amazon Linux pacakges can be upgraded via using the system package manager:
 
-```
-$ yum update runfinch-finch
-$ dnf update runfinch-finch
-```
+=== "AL2023"
+    
+    ```shell
+    $ sudo dnf update soci-snapshotter
+    ```
+
+=== "AL2"
+    
+    ```shell
+    $ sudo yum update soci-snapshotter
+    ```
 
 ## Manual installation
 
