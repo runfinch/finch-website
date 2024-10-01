@@ -19,11 +19,22 @@ So long as the first number is greater than 4, Finch is supported. The next sect
 
 Finch is packaged in the standard Amazon Linux repositories. That means, installing Finch is as easy as installing any other Amazon Linux package:
 
-```
-$ sudo yum install runfinch-finch
-```
+### AL2023
 
-After running this command, you will have a `finch` program in your PATH, and you can navigate to the [Verifying Finch install](../../../getting-started/installation/#verify-the-finch-installation) page to proceed.
+=== "AL2023"
+
+    ```shell
+    $ sudo dnf install runfinch-finch
+    ```
+
+=== "AL2"
+
+    ```shell
+    $ sudo amazon-linux-extras enable docker
+    $ sudo yum install runfinch-finch
+    ```
+
+After running this command, you will have a `finch` program in your PATH, and you can navigate to the [Verifying Finch install](../../../getting-started/installation/#verify-the-finch-installation) page to proceed. Navigate to the [Optional Components](./optional-components.md) page to configure Finch optional components. 
 
 ## Generic
 
@@ -46,7 +57,6 @@ The goal of these steps is to setup your system to mimic the configuration found
       1. `sudo mkdir -p /usr/libexec/finch`
       1. `sudo mkdir -p /var/lib/finch/buildkit`
       1. `sudo mkdir -p /var/lib/finch/nerdctl`
-      1. `sudo mkdir -p /var/lib/finch/soci`
       1. `ln -sf /usr/local/bin/nerdctl /usr/libexec/finch/nerdctl`
       1. `ln -sf /usr/local/bin/buildctl /usr/libexec/finch/buildctl`
       1. `ln -sf /usr/local/bin/finch-daemon /usr/libexec/finch/finch-daemon`
@@ -54,3 +64,5 @@ The goal of these steps is to setup your system to mimic the configuration found
    1. [containerd](https://github.com/containerd/containerd/blob/main/containerd.service)
    1. [buildkit](https://github.com/runfinch/finch/blob/main//contrib/packaging/rpm/finch-buildkit.service)
    1. [finch-daemon](https://github.com/runfinch/finch-daemon/blob/main/finch.service)
+
+After completing this setup, you will have a `finch` program in your PATH, and you can navigate to the [Verifying Finch install](../../../getting-started/installation/#verify-the-finch-installation) page to proceed. Navigate to the [Optional Components](./optional-components.md) page to configure Finch optional components. 
