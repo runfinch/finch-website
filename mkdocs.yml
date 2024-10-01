@@ -28,6 +28,11 @@ nav:
              - WSL Configuration: "docs/managing-finch/windows/wsl-configuration.md"
              - Upgrading Finch: "docs/managing-finch/windows/upgrading-finch.md"
              - Uninstalling Finch: "docs/managing-finch/windows/uninstalling-finch.md"
+          - Linux:
+             - Installation: "docs/managing-finch/linux/installation.md"
+             - Upgrading Finch: "docs/managing-finch/linux/upgrading-finch.md"
+             - Uninstalling Finch: "docs/managing-finch/linux/uninstalling-finch.md"
+             - Optional Components: "docs/managing-finch/linux/optional-components.md"
       - Container Images:
           - Registry Authentication: "docs/container-images/authentication.md"
           - Lazy Loading: "docs/container-images/lazy-loading.md"
