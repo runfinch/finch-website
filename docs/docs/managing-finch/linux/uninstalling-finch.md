@@ -9,13 +9,13 @@ Amazon Linux packages can be uninstalled via using the system package manager:
 === "AL2023"
     
     ```shell
-    $ sudo dnf uninstall soci-snapshotter
+    $ sudo dnf uninstall runfinch-finch
     ```
 
 === "AL2"
     
     ```shell
-    $ sudo yum uninstall soci-snapshotter
+    $ sudo yum uninstall runfinch-finch
     ```
 
 ## Manual uninstallation
