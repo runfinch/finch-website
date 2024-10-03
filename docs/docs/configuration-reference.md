@@ -25,6 +25,7 @@ additional_directories:
   - "/Volumes/mydir"
 vmType: vz
 rosetta: true
+dockercompat: true
 ```
 
 ## Parameters
@@ -68,7 +69,7 @@ Many of Finch's configuration options are currently macOS only, and this will be
     - Windows
         - The only supported vmType for Windows is `wsl2`
 
-- `rosetta` **(macOS only)**: The emulation layer to use when running container images or
+- `rosetta`: **(macOS only)**: The emulation layer to use when running container images or
   processes on an architecture not native to the machine. If value is set to
   `false`, the emulation is provided by QEMU. If value is set to `true`,
   [Apple's
@@ -76,3 +77,8 @@ Many of Finch's configuration options are currently macOS only, and this will be
   framework is used. Rosetta can only be used if `vmType: vz`. When `vmType: vz`
   is set, without specifying `rosetta`, `rosetta` will default to `true`.
   Otherwise, the default is `false`
+
+- `dockercompat`: activates finch functionality to accept docker-compatible arguments and return docker-like responses for a limited set of docker commands.
+  Specifically, Finch will convert the Docker invocation into compatible nerdctl commands and arguments when possible.
+  This option is required for running DevContainers on Finch.
+

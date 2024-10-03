@@ -38,6 +38,11 @@ nav:
           - Lazy Loading: "docs/container-images/lazy-loading.md"
           - Image Signing: "docs/container-images/signing-images.md"
       - Configuration Reference: "docs/configuration-reference.md"
+      - Integrations:
+          - DevContainers:
+            - DevContainers on Finch: "docs/integrations/devcontainers-on-finch.md"
+            - macOS: "docs/integrations/mac/devcontainers.md"
+            - Windows: "docs/integrations/windows/devcontainers.md"
       - CLI Reference:
           - ... | flat | docs/cli-reference/*
       - Troubleshooting:
