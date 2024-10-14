@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-To get started with Finch on macOS, the development machine must meet the
+To get started with Finch on Windows, the development machine must meet the
 following prerequisites.
 
 * Windows versions:
