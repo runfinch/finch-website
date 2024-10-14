@@ -9,13 +9,13 @@ Amazon Linux packages can be uninstalled via using the system package manager:
 === "AL2023"
     
     ```shell
-    $ sudo dnf uninstall runfinch-finch
+    $ sudo dnf remove runfinch-finch
     ```
 
 === "AL2"
     
     ```shell
-    $ sudo yum uninstall runfinch-finch
+    $ sudo yum remove runfinch-finch
     ```
 
 ## Manual uninstallation
