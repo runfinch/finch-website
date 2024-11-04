@@ -79,3 +79,7 @@ After verifying your WSL 2 installation, Finch can be installed like so:
     ![Finch Installation Complete](/assets/finch_windows_installation_5.png "Finch Installation 5")
 
 1. Finch is now installed! Relaunch any terminal windows in order for the `finch` command to be available in your PATH. Navigate to [Verifying Finch install](../../../getting-started/installation/#verify-the-finch-installation) to proceed.
+
+!!! warning
+    By default, Finch uses the standard WSL configuration, which mounts the host's C drive into Finch VM with read-write access.
+    If you prefer to restrict access to the VM (and the containers running inside) by setting the C drive to read-only, follow the mentioned [here](../wsl-configuration/#steps-to-disable-c-drive-auto-mount).

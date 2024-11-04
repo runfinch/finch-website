@@ -31,8 +31,8 @@ In addition to setting max memory limits, user's can also specify to clean up WS
 # release of cached memory.
 autoMemoryReclaim=dropcache
 ```
-**WARNING:** By default, Finch uses the standard WSL configuration, which mounts the host's C drive into Finch VM with read-write access.
-If you prefer to restrict access to the VM (and the containers running inside) by setting the C drive to read-only, follow the steps below.
+
+### Steps to Disable C Drive Auto-Mount
 
 **Step 1: Disable C Drive Auto-Mount in WSL Configuration**
 
@@ -71,6 +71,4 @@ Stopped
 PS C:\> finch vm start
 ```
 
-Finch on Windows does not make any claims or guarantees regarding VM-level isolation, so consider the instance as the security boundary. 
-The steps outlined above will help ensure that the containers operate in a more secure environment, enhancing overall security posture. 
-If you do not have such security considerations, you can continue using the default settings.
+Finch on Windows does not make any claims or guarantees regarding VM-level isolation, so consider the machine as the security boundary.
