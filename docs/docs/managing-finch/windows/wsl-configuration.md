@@ -31,3 +31,44 @@ In addition to setting max memory limits, user's can also specify to clean up WS
 # release of cached memory.
 autoMemoryReclaim=dropcache
 ```
+
+### Steps to Disable C Drive Auto-Mount
+
+**Step 1: Disable C Drive Auto-Mount in WSL Configuration**
+
+Log in to the Finch VM and disable the C drive auto-mount in the WSL configuration:
+
+```
+PS C:\Users\Administrator> wsl -d lima-finch
+[root@EC2AMAZ-R56AQRB Desktop] cat /etc/wsl.conf
+[boot]
+systemd=true
+
+# Disable auto-mount
+[automount]
+enabled=false 
+```
+**Step 2: Modify fstab for mounting C Drive in read-only**
+
+Edit the fstab file to add entries for mounting the C drive in read-only mode. 
+Some Finch commands require read-write access to `C:/Users/Administrator`, so we'll need to mount that directory in RW mode. 
+
+```
+[root@EC2AMAZ-R56AQRB Administrator] vi /etc/fstab
+C:/ /mnt/c drvfs ro 0 0
+C:/Users/Administrator /mnt/c/Users/Administrator drvfs rw 0 0
+C:/source-dir-path /mnt/mount-dir-path drvfs perms 0 0 # Can add more dirs which requires RW access if needed
+```
+
+**Step 3: Exit the VM and Restart Finch**
+
+To apply your changes, exit the VM and restart Finch:
+
+```
+PS C:\> wsl --shutdown 
+PS C:\> finch vm status
+Stopped
+PS C:\> finch vm start
+```
+
+Finch on Windows does not make any claims or guarantees regarding VM-level isolation, so consider the machine as the security boundary.
