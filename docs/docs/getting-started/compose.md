@@ -47,19 +47,51 @@ set as local context to use.
             build: .
         "@ > compose.yaml
         ```
+    === "Linux"
+        ```bash
+        git clone https://github.com/runfinch/finch.git
+        cd finch/contrib/hello-finch
+
+        # Add a Compose File to the Directory
+        cat <<EOF > compose.yaml
+        services:
+          hello-finch:
+            image: hello-finch
+            build: .
+        EOF
+        ```
+
 
 2. Build the container images using `finch compose build`.
 
-    ```bash
-    finch compose build
-    ```
+    === "macOS / bash"
+        ```bash
+        finch compose build
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch compose build
+        ```
+    === "Linux"
+        ```bash
+        sudo finch compose build
+        ```
 
 3. You can verify that the container image has been built successfully using the
    `finch image list` command.
 
-    ```bash
-    finch image list
-    ```
+    === "macOS / bash"
+        ```bash
+        finch image list
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch image list
+        ```
+    === "Linux"
+        ```bash
+        sudo finch image list
+        ```
 
     The output should show the container image tagged with the service name.
 
@@ -105,13 +137,41 @@ be started with the `finch compose up` command.
             build: .
         "@ > compose.yaml
         ```
+    === "Linux"
+        ```bash
+        git clone https://github.com/runfinch/finch.git
+        cd finch/contrib/hello-finch
+
+        # Add a Compose File to the Directory
+        cat <<EOF > compose.yaml
+        services:
+          hello-finch:
+            image: hello-finch
+            build: .
+        EOF
+        ```
+
 
 2. Next we will run the service with `finch compose up`, if the container image
    does not exist locally, finch will build the container image before starting
    the service.
 
+    === "macOS / bash"
+        ```bash
+        finch image list
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch image list
+        ```
+    === "Linux"
+        ```bash
+        sudo finch compose up
+        ```
+
+    Upon success, the output should look something like the following:
+
     ```bash
-    finch compose up
     INFO[0018] Creating container hello-finch_hello-finch_1
     INFO[0018] Attaching to logs
     hello-finch_1 |

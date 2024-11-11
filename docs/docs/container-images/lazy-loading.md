@@ -13,22 +13,47 @@ supported.
 
 ## Enable the SOCI Snapshotter
 
-To enable the SOCI snapshotter, you need to edit the [Finch configuration
-file](../configuration-reference/) and add the SOCI snapshotter. The Finch
-configuration file is typically located at `~/.finch/finch.yaml`
+First, we must make sure the SOCI snapshotter is enabled and configured.
 
-```bash
-snapshotters:
-    - soci
-```
+=== "macOS"
+    To enable the SOCI snapshotter, you need to edit the [Finch configuration
+    file](../configuration-reference/) and add the SOCI snapshotter. The Finch
+    configuration file is typically located at `~/.finch/finch.yaml`
 
-After adding SOCI to the Finch configuration file you need to start and stop the
-Finch virtual machine.
+    ```bash
+    snapshotters:
+        - soci
+    ```
 
-```bash
-finch vm stop
-finch vm start
-```
+    After adding SOCI to the Finch configuration file you need to start and stop the
+    Finch virtual machine.
+
+    ```bash
+    finch vm stop
+    finch vm start
+    ```
+
+=== "Windows"
+    To enable the SOCI snapshotter, you need to edit the [Finch configuration
+    file](../configuration-reference/) and add the SOCI snapshotter. The Finch
+    configuration file is typically located at `%LocalAppData%\.finch\finch.yaml`
+
+    ```bash
+    snapshotters:
+        - soci
+    ```
+
+    After adding SOCI to the Finch configuration file you need to start and stop the
+    Finch virtual machine.
+
+    ```bash
+    finch vm stop
+    finch vm start
+    ```
+=== "Linux"
+    Refer to the [Linux Optional Components page](./../managing-finch/linux/optional-components.md#soci-snapshotter) to setup SOCI on Linux.
+
+
 
 ## Generate SOCI Indexes
 
@@ -63,6 +88,15 @@ use the `finch push --snapshotter soci` command.
     finch push --snapshotter soci `
         "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/myimage:latest"
     ```
+=== "Linux"
+    ```bash
+    AWS_ACCOUNT_ID=111222333444
+    AWS_REGION=eu-west-1
+
+    sudo -E finch push --snapshotter soci \
+        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/myimage:latest
+    ```
+
 
 In the output, you will see that Finch first pushes the container image up to the
 container registry.
@@ -117,6 +151,14 @@ To run the container, you need to pass `--snapshotter soci` into the `finch run`
 
     finch run --snapshotter soci `
         "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/myimage:latest"
+    ```
+=== "Linux"
+    ```bash
+    AWS_ACCOUNT_ID=111222333444
+    AWS_REGION=eu-west-1
+
+    sudo -E finch run --snapshotter soci \
+        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/myimage:latest
     ```
 
 **Successful Lazy Loading**

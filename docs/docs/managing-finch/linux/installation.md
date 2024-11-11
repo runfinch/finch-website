@@ -19,8 +19,6 @@ So long as the first number is greater than 4, Finch is supported. The next sect
 
 Finch is packaged in the standard Amazon Linux repositories. That means, installing Finch is as easy as installing any other Amazon Linux package:
 
-### AL2023
-
 === "AL2023"
 
     ```shell
@@ -34,7 +32,9 @@ Finch is packaged in the standard Amazon Linux repositories. That means, install
     $ sudo yum install runfinch-finch
     ```
 
-After running this command, you will have a `finch` program in your PATH, and you can navigate to the [Verifying Finch install](../../../getting-started/installation/#verify-the-finch-installation) page to proceed. Navigate to the [Optional Components](./optional-components.md) page to configure Finch optional components. 
+After running this command, you will have a `finch` program in your PATH, and you can navigate to the [Verifying Finch install](../../../getting-started/installation/#verify-the-finch-installation) page to proceed. Navigate to the [Optional Components](./optional-components.md) page to configure Finch optional components.
+
+Note that the all of the following Finch guides will use `sudo finch ...`. There is an [optional mechanism to avoid the use of sudo](./../optional-components/#running-finch-without-sudo), follow the link for more information.
 
 ## Generic
 
@@ -65,4 +65,6 @@ The goal of these steps is to setup your system to mimic the configuration found
    1. [buildkit](https://github.com/runfinch/finch/blob/main//contrib/packaging/rpm/finch-buildkit.service)
    1. [finch-daemon](https://github.com/runfinch/finch-daemon/blob/main/finch.service)
 
-After completing this setup, you will have a `finch` program in your PATH, and you can navigate to the [Verifying Finch install](../../../getting-started/installation/#verify-the-finch-installation) page to proceed. Navigate to the [Optional Components](./optional-components.md) page to configure Finch optional components. 
+After completing this setup, you will have a `finch` program in your PATH, and you can navigate to the [Verifying Finch install](../../../getting-started/installation/#verify-the-finch-installation) page to proceed. Navigate to the [Optional Components](./optional-components.md) page to configure Finch optional components.
+
+Note that the all of the following Finch guides will use `sudo finch ...`. There is an [optional mechanism to avoid the use of sudo](./../optional-components/#running-finch-without-sudo), follow the link for more information.

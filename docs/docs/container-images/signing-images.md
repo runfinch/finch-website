@@ -41,9 +41,18 @@ generate a new key:
    new image that has just been built by `finch build`. In this walkthrough we
    will pull down an existing image.
 
-    ```bash
-    finch pull public.ecr.aws/finch/hello-finch:latest
-    ```
+    === "macOS / bash"
+        ```bash
+        finch pull public.ecr.aws/finch/hello-finch:latest
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch pull public.ecr.aws/finch/hello-finch:latest
+        ```
+    === "Linux"
+        ```bash
+        sudo finch pull public.ecr.aws/finch/hello-finch:latest
+        ```
 
 2. A container image is signed with Finch when it is pushed to a container
    registry, therefore in preparation for the `finch push` we need to re tag the
@@ -70,6 +79,15 @@ generate a new key:
             public.ecr.aws/finch/hello-finch:latest `
             "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch"
         ```
+    === "Linux"
+        ```bash
+        AWS_ACCOUNT_ID=111222333444
+        AWS_REGION=eu-west-1
+
+        sudo finch -E tag \
+            public.ecr.aws/finch/hello-finch:latest \
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
+        ```
 
 3. Push and sign the container image with the `finch push --sign cosign`
    command.
@@ -88,6 +106,13 @@ generate a new key:
             --cosign-key cosign.key `
             "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch"
         ```
+    === "Linux"
+        ```bash
+        sudo finch -E push \
+            --sign=cosign  \
+            --cosign-key cosign.key \
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
+        ```
 
 4. Verify the Container Image and the Signature with the `cosign verify` command.
 
@@ -102,6 +127,12 @@ generate a new key:
         cosign verify `
             --key cosign.pub `
             "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch"
+        ```
+    === "Linux"
+        ```bash
+        cosign verify \
+            --key cosign.pub \
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
         ```
 
 ## Verify a Container Image Signature with cosign
@@ -136,6 +167,16 @@ directory.
         --cosign-key cosign.pub `
         "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch"
     ```
+=== "Linux"
+    ```bash
+    AWS_ACCOUNT_ID=111222333444
+    AWS_REGION=eu-west-1
+
+    sudo -E finch pull \
+        --verify=cosign  \
+        --cosign-key cosign.pub \
+        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
+    ```
 
 ### Running a Container Image
 
@@ -163,6 +204,16 @@ directory.
         --verify=cosign  `
         --cosign-key cosign.pub `
         "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch"
+    ```
+=== "Linux"
+    ```bash
+    AWS_ACCOUNT_ID=111222333444
+    AWS_REGION=eu-west-1
+
+    sudo -E finch run --rm \
+        --verify=cosign  \
+        --cosign-key cosign.pub \
+        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
     ```
 
 ## Container Image Signing with Compose and cosign
@@ -208,6 +259,17 @@ cd finch/contrib/hello-finch
             x-nerdctl-cosign-private-key: cosign.key
         "@ > compose.yaml
         ```
+    === "Linux"
+        ```bash
+        cat <<EOF > compose.yaml
+        services:
+          hello-finch:
+            image: $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
+            build: .
+            x-nerdctl-sign: cosign
+            x-nerdctl-cosign-private-key: cosign.key
+        EOF
+        ```
 
 2. Build the container image `finch compose build`
 
@@ -237,6 +299,12 @@ cd finch/contrib/hello-finch
         cosign verify `
             --key cosign.pub `
             "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch"
+        ```
+    === "Linux"
+        ```bash
+        cosign verify \
+            --key cosign.pub \
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
         ```
 
 ### Verify a container image with compose
@@ -270,15 +338,46 @@ cd finch/contrib/hello-finch
             x-nerdctl-cosign-public-key: cosign.pub
         "@ > compose.yaml
         ```
+    === "Linux"
+        ```bash
+        cat <<EOF > compose.yaml
+        services:
+          hello-finch:
+            image: $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch
+            build: .
+            x-nerdctl-sign: cosign
+            x-nerdctl-cosign-private-key: cosign.key
+            x-nerdctl-verify: cosign
+            x-nerdctl-cosign-public-key: cosign.pub
+        EOF
+        ```
 
 2. The image signatures can be verified when pulling the container images.
 
-    ```bash
-    finch compose pull
-    ```
+    === "macOS / bash"
+        ```bash
+        finch compose pull
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch compose pull
+        ```
+    === "Linux"
+        ```bash
+        sudo finch compose pull
+        ```
 
 3. Signatures can also be verified when running the containers.
 
-    ```bash
-    finch compose run
-    ```
+    === "macOS / bash"
+        ```bash
+        finch compose run
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch compose run
+        ```
+    === "Linux"
+        ```bash
+        sudo finch compose run
+        ```

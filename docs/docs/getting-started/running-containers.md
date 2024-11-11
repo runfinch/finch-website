@@ -31,6 +31,11 @@ for instructions.
     finch run `
         public.ecr.aws/finch/hello-finch:latest
     ```
+=== "Linux"
+    ```shell
+    sudo finch run \
+        public.ecr.aws/finch/hello-finch:latest
+    ```
 
 
 You should now see the ASCII art in your terminal.
@@ -81,6 +86,12 @@ exposed on to the same port.
         --publish 80:80 `
         public.ecr.aws/nginx/nginx
     ```
+=== "Linux"
+    ```shell
+    finch run \
+        --publish 80:80 \
+        public.ecr.aws/nginx/nginx
+    ```
 
 Now in a web browser, you should be able to
 navigate to `localhost` and access the running web server container.
@@ -105,11 +116,23 @@ Popular `finch run` flags which will help you get started include:
             --rm `
             public.ecr.aws/finch/hello-finch:latest
         ```
+    === "Linux"
+        ```bash
+        sudo finch run \
+            --rm \
+            public.ecr.aws/finch/hello-finch:latest
+        ```
 
       * Verify that all containers have been removed
-      ```bash
-        $ finch ps --all
-      ```
+
+        === "macOS/Windows"
+            ```shell
+            $ finch ps --all
+            ```
+        === "Linux"
+            ```shell
+            $ sudo finch ps --all
+            ```
 
 * Start an interactive session into a container with the tty `--tty` and the
   interactive `--interactive` flags. Assuming your container image has a shell
@@ -131,6 +154,14 @@ Popular `finch run` flags which will help you get started include:
             public.ecr.aws/docker/library/amazonlinux:latest `
             /bin/bash
         ```
+    === "Linux"
+        ```bash
+        sudo finch run \
+            --interactive \
+            --tty \
+            public.ecr.aws/docker/library/amazonlinux:latest \
+            /bin/bash
+        ```
 
 * Start a container as a background process with the `--detach` flag.
 
@@ -148,6 +179,14 @@ Popular `finch run` flags which will help you get started include:
             --publish 80:80 `
             public.ecr.aws/nginx/nginx
         ```
+    === "Linux"
+        ```bash
+        sudo finch run \
+            --detach \
+            --publish 80:80 \
+            public.ecr.aws/nginx/nginx
+        ```
+
 
 ## Next Steps
 
