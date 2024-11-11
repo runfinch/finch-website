@@ -88,7 +88,7 @@ exposed on to the same port.
     ```
 === "Linux"
     ```shell
-    finch run \
+    sudo finch run \
         --publish 80:80 \
         public.ecr.aws/nginx/nginx
     ```
@@ -128,6 +128,10 @@ Popular `finch run` flags which will help you get started include:
         === "macOS/Windows"
             ```shell
             $ finch ps --all
+            ```
+        === "Windows / PowerShell"
+            ```powershell
+            finch ps --all
             ```
         === "Linux"
             ```shell

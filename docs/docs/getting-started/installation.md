@@ -23,17 +23,18 @@ with the following steps.
 2. Verify that everything is working correctly by attempting to run the Finch
    demonstration container image `hello-finch`.
 
-   === "macOS/Windows"
-
-    ```shell
-    $ finch run public.ecr.aws/finch/hello-finch:latest
-    ```
-
+    === "macOS"
+        ```shell
+        $ finch run public.ecr.aws/finch/hello-finch:latest
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        $ finch run public.ecr.aws/finch/hello-finch:latest
+        ```
     === "Linux"
-
-    ```shell
-    $ sudo finch run public.ecr.aws/finch/hello-finch:latest
-    ```
+        ```shell
+        $ sudo finch run public.ecr.aws/finch/hello-finch:latest
+        ```
 
     If everything is ok, you should now see the output:
 
