@@ -13,9 +13,18 @@ different.
 1. Before pushing a container image, ensure the container image exists in the
    local image store.
 
-    ```bash
-    $ finch image list
-    ```
+    === "macOS / bash"
+        ```bash
+        finch image list
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch image list
+        ```
+    === "Linux"
+        ```bash
+        sudo finch image list
+        ```
 
     In the output you should see a list of all of the container images stored in
     the local container store.
@@ -37,8 +46,8 @@ different.
         export AWS_REGION=eu-west-1
 
         finch tag \
-        hello-finch:latest \
-        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
+            hello-finch:latest \
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
         ```
     === "Windows / PowerShell"
         ```powershell
@@ -46,8 +55,17 @@ different.
         $AWS_REGION="eu-west-1"
 
         finch tag `
-        hello-finch:latest `
-        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
+            hello-finch:latest `
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
+        ```
+    === "Linux"
+        ```bash
+        export AWS_ACCOUNT_ID=111222333444
+        export AWS_REGION=eu-west-1
+
+        sudo -E finch tag \
+            hello-finch:latest \
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
         ```
 
 3. The Amazon ECR registry requires an authentication token to push and pull
@@ -55,9 +73,18 @@ different.
    different for your container image registry, see [registry
    authentication](../../container-images/authentication/) for more information.
 
-    ```bash
-    aws ecr get-login-password --region $AWS_REGION | finch login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
-    ```
+    === "macOS / bash"
+        ```bash
+        aws ecr get-login-password --region $AWS_REGION | finch login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        aws ecr get-login-password --region $AWS_REGION | finch login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+        ```
+    === "Linux"
+        ```bash
+        aws ecr get-login-password --region $AWS_REGION | sudo -E finch login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+        ```
 
     If the login has been successful you should see:
 
@@ -68,9 +95,18 @@ different.
 4. Using the `finch push` command we push the container image from the local
    machine up to the container image repository.
 
-    ```bash
-    finch push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
-    ```
+    === "macOS / bash"
+        ```bash
+        finch push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
+        ```
+    === "Linux"
+        ```bash
+        sudo -E finch push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
+        ```
 
 4. With the AWS Console or the AWS CLI we can verify that the container image
    has been successfully pushed.
@@ -100,8 +136,23 @@ to the container registry.
 1. Ensure both architectures of the container image have been built and exist
    locally.
 
+    === "macOS / bash"
+        ```bash
+        finch image list
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch image list
+        ```
+    === "Linux"
+        ```bash
+        sudo finch image list
+        ```
+
+    In the output you should see a list of all of the container images stored in
+    the local container store.
+
     ```bash
-    finch image list
     REPOSITORY     TAG       IMAGE ID        CREATED          PLATFORM       SIZE       BLOB SIZE
     hello-finch    latest    5874669344b3    3 seconds ago    linux/arm64    1.8 MiB    1009.0 KiB
     hello-finch    latest    5874669344b3    3 seconds ago    linux/amd64    0.0 B      1.0 MiB
@@ -129,13 +180,31 @@ to the container registry.
             hello-finch:latest `
             "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest"
         ```
+    === "Linux"
+        ```bash
+        export AWS_ACCOUNT_ID=111222333444
+        export AWS_REGION=eu-west-1
+
+        sudo -E finch tag \
+            hello-finch:latest \
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
+        ```
 
     You can verify both images have been re tagged using the `finch image list`
     command.
 
-    ```bash
-    finch image list
-    ```
+    === "macOS / bash"
+        ```bash
+        finch image list
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        finch image list
+        ```
+    === "Linux"
+        ```bash
+        sudo finch image list
+        ```
 
     Now you should see four images, one for each architecture for each tag.
 
@@ -152,9 +221,18 @@ to the container registry.
    different for your container image registry, see [Registry
    Authentication](../../container-images/authentication/) for more information.
 
-    ```bash
-    aws ecr get-login-password --region $AWS_REGION | finch login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
-    ```
+    === "macOS / bash"
+        ```bash
+        aws ecr get-login-password --region $AWS_REGION | finch login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        aws ecr get-login-password --region $AWS_REGION | finch login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+        ```
+    === "Linux"
+        ```bash
+        aws ecr get-login-password --region $AWS_REGION | sudo -E finch login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+        ```
 
     If the login has been successful you should see:
 
@@ -175,6 +253,12 @@ to the container registry.
         ```powershell
         finch push `
             --platform linux/arm64,linux/amd64 `
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
+        ```
+    === "Linux"
+        ```bash
+        sudo -E finch push \
+            --platform linux/arm64,linux/amd64 \
             $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/hello-finch:latest
         ```
 

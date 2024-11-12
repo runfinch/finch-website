@@ -17,15 +17,24 @@ with the following steps.
    once again require the users password.
 
     ```bash
-    finch vm init
+    $ finch vm init
     ```
 
 2. Verify that everything is working correctly by attempting to run the Finch
    demonstration container image `hello-finch`.
 
-    ```bash
-    finch run public.ecr.aws/finch/hello-finch:latest
-    ```
+    === "macOS"
+        ```shell
+        $ finch run public.ecr.aws/finch/hello-finch:latest
+        ```
+    === "Windows / PowerShell"
+        ```powershell
+        $ finch run public.ecr.aws/finch/hello-finch:latest
+        ```
+    === "Linux"
+        ```shell
+        $ sudo finch run public.ecr.aws/finch/hello-finch:latest
+        ```
 
     If everything is ok, you should now see the output:
 
