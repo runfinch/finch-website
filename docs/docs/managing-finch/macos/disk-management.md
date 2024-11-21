@@ -39,7 +39,13 @@ can specify additional mounts in the Finch Configuration.
     additional_directories:
       - "/Volumes/test"
     ```
-
+    !!! note 
+    
+        If your username doesn't match your home directory name, you may need to add `/Users/<username>` to the additional_directories list. This can help avoid permission issues when building Docker images or accessing files within containers.
+        ```
+        additional_directories:
+            - "/Users/<username>"
+        ```
 2. Restart the virtual machine to pick up the changes in the mounts.
 
     ```
