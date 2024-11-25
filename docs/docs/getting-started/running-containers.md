@@ -192,6 +192,27 @@ Popular `finch run` flags which will help you get started include:
         ```
 
 
+!!! note Troubleshooting SSL Certificate Issues with Corporate Proxies
+    If you encounter SSL certificate errors when trying to download images through a corporate SSL inspection proxy, you may see an error like this:
+    ``failed to do request: Head "<image-url>": tls: failed to verify certificate: x509: certificate signed by unknown authority``
+    To resolve this issue, follow these steps:
+
+    1. Access the Finch VM:
+    - On macOS:
+        ```
+        LIMA_HOME=/Applications/Finch/lima/data /Applications/Finch/lima/bin/limactl shell finch
+        ```
+    - On Windows:
+        Use the WSL CLI to shell into the Lima VM.
+
+    2. Copy the certificate chain:
+        Copy your corporate SSL certificates to `/etc/pki/ca-trust/source/anchors/` within the VM.
+
+    3. Update the local CA store:
+        ```
+        update-ca-trust
+        ```
+
 ## Next Steps
 
 In this section, you learned how to run containers on Finch
