@@ -125,8 +125,7 @@ finch image prune --all
 
 ### Increasing the size of the Data Disk
 
-To expand the virtual machine disk size above 50GB, you can dive into the
-underlying virtualization configuration and increase the capacity.
+To expand the virtual machine disk size above 50GB, you can use the Finch VM disk resize command.
 
 1. First make sure the virtual machine has been stopped
 
@@ -134,12 +133,17 @@ underlying virtualization configuration and increase the capacity.
     finch vm stop
     ```
 
-2. Next resize the virtual machine using the `qemu-img resize command`. This
-   example command increases the disk space by a further 100GB, but this value
-   can be adjusted to suit.
+2. Resize the virtual machine disk using the finch vm disk resize command.
+   Note that disk size can only be increased, not decreased.
 
     ```bash
-    /Applications/Finch/lima/bin/qemu-img resize /Applications/Finch/lima/data/_disks/finch/datadisk +100G
+    finch vm disk resize --size <size>
+    ```
+
+    For example, to increase to 100GiB:
+
+    ```bash
+    finch vm disk resize --size 100Gib
     ```
 
 3. Next start back up the virtual machine
@@ -148,17 +152,7 @@ underlying virtualization configuration and increase the capacity.
     finch vm start
     ```
 
-4. Finally you need to get a shell into the virtual machine to resize the
-   underlying partition.
-
-    ```bash
-    export LIMA_HOME=/Applications/Finch/lima/data
-
-    /Applications/Finch/lima/bin/limactl shell finch sudo bash -c "growpart /dev/vdb 1"
-    /Applications/Finch/lima/bin/limactl shell finch sudo bash -c "resize2fs /dev/vdb1"
-    ```
-
-5. To validate the change has been successful, with one last shell into the
+4. To validate the change has been successful, shell into the
    virtual machine, checks the disk size with `df -h`.
 
     ```bash
