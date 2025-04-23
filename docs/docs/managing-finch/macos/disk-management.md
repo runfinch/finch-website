@@ -143,7 +143,7 @@ To expand the virtual machine disk size above 50GB, you can use the Finch VM dis
     For example, to increase to 100GiB:
 
     ```bash
-    finch vm disk resize --size 100Gib
+    finch vm disk resize --size 100GiB
     ```
 
 3. Next start back up the virtual machine
