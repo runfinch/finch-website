@@ -123,6 +123,23 @@ attached with:
 finch image prune --all
 ```
 
+!!! note
+      Running `finch system prune` cleans up unused containers, images, volumes, and networks inside the VM, but it 
+      does **not** reduce disk usage on the host OS. To reclaim the freed space on your Mac, follow these steps:
+
+    Log in to the VM shell:
+
+    ```bash
+    export LIMA_HOME=/Applications/Finch/lima/data
+    /Applications/Finch/lima/bin/limactl shell finch
+    ```
+
+    Run fstrim inside the VM:
+
+    ```bash
+    sudo fstrim -v /mnt/lima-finch
+    ```
+
 ### Increasing the size of the Data Disk
 
 To expand the virtual machine disk size above 50GB, you can use the Finch VM disk resize command.
@@ -134,7 +151,6 @@ To expand the virtual machine disk size above 50GB, you can use the Finch VM dis
     ```
 
 2. Resize the virtual machine disk using the finch vm disk resize command.
-   Note that disk size can only be increased, not decreased.
 
     ```bash
     finch vm disk resize --size <size>
@@ -145,6 +161,8 @@ To expand the virtual machine disk size above 50GB, you can use the Finch VM dis
     ```bash
     finch vm disk resize --size 100GiB
     ```
+   > **Note:** Disk size can only be increased, not decreased. This is due to limitations with the underlying sparse
+   disk format used by QEMU, which does not support shrinking after expansion.
 
 3. Next start back up the virtual machine
 
