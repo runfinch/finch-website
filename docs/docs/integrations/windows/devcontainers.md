@@ -40,7 +40,7 @@ Open the extension settings by navigating within the setting window or using the
 - Disable the "Mount Wayland Socker" option
 
 
-## Advanced Network Creation with Compose:
+## Working with Docker Compose Projects in Dev Containers:
 When using `docker compose`, set the `DOCKER_COMPOSE_VERSION` to a value `> 2.9.0`.
 
 - Using the Command Prompt: use `set DOCKER_COMPOSE_VERSION=x.x.x` for the current session
@@ -48,3 +48,8 @@ When using `docker compose`, set the `DOCKER_COMPOSE_VERSION` to a value `> 2.9.
 - Using the PowerShell: use `$env:DOCKER_COMPOSE_VERSION = "x.x.x"` for the current session
 
 - Set the environment variable within the System Properties::Advanced System Settings::Environment Variables
+
+> ⚠️ **Note:** Finch only supports dash (`-`) as the project name separator. 
+> However, Dev Container tooling relies on the separator determined by `docker compose version`. 
+> If the version is below `2.9.0`, it defaults to using underscores (`_`), causing name mismatches 
+> and container startup failures. To ensure compatibility, set the `DOCKER_COMPOSE_VERSION` to `>= 2.9.0`.

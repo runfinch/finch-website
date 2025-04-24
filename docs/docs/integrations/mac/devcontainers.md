@@ -36,10 +36,14 @@ Open the extension settings by navigating within the setting window or using the
 - Configure the "Docker Path" to: `<path>/<to>/finch`
 
 
-## Advanced Network Creation with Compose:
+## Working with Docker Compose Projects in Dev Containers:
 
 When using `docker compose`, set the `DOCKER_COMPOSE_VERSION` to a value `> 2.9.0`.
 - Set the system environment variable within `.zshrc` and `source .zshrc`
 
 - Use `export DOCKER_COMPOSE_VERSION=x.x.x` for the current session
 
+> ⚠️ **Note:** Finch only supports dash (`-`) as the project name separator.
+> However, Dev Container tooling relies on the separator determined by `docker compose version`.
+> If the version is below `2.9.0`, it defaults to using underscores (`_`), causing name mismatches
+> and container startup failures. To ensure compatibility, set the `DOCKER_COMPOSE_VERSION` to `>= 2.9.0`.
