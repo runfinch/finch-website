@@ -18,6 +18,14 @@ Amazon Linux packages can be uninstalled via using the system package manager:
     $ sudo yum remove runfinch-finch
     ```
 
+## Uninstalling Finch on Ubuntu
+
+Ubuntu packages can be uninstalled via using the system package manager:
+
+    ```shell
+    $ sudo apt remove runfinch-finch
+    ```
+
 ## Manual uninstallation
 
 If you followed the manual installation steps, Finch and its dependencies can be fully uninstalled by running the following commands:

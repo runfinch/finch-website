@@ -36,6 +36,32 @@ After running this command, you will have a `finch` program in your PATH, and yo
 
 Note that the all of the following Finch guides will use `sudo finch ...`. There is an [optional mechanism to avoid the use of sudo](./../optional-components/#running-finch-without-sudo), follow the link for more information.
 
+## Ubuntu
+
+Finch is packaged in a self hosted APT repository. That means, installing Finch is as easy as this:
+
+=== "AMD64"
+
+    ```shell
+    $ curl -fsSL https://artifact.runfinch.com/deb/GPG_KEY.pub | sudo gpg --dearmor -o /usr/share/keyrings/runfinch-finch-archive-keyring.gpg
+    $ echo "deb [signed-by=/usr/share/keyrings/runfinch-finch-archive-keyring.gpg arch=amd64] https://artifact.runfinch.com/deb noble main" | sudo tee /etc/apt/sources.list.d/runfinch-finch.list
+    $ sudo apt update
+    $ sudo apt install runfinch-finch
+    ```
+
+=== "ARM64"
+
+    ```shell
+    $ curl -fsSL https://artifact.runfinch.com/deb/GPG_KEY.pub | sudo gpg --dearmor -o /usr/share/keyrings/runfinch-finch-archive-keyring.gpg
+    $ echo "deb [signed-by=/usr/share/keyrings/runfinch-finch-archive-keyring.gpg arch=arm64] https://artifact.runfinch.com/deb noble main" | sudo tee /etc/apt/sources.list.d/runfinch-finch.list
+    $ sudo apt update
+    $ sudo apt install runfinch-finch
+    ```
+
+After running this command, you will have a `finch` program in your PATH, and you can navigate to the [Verifying Finch install](../../../getting-started/installation/#verify-the-finch-installation) page to proceed.
+
+Note that the all of the following Finch guides will use `sudo finch ...`.
+
 ## Generic
 
 For distributions which do not have packages built for them, installing Finch requires downloading and installing dependencies, as well as creating filesystem paths needed by Finch.

@@ -22,6 +22,15 @@ Amazon Linux packages can be upgraded via using the system package manager:
     $ sudo yum update runfinch-finch
     ```
 
+## Ubuntu
+
+Ubuntu packages can be upgraded via using the system package manager:
+
+    ```shell
+    $ sudo apt update
+    $ sudo apt upgrade runfinch-finch
+    ```
+
 ## Manual installation
 
 Components in a manual installation of Finch can be upgraded individually. Follow the installation instructions for detailed instructions on how to install various components. For a manual installation, upgrading is essentially re-extracting newer versions of software as if it were a new installation.
