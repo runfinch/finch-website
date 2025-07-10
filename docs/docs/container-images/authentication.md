@@ -7,6 +7,16 @@ the image registry you are using, you either authenticate yourself through the
 helpers](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers),
 to manage authentication tokens on your behalf.
 
+### Credential Helper Options
+
+Finch supports the following authentication methods:
+
+- **Manual configuration**: Configure supported helpers like `ecr-login` in `~/.finch/config.json`.
+- **Manual login**: Authenticate directly with `finch login`.
+- **Docker credential helpers**: Falls back on Docker's credential helpers if available (requires Docker Desktop).
+
+**Important:** Finch does not support system credential stores (`osxkeychain`, `wincred`, `secretservice`) directly. Configuring these in `~/.finch/config.json` will fail to authenticate.
+
 ### macOS and Windows
 
 === "Amazon ECR"
