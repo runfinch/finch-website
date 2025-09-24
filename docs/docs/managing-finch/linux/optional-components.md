@@ -71,18 +71,18 @@ The ECR Credential Helper must also be configured for the root user's docker con
 
 By default, Finch requires `sudo` to run, since the containerd and buildkit daemons require root access. In order to avoid the need for typing `sudo` before every finch command, you can run the following:
 
-    ```bash
-    # create a new group which will contain all users that can run finch without sudo
-    /usr/sbin/groupadd -r "finch"
-    # add your user to the group
-    /usr/sbin/usermod -a -G "finch" "${USER}"
+```bash
+# create a new group which will contain all users that can run finch without sudo
+/usr/sbin/groupadd -r "finch"
+# add your user to the group
+/usr/sbin/usermod -a -G "finch" "${USER}"
 
-    # allow users to execute without using "sudo"
-    sudo chgrp "finch" /usr/local/bin/nerdctl
-    sudo chmod +s /usr/local/bin/nerdctl
-    sudo chgrp "finch" /usr/bin/finch
-    sudo chmod +s /usr/bin/finch
-    ```
+# allow users to execute without using "sudo"
+sudo chgrp "finch" /usr/local/bin/nerdctl
+sudo chmod +s /usr/local/bin/nerdctl
+sudo chgrp "finch" /usr/bin/finch
+sudo chmod +s /usr/bin/finch
+```
 
 NOTE: this process does not remove the requirement for running the commands with root privileges, it simply
 sidesteps the need to type `sudo` every execution.
