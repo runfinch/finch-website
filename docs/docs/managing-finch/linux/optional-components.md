@@ -73,15 +73,21 @@ By default, Finch requires `sudo` to run, since the containerd and buildkit daem
 
 ```bash
 # create a new group which will contain all users that can run finch without sudo
-/usr/sbin/groupadd -r "finch"
+sudo /usr/sbin/groupadd -r "finch"
 # add your user to the group
-/usr/sbin/usermod -a -G "finch" "${USER}"
+sudo /usr/sbin/usermod -a -G "finch" "${USER}"
+
+# load the newgrp
+newgrp finch
 
 # allow users to execute without using "sudo"
+sudo chgrp "finch" /var/run/finch.sock
 sudo chgrp "finch" /usr/local/bin/nerdctl
 sudo chmod +s /usr/local/bin/nerdctl
+sudo chmod o-x /usr/local/bin/nerdctl
 sudo chgrp "finch" /usr/bin/finch
 sudo chmod +s /usr/bin/finch
+sudo chmod o-x /usr/bin/finch
 ```
 
 NOTE: this process does not remove the requirement for running the commands with root privileges, it simply
