@@ -9,13 +9,14 @@ to manage authentication tokens on your behalf.
 
 ### Credential Helper Options
 
-Finch supports the following authentication methods:
+Finch supports the following authentication and credential storage methods:
 
+- **User Keychain (macOS)**: `osxkeychain` is configured by default in `~/.finch/config.json`, allowing credentials to be securely stored in the encrypted macOS Keychain.
 - **Manual configuration**: Configure supported helpers like `ecr-login` in `~/.finch/config.json`.
 - **Manual login**: Authenticate directly with `finch login`.
 - **Docker credential helpers**: Falls back on Docker's credential helpers if available (requires Docker Desktop).
 
-**Important:** Finch does not support system credential stores (`osxkeychain`, `wincred`, `secretservice`) directly. Configuring these in `~/.finch/config.json` will fail to authenticate.
+**Important:** Finch does not support system credential stores for Windows (`wincred`) or Linux (`secretservice`). Configuring these in `~/.finch/config.json` will fail to authenticate.
 
 ### macOS and Windows
 
@@ -80,6 +81,27 @@ Finch supports the following authentication methods:
 
         aws ecr get-login-password --region $AWS_REGION | finch login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
         ```
+
+        If the login has been successful, you should see:
+
+        ```bash
+        Login Succeeded
+        ```
+
+        For multiple accounts, ensure all profiles are configured in `~/.aws/credentials`, then login as follows:
+
+        ```bash
+        export AWS_ACCOUNT_ID_1=111222333444
+        export AWS_ACCOUNT_ID_2=555666777888
+        export AWS_REGION_1=us-east-1
+        export AWS_REGION_2=eu-west-1
+
+        AWS_PROFILE=$AWS_ACCOUNT_ID_1 aws ecr get-login-password --region $AWS_REGION_1 | finch login --username AWS --password-stdin $AWS_ACCOUNT_ID_1.dkr.ecr.$AWS_REGION_1.amazonaws.com
+        AWS_PROFILE=$AWS_ACCOUNT_ID_2 aws ecr get-login-password --region $AWS_REGION_2 | finch login --username AWS --password-stdin $AWS_ACCOUNT_ID_2.dkr.ecr.$AWS_REGION_2.amazonaws.com
+        ```
+
+        After logging in, subsequent finch operations will use the stored credentials and do not require `AWS_PROFILE`.
+
     === "Windows / PowerShell"
         ```powershell
         $AWS_ACCOUNT_ID="111222333444"
@@ -88,11 +110,25 @@ Finch supports the following authentication methods:
         aws ecr get-login-password --region $AWS_REGION | finch login --username AWS --password-stdin "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com"
         ```
 
-    If the login has been successful, you should see:
+        If the login has been successful, you should see:
 
-    ```bash
-    Login Succeeded
-    ```
+        ```bash
+        Login Succeeded
+        ```
+
+        For multiple accounts, ensure all profiles are configured in `~/.aws/credentials`, then login as follows:
+
+        ```powershell
+        $AWS_ACCOUNT_ID_1="111222333444"
+        $AWS_ACCOUNT_ID_2="555666777888"
+        $AWS_REGION_1="us-east-1"
+        $AWS_REGION_2="eu-west-1"
+
+        $env:AWS_PROFILE=$AWS_ACCOUNT_ID_1; aws ecr get-login-password --region $AWS_REGION_1 | finch login --username AWS --password-stdin "$AWS_ACCOUNT_ID_1.dkr.ecr.$AWS_REGION_1.amazonaws.com"
+        $env:AWS_PROFILE=$AWS_ACCOUNT_ID_2; aws ecr get-login-password --region $AWS_REGION_2 | finch login --username AWS --password-stdin "$AWS_ACCOUNT_ID_2.dkr.ecr.$AWS_REGION_2.amazonaws.com"
+        ```
+
+        After logging in, subsequent finch operations will use the stored credentials and do not require `AWS_PROFILE`.
 
 === "Amazon ECR Public"
 
@@ -167,11 +203,53 @@ Finch supports the following authentication methods:
     Enter Username: username
     Enter Password:
     ```
-
     If the login has been successful, you should see:
 
     ```bash
     Login Succeeded
+    ```
+
+=== "Native Credential Stores"
+
+    #### Using the macOS Keychain for secure credential storage
+
+    The macOS Keychain is a built-in password manager that stores credentials
+    encrypted-at-rest. This is preferable over the default behavior of storing 
+    credentials as plaintext in `~/.finch/config.json`, and is configured by default. 
+    Similar functionality for Windows Credential Manager is not currently supported.
+
+    To ensure that the macOS Keychain is being used, confirm that 
+    `osxkeychain` is set as the credstore in `~/.finch/config.json`:
+
+    ```
+    {
+        "credsStore": "osxkeychain"
+    }
+    ```
+
+    If it is not configured, you can either set it manually or delete the file and 
+    login to a desired registry, which will automatically configure it.
+
+    This depends on `docker-credential-osxkeychain`, a standard helper for interacting
+    with the macOS keychain. Ensure that it exists in `/usr/local/bin` (or any directory 
+    in `PATH`):
+
+    ```
+    where docker-credential-osxkeychain
+    ```
+
+    If it is not installed, you have two options:
+
+    1. Copy the version of the binary shipped with Finch into `PATH`:
+
+    ```
+    cp /Applications/Finch/cred-helpers/docker-credential-osxkeychain /usr/local/bin/docker-credential-osxkeychain
+    ```
+
+    2. Install via `brew`:
+
+    ```
+    brew install docker-credential-helper
     ```
 
 ### Linux
@@ -228,6 +306,20 @@ Finch supports the following authentication methods:
     ```bash
     Login Succeeded
     ```
+
+    For multiple accounts, ensure all profiles are configured in `~/.aws/credentials`, then login as follows:
+
+    ```bash
+    export AWS_ACCOUNT_ID_1=111222333444
+    export AWS_ACCOUNT_ID_2=555666777888
+    export AWS_REGION_1=us-east-1
+    export AWS_REGION_2=eu-west-1
+
+    AWS_PROFILE=$AWS_ACCOUNT_ID_1 aws ecr get-login-password --region $AWS_REGION_1 | sudo -E finch login --username AWS --password-stdin $AWS_ACCOUNT_ID_1.dkr.ecr.$AWS_REGION_1.amazonaws.com
+    AWS_PROFILE=$AWS_ACCOUNT_ID_2 aws ecr get-login-password --region $AWS_REGION_2 | sudo -E finch login --username AWS --password-stdin $AWS_ACCOUNT_ID_2.dkr.ecr.$AWS_REGION_2.amazonaws.com
+    ```
+
+    After logging in, subsequent finch operations will use the stored credentials and do not require `AWS_PROFILE`.
 
 === "Amazon ECR Public"
 
