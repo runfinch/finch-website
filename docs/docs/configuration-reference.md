@@ -82,3 +82,17 @@ Many of Finch's configuration options are currently macOS only, and this will be
   Specifically, Finch will convert the Docker invocation into compatible nerdctl commands and arguments when possible.
   This option is required for running DevContainers on Finch.
 
+- `vmnet` **(macOS only)**: Enables shared networking for the virtual machine,
+  allowing the VM to obtain a routable IP address on the host network. The
+  behavior depends on the `vmType`:
+
+    - **`vmType: qemu`**: Installs [socket_vmnet](https://github.com/lima-vm/socket_vmnet)
+      to provide a bridged network interface. `finch vm init` will require a one-time
+      `sudo` prompt to install the socket_vmnet binary to `/opt/finch/` and configure
+      sudoers. Subsequent VM starts do not require sudo.
+    - **`vmType: vz`**: Uses Apple's native vzNAT to provide VM networking with no
+      privilege escalation required.
+
+  When disabled or unset (the default), the VM uses user-mode networking (slirp
+  for qemu, or the default vz network stack). Default is `false`.
+
