@@ -1,5 +1,84 @@
 # Changelog
 
+## [1.17.2](https://github.com/runfinch/finch/compare/v1.17.1...v1.17.2) (2026-06-30)
+
+
+### Build System or External Dependencies
+
+* **deps:** bump github.com/containerd/containerd/v2 ([1b328cd](https://github.com/runfinch/finch/commit/1b328cd2825d95ba291acf4b0b20cc4572f54cb5))
+* **deps:** bump github.com/containerd/containerd/v2 ([c2025af](https://github.com/runfinch/finch/commit/c2025afde37de960775a6930ef889ca012b8a3af))
+* **deps:** bump github.com/containerd/containerd/v2 from 2.2.1 to 2.2.4 ([#1746](https://github.com/runfinch/finch/issues/1746)) ([c2025af](https://github.com/runfinch/finch/commit/c2025afde37de960775a6930ef889ca012b8a3af))
+* **deps:** bump github.com/containerd/containerd/v2 from 2.2.4 to 2.2.5 ([#1763](https://github.com/runfinch/finch/issues/1763)) ([1b328cd](https://github.com/runfinch/finch/commit/1b328cd2825d95ba291acf4b0b20cc4572f54cb5))
+* **deps:** bump github.com/docker/cli ([73676d5](https://github.com/runfinch/finch/commit/73676d50be6e35461e1993aec066c3741c6be41e))
+* **deps:** bump github.com/docker/cli from 29.2.0+incompatible to 29.5.3+incompatible in the docker group across 1 directory ([#1667](https://github.com/runfinch/finch/issues/1667)) ([73676d5](https://github.com/runfinch/finch/commit/73676d50be6e35461e1993aec066c3741c6be41e))
+* **deps:** bump github.com/docker/cli from 29.5.3+incompatible to 29.6.0+incompatible in the docker group ([#1764](https://github.com/runfinch/finch/issues/1764)) ([979aad8](https://github.com/runfinch/finch/commit/979aad85cb64c926ab525dda193c2d27a49e62a5))
+* **deps:** bump github.com/docker/cli in the docker group ([979aad8](https://github.com/runfinch/finch/commit/979aad85cb64c926ab525dda193c2d27a49e62a5))
+* **deps:** bump go.opentelemetry.io/otel from 1.39.0 to 1.41.0 ([#1741](https://github.com/runfinch/finch/issues/1741)) ([b55aa37](https://github.com/runfinch/finch/commit/b55aa377c889741f7362b5b399b67a249de7d8fe))
+* **deps:** Bump submodules and dependencies ([#1766](https://github.com/runfinch/finch/issues/1766)) ([f862071](https://github.com/runfinch/finch/commit/f862071ee96ed2769fd76b1d90846d2a7d8bb6ed))
+* **deps:** bump the project-dependency group across 1 directory with 11 updates ([#1770](https://github.com/runfinch/finch/issues/1770)) ([9260387](https://github.com/runfinch/finch/commit/92603876bda73acdcbbd04d454706cbe413d58ff))
+* **deps:** golang.org/x/net from v0.54.0 to v0.55.0 ([#1756](https://github.com/runfinch/finch/issues/1756)) ([e2c5d05](https://github.com/runfinch/finch/commit/e2c5d05b31767c13e499d75897c4d917e0ea1679))
+
+
+### Bug Fixes
+
+* **ci:** update codebuild runner ref for samcli cleanup step ([#1753](https://github.com/runfinch/finch/issues/1753)) ([8615eb9](https://github.com/runfinch/finch/commit/8615eb977d76d5ae9e6bfe9b39c5f5e715e4b046))
+
+## [1.17.1](https://github.com/runfinch/finch/compare/v1.17.0...v1.17.1) (2026-05-29)
+
+
+### Build System or External Dependencies
+
+* **deps:** Bump submodules and dependencies ([#1739](https://github.com/runfinch/finch/issues/1739)) ([57cfee0](https://github.com/runfinch/finch/commit/57cfee009f5db96abd6608dc324170211e75360c))
+* **deps:** Bump submodules and dependencies ([#1747](https://github.com/runfinch/finch/issues/1747)) ([6560f1d](https://github.com/runfinch/finch/commit/6560f1de45954277c45746b98a3b019f9db025ae))
+
+
+### Bug Fixes
+
+* **ci:** Fix samcli-vm invoke tests for ARM64 runners ([9b0ce05](https://github.com/runfinch/finch/commit/9b0ce05e8c4658be71982e4b3746b205d6539869))
+* troubleshoot and patch samcli invoke tests ([#1721](https://github.com/runfinch/finch/issues/1721)) ([9b0ce05](https://github.com/runfinch/finch/commit/9b0ce05e8c4658be71982e4b3746b205d6539869))
+
+## [1.17.0](https://github.com/runfinch/finch/compare/v1.16.0...v1.17.0) (2026-04-24)
+
+
+### Build System or External Dependencies
+
+* **deps:** bump github.com/containerd/nerdctl/v2 from 2.2.1 to 2.2.2 ([#1736](https://github.com/runfinch/finch/issues/1736)) ([d561171](https://github.com/runfinch/finch/commit/d5611716499444008e90e5dad6b59833fe969381))
+* **deps:** bump github.com/docker/cli ([8b0ac64](https://github.com/runfinch/finch/commit/8b0ac6473d8cdc12d8e45eb75c9e28e06cf48819))
+* **deps:** bump github.com/docker/cli from 29.1.3+incompatible to 29.2.0+incompatible ([#1714](https://github.com/runfinch/finch/issues/1714)) ([8b0ac64](https://github.com/runfinch/finch/commit/8b0ac6473d8cdc12d8e45eb75c9e28e06cf48819))
+* **deps:** bump github.com/go-jose/go-jose/v4 from 4.1.3 to 4.1.4 ([#1732](https://github.com/runfinch/finch/issues/1732)) ([802ce82](https://github.com/runfinch/finch/commit/802ce82b241436d6e6639334a0f1b9c391e3f49b))
+* **deps:** bump golang.org/x/image from 0.18.0 to 0.38.0 ([#1731](https://github.com/runfinch/finch/issues/1731)) ([05a28ee](https://github.com/runfinch/finch/commit/05a28eef28264746383ed5148b8980016e7c1c4c))
+* **deps:** bump google.golang.org/grpc from 1.78.0 to 1.79.3 ([#1725](https://github.com/runfinch/finch/issues/1725)) ([2d36408](https://github.com/runfinch/finch/commit/2d36408e4beccbec35874fd587f572a3c4fe553b))
+* **deps:** Bump submodules and dependencies ([#1728](https://github.com/runfinch/finch/issues/1728)) ([80958a6](https://github.com/runfinch/finch/commit/80958a6b3965787a540717bd6e863f3c16ab11ec))
+
+
+### Features
+
+* make disk sizes configurable on macos ([#1733](https://github.com/runfinch/finch/issues/1733)) ([916da69](https://github.com/runfinch/finch/commit/916da699d34d4fe0cc1edca9e87a048a05bf2deb))
+
+## [1.16.0](https://github.com/runfinch/finch/compare/v1.15.1...v1.16.0) (2026-03-19)
+
+
+### Build System or External Dependencies
+
+* **deps:** Bump submodules and dependencies ([#1708](https://github.com/runfinch/finch/issues/1708)) ([b6ba659](https://github.com/runfinch/finch/commit/b6ba659ad961f73400e91d366ca0dfaa1ea0ef80))
+
+
+### Features
+
+* add mkosi based AL2023 images ([#1716](https://github.com/runfinch/finch/issues/1716)) ([40e5350](https://github.com/runfinch/finch/commit/40e5350972d3dd8741e42ce18336bbe919771400))
+
+
+### Bug Fixes
+
+* move samcli-vm tests to finch ([#1710](https://github.com/runfinch/finch/issues/1710)) ([a610930](https://github.com/runfinch/finch/commit/a6109308206186a53a8a4699a4228c1e7310e117))
+
+## [1.15.1](https://github.com/runfinch/finch/compare/v1.15.0...v1.15.1) (2026-02-26)
+
+
+### Bug Fixes
+
+* DOCKER_CONFIG mismatch between login/logout and registry operations ([#1703](https://github.com/runfinch/finch/issues/1703)) ([eb331f1](https://github.com/runfinch/finch/commit/eb331f1fc8cbb11396de3cc3081f223684bed4a3))
+
 ## [1.15.0](https://github.com/runfinch/finch/compare/v1.14.1...v1.15.0) (2026-02-19)
 
 
