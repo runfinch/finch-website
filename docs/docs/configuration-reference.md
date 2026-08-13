@@ -17,6 +17,8 @@ Example `finch.yaml` file:
 ```
 cpus: 3
 memory: 4GiB
+bootdisk: 100GiB
+datadisk: 50GiB
 snapshotters:
   - "overlayfs"
 creds_helpers:
@@ -39,6 +41,14 @@ Many of Finch's configuration options are currently macOS only, and this will be
 - `memory` **(macOS only)**: The amount of memory to attach to the virtual machine. The default
   is determined dynamically based on the resources available using
    `0.25 * total_memory`, with a minimum value of `2GiB`.
+
+- `bootdisk` **(macOS only)**: The size of the boot disk attached to the virtual machine, which
+  holds the guest operating system. Must be greater than `10GiB`. Default is `100GiB`.
+
+- `datadisk` **(macOS only)**: The size of the data disk attached to the virtual machine, where
+  container images, containers, and volumes are stored. Must be greater than `10GiB`. Default
+  is `50GiB`. Both disks are sparse and can only be grown once created. See [disk
+  management](/docs/managing-finch/macos/disk-management/) for more details.
 
 - `snapshotters`: The list of [containerd
   snapshotters](https://github.com/containerd/containerd/tree/main/docs/snapshotters)
@@ -77,6 +87,11 @@ Many of Finch's configuration options are currently macOS only, and this will be
   framework is used. Rosetta can only be used if `vmType: vz`. When `vmType: vz`
   is set, without specifying `rosetta`, `rosetta` will default to `true`.
   Otherwise, the default is `false`
+
+    Rosetta requires an Apple Silicon machine running **macOS 26 Tahoe or later**. 
+    On macOS 15 Sequoia or earlier leave `rosetta` unset or set it to `false` to
+    use QEMU emulation instead. See the [macOS installation
+    prerequisites](/docs/managing-finch/macos/installation/) for more details.
 
 - `dockercompat`: activates finch functionality to accept docker-compatible arguments and return docker-like responses for a limited set of docker commands.
   Specifically, Finch will convert the Docker invocation into compatible nerdctl commands and arguments when possible.

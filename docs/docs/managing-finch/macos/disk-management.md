@@ -25,6 +25,39 @@ You should see the file you just created.
 hello
 ```
 
+!!! important "Writable home directory mount can cause security issues"
+    Your home directory is mounted as **writable** into the VM. An escaped or privileged container can potentially read and alter the contents of your home directory including your SSH keys, AWS config, and registry credentials.
+
+    To disable the home directory mount, you can edit the Lima config file at `/Applications/Finch/os/finch.yaml` and remove the following lines starting with `location: "~"` from the `mounts` section:
+    ```yaml
+    mounts:
+        - location: "~"
+          mountPoint: null
+          writable: true
+          sshfs:
+            cache: true
+            followSymlinks: false
+            sftpDriver: "openssh-sftp-server"
+          9p:
+            securityModel: "none"
+            protocolVersion: "9p2000.L"
+            msize: "128KiB"
+            cache: "fscache"
+    ```
+
+    To keep the home directory mount but make it read-only, you can change `writable: true` to `writable: false` in the section mentioned above.
+
+    This file lives under `/Applications`, so administrative privileges are required to edit it.
+
+    Finch only reads this file when it creates the virtual machine, so an existing virtual machine must be removed and initialized again
+    for the change to take effect:
+
+    ```bash
+    finch vm stop
+    finch vm remove
+    finch vm init
+    ```
+
 ### Adding additional disk mounts
 
 For users wanting to mount additional directories in the virtual machine, they
@@ -109,6 +142,12 @@ By default the Finch virtual machine will have a disk capacity of 50GB, even
 though you may have more disk space available on the local workstation. As you
 start to build container images and run containers, this disk space may reach
 capacity.
+
+To change the size of the data disk, you can use the `datadisk` option in `~/.finch/finch.yaml`:
+
+```yaml
+datadisk: 100GiB
+```
 
 To free up disk space you can delete stale container image layers with:
 

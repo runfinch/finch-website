@@ -1,5 +1,8 @@
 # Installing Finch
 
+!!! important "Finch VM does not create a security boundary"
+    Finch is a developer tool and is not meant for use in production environments, especially one running multi-tenant workloads. The virtual machine that Finch manages on macOS and Windows does not create a security boundary and exists for the sole purpose of running Linux containers on macOS and Windows.
+
 To install Finch, please see the dedicated section for each operating system
 family:
 

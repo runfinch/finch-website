@@ -6,11 +6,16 @@ To get started with Finch on macOS, the development machine must meet the
 following prerequisites.
 
 * macOS versions:
-    * 14 Sonoma
-    * 13 Ventura
+    * 26 Tahoe
+    * 15 Sequoia
 * Both Intel and Apple Silicon based systems running the last 2 major versions of macOS are supported.
 * Recommended minimum hardware requirements is at least 2 vCPU and 4 GB memory.
 * Administrative privileges are required to install Finch on to the machine.
+
+!!! important "Rosetta only works on macOS 26 Tahoe or later"
+    If you are using **Rosetta** to run amd64 containers on arm64, you must be on macOS 26 Tahoe or
+    later. On macOS 15 or earlier leave `rosetta` unset or set `rosetta: false` in
+    `~/.finch/finch.yaml` to use **QEMU** emulation instead..
 
 > Finch **may** work on previous macOS releases, however at this time it is only
 > tested on the versions listed above.
