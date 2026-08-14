@@ -192,7 +192,7 @@ Popular `finch run` flags which will help you get started include:
         ```
 
 
-!!! note Troubleshooting SSL Certificate Issues with Corporate Proxies
+!!! note "Troubleshooting SSL Certificate Issues with Corporate Proxies"
     If you encounter SSL certificate errors when trying to download images through a corporate SSL inspection proxy, you may see an error like this:
     ``failed to do request: Head "<image-url>": tls: failed to verify certificate: x509: certificate signed by unknown authority``
     To resolve this issue, follow these steps:
