@@ -1,5 +1,46 @@
 # Changelog
 
+## [1.19.0](https://github.com/runfinch/finch/compare/v1.18.0...v1.19.0) (2026-09-16)
+
+
+### Build System or External Dependencies
+
+* **deps:** bump github.com/containerd/containerd/v2 ([350e80b](https://github.com/runfinch/finch/commit/350e80be5aab7140650573c26fbd3423d9f17ce0))
+* **deps:** bump github.com/containerd/containerd/v2 from 2.2.5 to 2.2.8 ([#1809](https://github.com/runfinch/finch/issues/1809)) ([350e80b](https://github.com/runfinch/finch/commit/350e80be5aab7140650573c26fbd3423d9f17ce0))
+* **deps:** bump google.golang.org/grpc from 1.81.1 to 1.83.1 ([#1805](https://github.com/runfinch/finch/issues/1805)) ([07d4117](https://github.com/runfinch/finch/commit/07d4117eb4213031270881dbb9fa4c51830122a5))
+
+
+### Features
+
+* warn that Finch VM is not a security boundary on vm init ([#1808](https://github.com/runfinch/finch/issues/1808)) ([ef69290](https://github.com/runfinch/finch/commit/ef692902c9a11290170334f2bef9eb4ede849192))
+
+
+### Bug Fixes
+
+* move docker-credential-osxkeychain back to /usr/local/bin ([#1803](https://github.com/runfinch/finch/issues/1803)) ([8065f30](https://github.com/runfinch/finch/commit/8065f305915b45133fea88e59750730a34cda042))
+
+## [1.18.0](https://github.com/runfinch/finch/compare/v1.17.2...v1.18.0) (2026-08-20)
+
+
+### Build System or External Dependencies
+
+* **deps:** bump golang.org/x/image from 0.38.0 to 0.41.0 ([#1782](https://github.com/runfinch/finch/issues/1782)) ([ab0df60](https://github.com/runfinch/finch/commit/ab0df6095035402141454265857ae23d5e8cb3a4))
+* **deps:** Bump submodules and dependencies ([#1783](https://github.com/runfinch/finch/issues/1783)) ([2b40269](https://github.com/runfinch/finch/commit/2b402696fbc1e0c46f586436717086113c11c6b2))
+* **deps:** Bump submodules and dependencies ([#1797](https://github.com/runfinch/finch/issues/1797)) ([b8b46a5](https://github.com/runfinch/finch/commit/b8b46a50e99e33771921a4cc3904f5a488017516))
+
+
+### Features
+
+* add auto vm init/start on first finch run ([#1751](https://github.com/runfinch/finch/issues/1751)) ([48c9a8b](https://github.com/runfinch/finch/commit/48c9a8b0a874508e9ec594f298c18d6bc7259b64))
+* gate vmnet behind config, use vzNAT for vz and socket_vmnet for qemu ([ff1346b](https://github.com/runfinch/finch/commit/ff1346b1d76f083ba86433e4501cbb5e5ce29634))
+* use vzNAT for vz networking, gate socket_vmnet behind config for qemu ([#1749](https://github.com/runfinch/finch/issues/1749)) ([ff1346b](https://github.com/runfinch/finch/commit/ff1346b1d76f083ba86433e4501cbb5e5ce29634))
+
+
+### Bug Fixes
+
+* credhelper fixups ([#1785](https://github.com/runfinch/finch/issues/1785)) ([2299129](https://github.com/runfinch/finch/commit/229912996e67aa181d34660739d3f7b21c3a3ad0))
+* **macOS:** prevent self-referential ~/.aws/.aws symlink ([#1778](https://github.com/runfinch/finch/issues/1778)) ([01fd081](https://github.com/runfinch/finch/commit/01fd081001f0d0ea36b181fb42d8766401d1e307))
+
 ## [1.17.2](https://github.com/runfinch/finch/compare/v1.17.1...v1.17.2) (2026-06-30)
 
 
