@@ -73,7 +73,7 @@ you can upgrade Finch using `brew`.
 
 ## Upgrading Finch using the Application Package
 
-For each Finch release, we provider a `.pkg` Application Package. The latest
+For each Finch release, we provide a `.pkg` Application Package. The latest
 package can be found on the [Github
 Releases](https://github.com/runfinch/finch/releases), with a separate package
 available for each architecture (Apple Silicon and Intel).
@@ -82,7 +82,7 @@ available for each architecture (Apple Silicon and Intel).
 Releases](https://github.com/runfinch/finch/releases) page. Ensuring you have
    selected the appropriate version and architecture
 
-2. Once the Application Package has been download, in
+2. Once the Application Package has been downloaded, in
    [Finder](https://support.apple.com/en-us/HT201732), you can double click the
    `.pkg` and start the upgrade. A popup on the installer, should display a
    warning that an existing version of Finch has been found and that it will be

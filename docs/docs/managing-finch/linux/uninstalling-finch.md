@@ -38,7 +38,7 @@ sudo rm -rf /var/lib/finch/
 
 ### Dependencies
 
-Depending on the `nerdctl-full` archive that was extracted, there will be different files that need to be removed. You can query the files in the nerdct-full archive that you used and remove any matching files by running the following command:
+Depending on the `nerdctl-full` archive that was extracted, there will be different files that need to be removed. You can query the files in the nerdctl-full archive that you used and remove any matching files by running the following command:
 
 ```bash
 tar -tf <path/to/nerdctl-full-archive>

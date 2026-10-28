@@ -34,7 +34,7 @@ Application uninstall process finished
 
 Within the Finch Application Package we include a
 [script](https://github.com/runfinch/finch/blob/main/installer-builder/darwin/Resources/uninstall.sh)
-to help with uninstallation. You must run the the uninstallation script as a
+to help with uninstallation. You must run the uninstallation script as a
 privileged user. When running this command you will be prompted for a password
 for the privileged user.
 

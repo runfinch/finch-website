@@ -32,7 +32,7 @@ dockercompat: true
 
 ## Parameters
 
-Many of Finch's configuration options are currently macOS only, and this will be indicated below. On Windows, WSL has [its own set of configuration options options available here](./managing-finch/windows/wsl-configuration.md).
+Many of Finch's configuration options are currently macOS only, and this will be indicated below. On Windows, WSL has [its own set of configuration options available here](./managing-finch/windows/wsl-configuration.md).
 
 - `cpus` **(macOS only)**: The number of logical CPUs to attach to the virtual machine. The
   default is determined dynamically based on the resources available using

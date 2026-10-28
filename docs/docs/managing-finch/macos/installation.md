@@ -15,7 +15,7 @@ following prerequisites.
 !!! important "Rosetta only works on macOS 26 Tahoe or later"
     If you are using **Rosetta** to run amd64 containers on arm64, you must be on macOS 26 Tahoe or
     later. On macOS 15 or earlier leave `rosetta` unset or set `rosetta: false` in
-    `~/.finch/finch.yaml` to use **QEMU** emulation instead..
+    `~/.finch/finch.yaml` to use **QEMU** emulation instead.
 
 > Finch **may** work on previous macOS releases, however at this time it is only
 > tested on the versions listed above.
@@ -52,7 +52,7 @@ To install Finch with a package manager you can leverage the
 
 ## Installing using the Application Package
 
-For each Finch release, we provider a `.pkg` Application Package. The latest
+For each Finch release, we provide a `.pkg` Application Package. The latest
 package can be found on the [Github
 Releases](https://github.com/runfinch/finch/releases), with a separate package
 available for each architecture (Apple Silicon and Intel).

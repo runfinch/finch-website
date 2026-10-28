@@ -37,7 +37,7 @@ Open the extension settings by navigating within the setting window or using the
 
 - Configure the "Execute in WSLDistro" to: `C:<path>/<to>/finch.exe`
 
-- Disable the "Mount Wayland Socker" option
+- Disable the "Mount Wayland Socket" option
 
 
 ## Working with Docker Compose Projects in Dev Containers:

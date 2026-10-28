@@ -26,7 +26,7 @@ Finch supports the following authentication and credential storage methods:
 
     The Amazon ECR Credential Helper is a credential helper that handles
     [Amazon ECR](https://aws.amazon.com/ecr/) authentication tokens for you. It
-    does this by leveraging the AWS credentials used by the the AWS CLI, typically
+    does this by leveraging the AWS credentials used by the AWS CLI, typically
     these are located on the workstation at `~/.aws/credentials`.
 
     To configure the Amazon ECR credential helper:
@@ -34,7 +34,7 @@ Finch supports the following authentication and credential storage methods:
     1. Ensure the [AWS
        credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
        have been configured and are working correctly on the host local machine
-       before attempting to using the Amazon ECR credential helper.
+       before attempting to use the Amazon ECR credential helper.
 
         ```bash
         aws sts get-caller-identity
@@ -135,14 +135,14 @@ Finch supports the following authentication and credential storage methods:
     #### Using the Amazon ECR Credential Helper to login to Amazon ECR Public
 
     The Amazon ECR Credential Helper is a credential helper that handles [Amazon ECR Public](https://gallery.ecr.aws/) authentication tokens for you. It does
-    this by leveraging the AWS credentials used by the the AWS CLI, typically these are located on the workstation at `~/.aws/credentials`.
+    this by leveraging the AWS credentials used by the AWS CLI, typically these are located on the workstation at `~/.aws/credentials`.
 
     To configure the Amazon ECR credential helper:
 
     1. Ensure the [AWS
        credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
        have been configured and are working correctly on the host local machine
-       before attempting to using the Amazon ECR credential helper.
+       before attempting to use the Amazon ECR credential helper.
 
         ```bash
         aws sts get-caller-identity
@@ -260,7 +260,7 @@ Finch supports the following authentication and credential storage methods:
 
     The Amazon ECR Credential Helper is a credential helper that handles
     [Amazon ECR](https://aws.amazon.com/ecr/) authentication tokens for you. It
-    does this by leveraging the AWS credentials used by the the AWS CLI, typically
+    does this by leveraging the AWS credentials used by the AWS CLI, typically
     these are located on the workstation at `~/.aws/credentials`. Since Finch requires
     being run as root, this may be `/root/.aws/credentials`.
 
@@ -269,7 +269,7 @@ Finch supports the following authentication and credential storage methods:
     1. Ensure the [AWS
        credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
        have been configured and are working correctly on the host local machine
-       before attempting to using the Amazon ECR credential helper.
+       before attempting to use the Amazon ECR credential helper.
 
         ```bash
         aws sts get-caller-identity
@@ -326,14 +326,14 @@ Finch supports the following authentication and credential storage methods:
     #### Using the Amazon ECR Credential Helper to login to Amazon ECR Public
 
     The Amazon ECR Credential Helper is a credential helper that handles [Amazon ECR Public](https://gallery.ecr.aws/) authentication tokens for you. It does
-    this by leveraging the AWS credentials used by the the AWS CLI, typically these are located on the workstation at `~/.aws/credentials`.
+    this by leveraging the AWS credentials used by the AWS CLI, typically these are located on the workstation at `~/.aws/credentials`.
 
     To configure the Amazon ECR credential helper:
 
     1. Ensure the [AWS
        credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
        have been configured and are working correctly on the host local machine
-       before attempting to using the Amazon ECR credential helper.
+       before attempting to use the Amazon ECR credential helper.
 
         ```bash
         aws sts get-caller-identity
